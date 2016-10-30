@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     public Vector3 vector_1;
     public Vector3 vector_2;
     bool moving;
+    public int turn;
 
     public float speed;
 
@@ -60,11 +61,11 @@ public class PlayerController : MonoBehaviour {
     {
         if (moving)
         {
-            if (Vector3.Distance(destination, transform.position) > 0.1)
+            if (Vector3.Distance(destination, transform.position) > 0.12)
             {
                 rb.velocity = transform.forward * speed;
                 Quaternion targetRotation = Quaternion.LookRotation(destination - transform.position);
-                rb.MoveRotation(targetRotation);  // TODO TURN          
+                rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, turn));  // TODO TURN          
             }
             else
             {
