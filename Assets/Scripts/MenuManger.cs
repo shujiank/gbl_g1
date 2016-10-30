@@ -16,6 +16,11 @@ public class MenuManger : MonoBehaviour {
         }
     }
 
+    public void LoadLevel()
+    {
+        Application.LoadLevel("level1");
+    }
+
     public void quit()
     {
        
