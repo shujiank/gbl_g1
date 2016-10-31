@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 vector_1;
     public Vector3 vector_2;
     bool moving;
+    bool rotating;
     public int turn;
     public float height;
 
@@ -32,57 +33,66 @@ public class PlayerController : MonoBehaviour
         sound = GetComponent<AudioSource>();
         destination = transform.position;
         moving = false;
+        rotating = false;
         transform.Translate(Vector3.up * height);
-
-        //homingCount = 99;
     }
 
     void Update()
     {
-        if (Input.GetButton("Fire1") && !moving)
+        if (Input.GetButton("Fire1") && !rotating && !moving)
         {
-            destination = transform.position + vector_1;
-            Debug.Log(destination);
-            moving = true;
+            destination = transform.position + vector_1;                      
         }
-        if (Input.GetButton("Fire2") && !moving)
+        if (Input.GetButton("Fire2") && !rotating && !moving)
         {
             destination = transform.position + vector_2;
-            Debug.Log(destination);
-            moving = true;
         }
-        if (Input.GetButton("Fire3") && !moving)
+        if (Input.GetButton("Fire3") && !rotating && !moving)
         {
             destination = transform.position - vector_1;
-            Debug.Log(destination);
-            moving = true;
         }
-        if (Input.GetButton("Jump") && !moving)
+        if (Input.GetButton("Jump") && !rotating && !moving)
         {
             destination = transform.position - vector_2;
-            Debug.Log(destination);
-            moving = true;
+        }
+        if (destination != transform.position && destination.x > 0 
+            && destination.z > 0 && destination.x < 10.0 && destination.z < 10.0)
+        {
+            rotating = true;
         }
     }
 
 
     void FixedUpdate()
     {
-        if (moving)
+        if (rotating)
         {
-            if (Vector3.Distance(destination, transform.position) > 0.12)
+            float angle = 5;
+            if (Vector3.Angle(transform.forward, destination - transform.position) > angle)
             {
-                rb.velocity = transform.forward * speed;
                 Quaternion targetRotation = Quaternion.LookRotation(destination - transform.position);
-                rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, turn));  // TODO TURN          
+                rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, turn));  
             }
             else
             {
-                Debug.Log("HALT!!");
+                transform.rotation = Quaternion.LookRotation(destination - transform.position);
+                moving = true;
+                rotating = false;
+            }
+        }
+
+        if (moving)
+        {            
+            if (Vector3.Distance(destination, transform.position) > 0.12)
+            {
+                rb.velocity = transform.forward * speed;
+            }
+            else
+            {
                 moving = false;
                 rb.velocity = transform.forward * 0;
                 transform.position = destination;
-            }
+            }                      
         }
     }
 }
