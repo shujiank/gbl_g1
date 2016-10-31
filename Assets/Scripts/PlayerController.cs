@@ -8,7 +8,8 @@ public class Boundary
 
 }
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     private Rigidbody rb;
     private AudioSource sound;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour {
     public Vector3 vector_2;
     bool moving;
     public int turn;
+    public float height;
 
     public float speed;
 
@@ -30,43 +32,47 @@ public class PlayerController : MonoBehaviour {
         sound = GetComponent<AudioSource>();
         destination = transform.position;
         moving = false;
+        transform.Translate(Vector3.up * height);
 
         //homingCount = 99;
     }
 
-    void Update ()
+    void Update()
     {
         if (Input.GetButton("Fire1") && !moving)
         {
-            Debug.Log("FIRE 1");
-            Debug.Log(transform.position);
             destination = transform.position + vector_1;
             Debug.Log(destination);
             moving = true;
         }
         if (Input.GetButton("Fire2") && !moving)
         {
-            Debug.Log("FIRE 2");
             destination = transform.position + vector_2;
+            Debug.Log(destination);
+            moving = true;
+        }
+        if (Input.GetButton("Fire3") && !moving)
+        {
+            destination = transform.position - vector_1;
+            Debug.Log(destination);
+            moving = true;
+        }
+        if (Input.GetButton("Jump") && !moving)
+        {
+            destination = transform.position - vector_2;
             Debug.Log(destination);
             moving = true;
         }
     }
 
-    void move(Vector3 vector)
-    {
-        
-    }
 
-    void FixedUpdate ()
+    void FixedUpdate()
     {
         if (moving)
         {
             if (Vector3.Distance(destination, transform.position) > 0.12)
             {
                 rb.velocity = transform.forward * speed;
-                Debug.Log(rb.velocity);
-
                 Quaternion targetRotation = Quaternion.LookRotation(destination - transform.position);
                 rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, turn));  // TODO TURN          
             }
@@ -78,5 +84,5 @@ public class PlayerController : MonoBehaviour {
                 transform.position = destination;
             }
         }
-	}
+    }
 }
