@@ -314,8 +314,8 @@ MonoBehaviour:
     xMax: 6
     zMin: -4
     zMax: 8
-  vector_1: {x: 1, y: 0, z: 2}
-  vector_2: {x: 2, y: 0, z: 1}
+  vector_1: {x: 2, y: 0, z: 0}
+  vector_2: {x: 0, y: 0, z: 2}
   turn: 3
   speed: 1
 --- !u!4 &591084877 stripped
@@ -818,11 +818,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 499964, guid: 32303dc3554fcfc419798a1f0235187f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0.51138
       objectReference: {fileID: 0}
     - target: {fileID: 499964, guid: 32303dc3554fcfc419798a1f0235187f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0.10665
       objectReference: {fileID: 0}
     - target: {fileID: 499964, guid: 32303dc3554fcfc419798a1f0235187f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -854,11 +854,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 499964, guid: 32303dc3554fcfc419798a1f0235187f, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.9568402
       objectReference: {fileID: 0}
     - target: {fileID: 499964, guid: 32303dc3554fcfc419798a1f0235187f, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1.4364754
       objectReference: {fileID: 0}
     - target: {fileID: 499964, guid: 32303dc3554fcfc419798a1f0235187f, type: 2}
       propertyPath: m_LocalScale.z

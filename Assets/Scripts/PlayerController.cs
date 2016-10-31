@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButton("Fire1") && !moving)
         {
             Debug.Log("FIRE 1");
+            Debug.Log(transform.position);
             destination = transform.position + vector_1;
             Debug.Log(destination);
             moving = true;
@@ -64,6 +65,8 @@ public class PlayerController : MonoBehaviour {
             if (Vector3.Distance(destination, transform.position) > 0.12)
             {
                 rb.velocity = transform.forward * speed;
+                Debug.Log(rb.velocity);
+
                 Quaternion targetRotation = Quaternion.LookRotation(destination - transform.position);
                 rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, turn));  // TODO TURN          
             }
