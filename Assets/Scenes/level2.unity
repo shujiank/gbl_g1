@@ -305,10 +305,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1006945586}
   theText: {fileID: 159640068}
+  img: {fileID: 0}
   textFiles: {fileID: 4900000, guid: d2087f6a365b27046be8aae3bb710053, type: 3}
   textLines: []
   currentLine: 0
   endLine: 0
+  mySecondImage: {fileID: 21300000, guid: 19ed162720a10ac49b587be8d6698693, type: 3}
   player: {fileID: 646563790}
 --- !u!4 &80128140
 Transform:
@@ -563,15 +565,15 @@ RectTransform:
   m_GameObject: {fileID: 159640066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12.418078, y: 1.4699895, z: 1.547362}
+  m_LocalScale: {x: 10.746416, y: 1.176596, z: 2.0212274}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1006945587}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -170, y: 69}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 34, y: 2}
+  m_SizeDelta: {x: 289, y: 145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &159640068
 MonoBehaviour:
@@ -594,18 +596,19 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 250
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: In the direction along the line y=-3x,the transformation stretches all point
+    by a factor of two.
 --- !u!222 &159640069
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -990,7 +993,7 @@ GameObject:
   - 222: {fileID: 286941540}
   - 114: {fileID: 286941539}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ImageX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1011,7 +1014,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 333}
+  m_AnchoredPosition: {x: 91, y: 333}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &286941539
@@ -1033,7 +1036,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 94e065f7184646242b441df65823bab6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

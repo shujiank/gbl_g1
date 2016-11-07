@@ -5,14 +5,15 @@ using UnityEngine.UI;
 public class TextBoxManager : MonoBehaviour {
     public GameObject textBox;
     public Text theText;
-
+    public Sprite img;
     public TextAsset textFiles;
     public string[] textLines;
 
     public int currentLine;
     public int endLine;
-
+    public Sprite mySecondImage;
     public PlayerController player;
+    Image myImageComponent;
     // Use this for initialization
     void Start()
     {
@@ -38,6 +39,8 @@ public class TextBoxManager : MonoBehaviour {
                 textBox.SetActive(false);
                 currentLine = 0;
             }
+            if(currentLine == endLine-1)
+                GameObject.Find("ImageX").GetComponent<Image>().sprite   = mySecondImage;
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
