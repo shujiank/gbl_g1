@@ -6,19 +6,21 @@ public class TextBoxManager : MonoBehaviour {
     public GameObject textBox;
     public Text theText;
     public Image theImage;
-
+    
+    public Sprite img;
     public TextAsset textFiles;
     public string[] textLines;
     public Sprite[] avatarSprites;
 
     public int currentLine;
     public int endLine;
-
+    public Sprite mySecondImage;
     public PlayerController player;
 
     private bool isTyping = false;
     private bool cancelTyping = false;
     public float typeSpeed;
+    Image myImageComponent;
     // Use this for initialization
     void Start()
     {
@@ -58,6 +60,8 @@ public class TextBoxManager : MonoBehaviour {
             else if (isTyping && !cancelTyping) {
                 cancelTyping = true;
             }
+            if(currentLine == endLine-1)
+                GameObject.Find("ImageX").GetComponent<Image>().sprite   = mySecondImage;
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
