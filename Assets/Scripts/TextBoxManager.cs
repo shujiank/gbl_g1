@@ -6,7 +6,8 @@ public class TextBoxManager : MonoBehaviour {
     public GameObject textBox;
     public Text theText;
     public Image theImage;
-    
+
+    public GameObject imageBox;
     public Sprite img;
     public TextAsset textFiles;
     public string[] textLines;
@@ -14,6 +15,8 @@ public class TextBoxManager : MonoBehaviour {
 
     public int currentLine;
     public int endLine;
+
+    public int questionLine;
     public Sprite mySecondImage;
     public PlayerController player;
 
@@ -25,6 +28,7 @@ public class TextBoxManager : MonoBehaviour {
     void Start()
     {
         textBox.SetActive(false);
+        imageBox.SetActive(false);
         player = FindObjectOfType<PlayerController>();
         if (textFiles != null)
         {
@@ -50,6 +54,7 @@ public class TextBoxManager : MonoBehaviour {
                 if (currentLine == endLine)
                 {
                     textBox.SetActive(false);
+                    imageBox.SetActive(false);
                     currentLine = 0;
                 }
                 else {
@@ -60,8 +65,16 @@ public class TextBoxManager : MonoBehaviour {
             else if (isTyping && !cancelTyping) {
                 cancelTyping = true;
             }
-            if(currentLine == endLine-1)
-                GameObject.Find("ImageX").GetComponent<Image>().sprite   = mySecondImage;
+            if (currentLine == questionLine)
+            {
+                imageBox.SetActive(true);
+                GameObject.Find("ImageX").GetComponent<Image>().sprite = img;
+            }
+            if (currentLine == endLine - 1)
+            {
+                imageBox.SetActive(true);
+                GameObject.Find("ImageX").GetComponent<Image>().sprite = mySecondImage;
+            }
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
