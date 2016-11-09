@@ -8,33 +8,51 @@ public class Boundary
 
 }
 
+[System.Serializable]
+public class HUD
+{
+    public TextMesh current_x;
+    public TextMesh current_y;
+    public TextMesh vector_1_display_x;
+    public TextMesh vector_1_display_y;
+    public TextMesh vector_2_display_x;
+    public TextMesh vector_2_display_y;
+}
+
+
 public class PlayerController : MonoBehaviour
 {
-
-    private Rigidbody rb;
-    private AudioSource sound;
     public float tilt;
     public Boundary boundary;
     public Vector3 vector_1;
-    public Vector3 vector_2;
-    bool moving;
-    bool rotating;
+    public Vector3 vector_2;    
     public int turn;
     public float height;
-
     public float speed;
+    public HUD hud;    
 
     private Vector3 destination;
+    bool moving;
+    bool rotating;
+    private Rigidbody rb;
+    
+    void initializeHUD()
+    {
+        hud.vector_1_display_x.text = ((int)vector_1.x).ToString();
+        hud.vector_1_display_y.text = ((int)vector_1.z).ToString();
+        hud.vector_2_display_x.text = ((int)vector_2.x).ToString();
+        hud.vector_2_display_y.text = ((int)vector_2.z).ToString();
+    }   
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        sound = GetComponent<AudioSource>();
         destination = transform.position;
         moving = false;
         rotating = false;
         transform.Translate(Vector3.up * height);
+        initializeHUD();
     }
 
     void Update()
@@ -92,7 +110,9 @@ public class PlayerController : MonoBehaviour
                 moving = false;
                 rb.velocity = transform.forward * 0;
                 transform.position = destination;
-            }                      
+            }
+            hud.current_x.text = ((int) transform.position.x).ToString();
+            hud.current_y.text = ((int) transform.position.z).ToString();
         }
     }
 }
