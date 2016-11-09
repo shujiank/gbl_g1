@@ -17,6 +17,8 @@ public class HUD
     public TextMesh vector_1_display_y;
     public TextMesh vector_2_display_x;
     public TextMesh vector_2_display_y;
+    public TextMesh equation_vector1;
+    public TextMesh equation_vector2;
 }
 
 
@@ -35,6 +37,8 @@ public class PlayerController : MonoBehaviour
     bool moving;
     bool rotating;
     private Rigidbody rb;
+    private int vector1_times = 0;
+    private int vector2_times = 0;
     
     void initializeHUD()
     {
@@ -42,6 +46,8 @@ public class PlayerController : MonoBehaviour
         hud.vector_1_display_y.text = ((int)vector_1.z).ToString();
         hud.vector_2_display_x.text = ((int)vector_2.x).ToString();
         hud.vector_2_display_y.text = ((int)vector_2.z).ToString();
+        hud.equation_vector1.text = vector1_times.ToString();
+        hud.equation_vector2.text = vector2_times.ToString();
     }   
 
 
@@ -59,19 +65,23 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButton("Fire1") && !rotating && !moving)
         {
-            destination = transform.position + vector_1;                      
+            destination = transform.position + vector_1;
+            vector1_times += 1;
         }
         if (Input.GetButton("Fire2") && !rotating && !moving)
         {
             destination = transform.position + vector_2;
+            vector2_times += 1;
         }
         if (Input.GetButton("Fire3") && !rotating && !moving)
         {
             destination = transform.position - vector_1;
+            vector1_times -= 1;
         }
         if (Input.GetButton("Jump") && !rotating && !moving)
         {
             destination = transform.position - vector_2;
+            vector2_times -= 1;
         }
         if (destination != transform.position && destination.x > 0 
             && destination.z > 0 && destination.x < 10.0 && destination.z < 10.0)
@@ -114,5 +124,7 @@ public class PlayerController : MonoBehaviour
             hud.current_x.text = ((int) transform.position.x).ToString();
             hud.current_y.text = ((int) transform.position.z).ToString();
         }
+        hud.equation_vector1.text = vector1_times.ToString() + "V1";
+        hud.equation_vector2.text = vector2_times.ToString() + "V2";
     }
 }
