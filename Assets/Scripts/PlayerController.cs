@@ -123,8 +123,8 @@ public class PlayerController : MonoBehaviour
             }
             hud.current_x.text = ((int) transform.position.x).ToString();
             hud.current_y.text = ((int) transform.position.z).ToString();
+            hud.equation_vector1.text = vector1_times.ToString() + "V1";
+            hud.equation_vector2.text = vector2_times.ToString() + "V2";
         }
-        hud.equation_vector1.text = vector1_times.ToString() + "V1";
-        hud.equation_vector2.text = vector2_times.ToString() + "V2";
     }
 }
