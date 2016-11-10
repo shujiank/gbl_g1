@@ -22,4 +22,9 @@ public class Interactive : MonoBehaviour {
         drawing.dragReact(((distance.x / 50) + 0), ((distance.y / 50) + 0));
         //Debug.Log(distance);
     }
+
+    void OnMouseUpAsButton()
+    {
+        drawing.saveMatrix();
+    }
 }

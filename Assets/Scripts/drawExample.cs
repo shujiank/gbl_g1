@@ -12,27 +12,30 @@ public class drawExample : MonoBehaviour
 
     Vector3[] v = new Vector3[4];
 
-    /*
-    Matrix4x4 mat = new Matrix4x4(1, 0, 0, 0,
-                                  0, 1, 0, 0,
-                                  0, 0, 0, 0,
-                                  0, 0, 0, 0);
-    */
-    Matrix4x4 mat = Matrix4x4.identity;
+    Matrix4x4 temp_mat = Matrix4x4.identity;
+    Matrix4x4 glob_mat = Matrix4x4.identity;
     static Material lineMaterial;
 
     void Start()
     {
-        resetMatrix();
+        resetScene();
         displayMatrix();
+    }
+
+    public void saveMatrix()
+    {
+        glob_mat *= temp_mat;
+        temp_mat = Matrix4x4.identity;
+        Debug.Log("saved!");
+        Debug.Log(glob_mat);
     }
 
     void displayMatrix()
     {
-        m00.text = mat[0, 0].ToString();
-        m01.text = mat[0, 1].ToString();
-        m10.text = mat[1, 0].ToString();
-        m11.text = mat[1, 1].ToString();
+        m00.text = temp_mat[0, 0].ToString();
+        m01.text = temp_mat[0, 1].ToString();
+        m10.text = temp_mat[1, 0].ToString();
+        m11.text = temp_mat[1, 1].ToString();
     }
 
     static void CreateLineMaterial()
@@ -88,11 +91,6 @@ public class drawExample : MonoBehaviour
 
     public void dragReact(float x, float y)
     {
-        Debug.Log("x");
-        Debug.Log(x);
-        Debug.Log("y");
-        Debug.Log(y);
-
         switch (current_transformation)
         {
             case 0:
@@ -111,15 +109,13 @@ public class drawExample : MonoBehaviour
         }
 
     }
-    
-    
 
     void setMatrix(float m00, float m01, float m10, float m11)
     {
-        mat[0, 0] = m00;
-        mat[0, 1] = m01;
-        mat[1, 0] = m10;
-        mat[1, 1] = m11;
+        temp_mat[0, 0] = m00;
+        temp_mat[0, 1] = m01;
+        temp_mat[1, 0] = m10;
+        temp_mat[1, 1] = m11;
     }
 
     public void inputMatrix()
@@ -128,15 +124,17 @@ public class drawExample : MonoBehaviour
             float.Parse(m10.text.ToString()), float.Parse(m11.text.ToString()));
     }
 
-    public void resetMatrix()
+    public void resetScene()
     {
-        mat = Matrix4x4.identity;
+        temp_mat = Matrix4x4.identity;
+        glob_mat = Matrix4x4.identity;
         displayMatrix();
     }
 
     // Will be called after all regular rendering is done
     public void OnRenderObject()
     {
+
         CreateLineMaterial();
         // Apply the line material
         lineMaterial.SetPass(0);
@@ -150,20 +148,18 @@ public class drawExample : MonoBehaviour
         m.SetTRS(translation, Quaternion.identity, new Vector3(1, 1, 1));
 
         GL.MultMatrix(transform.localToWorldMatrix * m);
-        //GL.MultMatrix(m);
 
         v[0] = new Vector3(0, 0, 0);
         v[1] = new Vector3(0, 1, 0);
         v[2] = new Vector3(1, 1, 0);
         v[3] = new Vector3(1, 0, 0);
-        
+
         for (int i = 0; i < 4; i++)
         {
-            v[i] = mat.MultiplyPoint(v[i]);
-            //Debug.Log(v[i]);
+            v[i] = (glob_mat * temp_mat).MultiplyPoint(v[i]);
+            //Debug.Log(v[i]); 
         }
-
-
+        
         // Draw x, y axises
         GL.Begin(GL.LINES);
         GL.Color(new Color(0, 0, 0));
@@ -183,5 +179,6 @@ public class drawExample : MonoBehaviour
 
 
         GL.PopMatrix();
+
     }
 }

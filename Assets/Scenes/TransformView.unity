@@ -707,7 +707,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1373406295}
-        m_MethodName: resetMatrix
+        m_MethodName: resetScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
