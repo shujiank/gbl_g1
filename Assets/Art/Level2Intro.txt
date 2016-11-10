@@ -3,4 +3,26 @@ Vectoria: who are you?
 Archbishop Neo: I am your humble servant Archbishop Neo the master of matrices. I am here to help you learn the mysterious power of matrix transformation. 
 Vectoria: What is matrix transformation? and Why do I need to learn this art?
 Archbishop Neo: To reach to Operating Thetan level you need to master this art.
-Archbishop Neo: To learn the art of matrix transformation art. I will take you back in time. You will see your father, Lord of light, white weirwood trees and Khal Drogo learning this black art from Sith Lord. You can’t communicate with them you can only observe them learning this black art.
+Archbishop Neo: To learn the art of matrix transformation. I will take you back in time. You will see your father, Lord of light, white weirwood trees and Khal Drogo learning this black art from Sith Lord. You can’t communicate with them you can only observe them learning this black art.
+Sith Lord: Today task is to understand matrix as mathematical objects that transform input vectors to output vectors. Before we move on what are two interpretation of Ax=b equation?
+King of the eleventh dimension: I remember that this equation can be interpreted as vector equation
+Lord of light: I think this equation can be interpreted as system of equations.
+Sith Lord: Well done you both have given the right answer to my question. 
+Sith Lord: There is one more way to interpret this equation, I would like you to think about it and share your thoughts.
+Khal Drogo: I think we can also see A matrix as a transforming matrix that transform vector x into b.
+white weirwood trees: I agree with Khal on this.
+Sith Lord: Good work!!! Yes indeed. 
+Sith Lord:We can see matrix A as a transformation function T: (R with n dimension) (R with n dimension)-----> (R with m dimension) (R with m dimension)is a rule that assigns each x belongs to (R with n dimension) (R with n dimension) a vector T(x) belongs to (R with m dimension) (R with m dimension). 
+Sith Lord: The domain is the set of all possible input vectors x. Here, the domain is (R with n dimension) (R with n dimension).
+Sith Lord: The output T(x) is the image of x under the transformation T.
+Sith Lord: The range is the set of all images under the transformation T.
+Sith Lord: The Codomain The (vector) space that contains the range of the transformation T.
+Sith Lord: What would be the domain and range for T(x)=x+5 ?
+King of the eleventh dimension: I think the domain will be R.
+Khal Drogo: Range would also be R.
+Sith Lord: What if T(x)=sqaurOf(x).
+Lord of light: In this case Domain will still be R but I am not sure about range.
+white weirwood trees: In this case the range would be [0, infinity)
+Sith Lord: Very well done my students. 
+
+
