@@ -56,7 +56,7 @@ public class GridManager : MonoBehaviour
     void CreateLineMaterial()
     {
 
-        if (!lineMaterial)
+        /*if (!lineMaterial)
         {
             lineMaterial = new Material("Shader \"Lines/Colored Blended\" {" +
                 "SubShader { Pass { " +
@@ -67,14 +67,14 @@ public class GridManager : MonoBehaviour
                 "} } }");
             lineMaterial.hideFlags = HideFlags.HideAndDontSave;
             lineMaterial.shader.hideFlags = HideFlags.HideAndDontSave;
-        }
+        }*/
     }
 
     void OnPostRender()
     {
         CreateLineMaterial();
         // set the current material
-        lineMaterial.SetPass(0);
+        //lineMaterial.SetPass(0);
 
         GL.Begin(GL.LINES);
 

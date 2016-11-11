@@ -1,0 +1,9 @@
+Goodmorrow Sire!
+To proceed towards your destination you will have to overcome this barrier.
+Unleash your power and mutate yourself into the desired shape.
+Imagine a linear transformation in Cartesian coordinate system
+In the direction along the line y=-3x,the transformation stretches all point by a factor of two.
+In the direction along the line y=x, the transformation keeps all point fixed. As shown in figure on the left.
+If this transformation is applied to the figure on right what will happen ?
+Think for a sec before seeing the solution
+Solution
