@@ -1,0 +1,19 @@
+Sith Lord: Since you guys are quite conversant in Linear Transformation. Let me test your knowledge.
+Sith Lord: Can anyone tell me what are the rules for a Linear Transformation ?
+Lord of light: One of the rule states that T(u+v)=T(u)+T(v). Where T is the transformation function and u and v are the input vectors. And the second rule....
+Khal Drogo: The second rule is that T(cu)=cT(u). Here c is a constant and u is the vector. 
+Lord of light: I was about to say the same thing.
+Sith Lord: Give me few example of Linear Transformation ? 
+King of the eleventh dimension: Projection, Reflection, Shear, compression, and expansion to name a few.
+Sith Lord: Is shifting a plane with a vector v a Linear Transformation ?
+Khal Drogo: I think the answer might be yes, as a vector u will be moved by v. However 2u will also be moved by v. This make me confuse as transformation function is giving the same result for 2u.
+white weirwood trees: I think the answer is No. 
+Sith Lord: Yes indeed the answer is No. As T(2u)=v+2u !=2T(u)
+Sith Lord: What are compression and expansion ? Give a real world example for the same. 
+Khal Drogo: Consider a spring that is used in shock absorber in a car. The shock absorber goes from a phase of compression and expansion when we move on a rough road. 
+Sith Lord: Assume a spring to be a unit length square matrix having coordinate (1,0) and (0,1). Now if I apply stretch [1 0\n 0 2] what will happen to the shape of the matrix. {show the unit matrix}
+Lord of light: I think this will increase the breath of the unit matrix to 2 unit {show image of stretch matrix}
+Sith Lord: Good work.
+Archbishop Neo: Victoria, would you like to solve some similar puzzles?
+Victoria:  Yes, please !!!
+Archbishop Neo: What will happen to unit matrix when I apply following transformation [1 0\n 0 -2], [2 0\n 0 1] and [-2 0\n 0 1] {open the puzzle} 

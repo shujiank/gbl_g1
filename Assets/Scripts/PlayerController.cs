@@ -66,22 +66,22 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("Fire1") && !rotating && !moving)
         {
             destination = transform.position + vector_1;
-            vector1_times += 1;
+            if (vector1_times < boundary.xMax)   vector1_times += 1;        // Making sure count doesn't go out of board limits
         }
         if (Input.GetButton("Fire2") && !rotating && !moving)
         {
             destination = transform.position + vector_2;
-            vector2_times += 1;
+            if (vector2_times < boundary.zMax)   vector2_times += 1;        // Making sure count doesn't go out of board limits
         }
         if (Input.GetButton("Fire3") && !rotating && !moving)
         {
             destination = transform.position - vector_1;
-            vector1_times -= 1;
+            if (vector1_times > boundary.xMin)      vector1_times -= 1;     // Making sure count doesn't become negative
         }
         if (Input.GetButton("Jump") && !rotating && !moving)
         {
             destination = transform.position - vector_2;
-            vector2_times -= 1;
+            if (vector2_times > boundary.zMin)      vector2_times -= 1;     // Making sure count doesn't become negative
         }
         if (destination != transform.position && destination.x > 0 
             && destination.z > 0 && destination.x < 10.0 && destination.z < 10.0)
@@ -123,8 +123,8 @@ public class PlayerController : MonoBehaviour
             }
             hud.current_x.text = ((int) transform.position.x).ToString();
             hud.current_y.text = ((int) transform.position.z).ToString();
+            hud.equation_vector1.text = vector1_times.ToString() + "V1";
+            hud.equation_vector2.text = vector2_times.ToString() + "V2";
         }
-        hud.equation_vector1.text = vector1_times.ToString() + "V1";
-        hud.equation_vector2.text = vector2_times.ToString() + "V2";
     }
 }
