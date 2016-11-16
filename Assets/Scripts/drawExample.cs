@@ -8,12 +8,18 @@ public class drawExample : MonoBehaviour
     public int lineCount = 100;
     public float radius = 3.0f;
     public InputField m00, m01, m10, m11;
-    int current_transformation = 0; // 0:stretch, 1:reflection, 2:rotation, 3:shear
+    public InputField stretch_fixed;
+    public InputField stretch_changed;
+    int current_transformation = 0; // 0:stretch, 1:reflection, 2:rotation, 3:shear, 4:advanced stretch
 
     Vector3[] v = new Vector3[4];
 
     Matrix4x4 temp_mat = Matrix4x4.identity;
     Matrix4x4 glob_mat = Matrix4x4.identity;
+
+    Matrix4x4 stretch_mat = Matrix4x4.identity;
+    Matrix4x4 magnify_mat = Matrix4x4.identity;
+
     static Material lineMaterial;
 
     void Start()
@@ -26,8 +32,6 @@ public class drawExample : MonoBehaviour
     {
         glob_mat *= temp_mat;
         temp_mat = Matrix4x4.identity;
-        Debug.Log("saved!");
-        Debug.Log(glob_mat);
     }
 
     void displayMatrix()
@@ -68,6 +72,22 @@ public class drawExample : MonoBehaviour
         displayMatrix();
     }
 
+    void transform_stretch_advanced(float x, float y)
+    {
+        Matrix4x4 ans_mat = Matrix4x4.identity;
+        stretch_mat[0, 0] = 1;
+        stretch_mat[1, 0] = float.Parse(stretch_changed.text.ToString());
+        stretch_mat[0, 1] = 1;
+        stretch_mat[1, 1] = float.Parse(stretch_fixed.text.ToString());
+
+        magnify_mat[0, 0] = Mathf.Max(x, y);
+        magnify_mat[1, 1] = 1;
+
+        ans_mat = stretch_mat * magnify_mat * stretch_mat.inverse;
+        setMatrix(ans_mat[0, 0], ans_mat[0, 1], ans_mat[1, 0], ans_mat[1, 1]);
+        displayMatrix();
+    }
+
     void transform_shear(float x, float y)
     {
         if (Mathf.Abs(x) > Mathf.Abs(y))
@@ -91,6 +111,8 @@ public class drawExample : MonoBehaviour
 
     public void dragReact(float x, float y)
     {
+        x = Mathf.Round(x * 10f) / 10f;
+        y = Mathf.Round(y * 10f) / 10f;
         switch (current_transformation)
         {
             case 0:
@@ -105,6 +127,7 @@ public class drawExample : MonoBehaviour
                 transform_shear(x, y);
                 break;
             case 4:
+                transform_stretch_advanced(x, y);
                 break;
         }
 
@@ -153,6 +176,8 @@ public class drawExample : MonoBehaviour
         v[1] = new Vector3(0, 1, 0);
         v[2] = new Vector3(1, 1, 0);
         v[3] = new Vector3(1, 0, 0);
+
+        //transform_stretch_advanced(0, 0);
 
         for (int i = 0; i < 4; i++)
         {
