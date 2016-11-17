@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 [System.Serializable]
 public class Boundary
 {
     public float xMin, xMax, zMin, zMax;
-
 }
 
 [System.Serializable]
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     public int turn;
     public float height;
     public float speed;
-    public HUD hud;    
+    public HUD hud;
 
     private Vector3 destination;
     bool moving;
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         hud.vector_2_display_y.text = ((int)vector_2.z).ToString();
         hud.equation_vector1.text = vector1_times.ToString();
         hud.equation_vector2.text = vector2_times.ToString();
-    }   
+    }
 
 
     void Start()
@@ -63,22 +63,22 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Fire1") && !rotating && !moving)
+        if (Input.GetButton("Vector1+") && !rotating && !moving)
         {
             destination = transform.position + vector_1;
             if (vector1_times < boundary.xMax)   vector1_times += 1;        // Making sure count doesn't go out of board limits
         }
-        if (Input.GetButton("Fire2") && !rotating && !moving)
+        if (Input.GetButton("Vector2+") && !rotating && !moving)
         {
             destination = transform.position + vector_2;
             if (vector2_times < boundary.zMax)   vector2_times += 1;        // Making sure count doesn't go out of board limits
         }
-        if (Input.GetButton("Fire3") && !rotating && !moving)
+        if (Input.GetButton("Vector1-") && !rotating && !moving)
         {
             destination = transform.position - vector_1;
             if (vector1_times > boundary.xMin)      vector1_times -= 1;     // Making sure count doesn't become negative
         }
-        if (Input.GetButton("Jump") && !rotating && !moving)
+        if (Input.GetButton("Vector2-") && !rotating && !moving)
         {
             destination = transform.position - vector_2;
             if (vector2_times > boundary.zMin)      vector2_times -= 1;     // Making sure count doesn't become negative
