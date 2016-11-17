@@ -307,7 +307,7 @@ MonoBehaviour:
   theText: {fileID: 159640068}
   theImage: {fileID: 286941539}
   imageBox: {fileID: 666569934}
-  img: {fileID: 21300000, guid: 94e065f7184646242b441df65823bab6, type: 3}
+  img: {fileID: 21300000, guid: c39cef7906b8f58459eee871c9c469b1, type: 3}
   textFiles: {fileID: 4900000, guid: d2087f6a365b27046be8aae3bb710053, type: 3}
   textLines:
   - Goodmorrow Sire!
@@ -320,21 +320,31 @@ MonoBehaviour:
   - 
   - 
   - 
+  - 
+  - 
+  - 
+  - 
+  - 
   avatarSprites:
+  - {fileID: 21300000, guid: ba626b47e12b5a84d8824d6b44949b2d, type: 3}
+  - {fileID: 21300000, guid: a0445a3cad73b6542992de19e461091d, type: 3}
+  - {fileID: 21300000, guid: 9e4313f22fb9e6848bb8e7860d4c0393, type: 3}
+  - {fileID: 21300000, guid: 8e9b20392866f0642ab7676a64ab4d42, type: 3}
   - {fileID: 21300000, guid: a0445a3cad73b6542992de19e461091d, type: 3}
   - {fileID: 21300000, guid: 8e9b20392866f0642ab7676a64ab4d42, type: 3}
+  - {fileID: 21300000, guid: a0445a3cad73b6542992de19e461091d, type: 3}
   - {fileID: 21300000, guid: 9e4313f22fb9e6848bb8e7860d4c0393, type: 3}
+  - {fileID: 21300000, guid: a0445a3cad73b6542992de19e461091d, type: 3}
+  - {fileID: 21300000, guid: 8e9b20392866f0642ab7676a64ab4d42, type: 3}
+  - {fileID: 21300000, guid: a0445a3cad73b6542992de19e461091d, type: 3}
   - {fileID: 21300000, guid: bd2d0a6271b5e4944b7fef8995ea9242, type: 3}
-  - {fileID: 21300000, guid: 9e4313f22fb9e6848bb8e7860d4c0393, type: 3}
+  - {fileID: 21300000, guid: a0445a3cad73b6542992de19e461091d, type: 3}
   - {fileID: 21300000, guid: ba626b47e12b5a84d8824d6b44949b2d, type: 3}
   - {fileID: 21300000, guid: ba626b47e12b5a84d8824d6b44949b2d, type: 3}
-  - {fileID: 21300000, guid: ba626b47e12b5a84d8824d6b44949b2d, type: 3}
-  - {fileID: 21300000, guid: ba626b47e12b5a84d8824d6b44949b2d, type: 3}
-  - {fileID: 21300000, guid: cc2f307a204d64a40bd5e869e63a991c, type: 3}
   currentLine: 0
-  endLine: 9
+  endLine: 15
   questionLine: 3
-  mySecondImage: {fileID: 21300000, guid: 19ed162720a10ac49b587be8d6698693, type: 3}
+  mySecondImage: {fileID: 21300000, guid: e6c90d93f7d016a4aa3364b37a8cb5e3, type: 3}
   player: {fileID: 646563790}
   typeSpeed: 0.01
 --- !u!4 &80128140
@@ -6859,7 +6869,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1967867979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.91, y: 0, z: 2.47}
+  m_LocalPosition: {x: 1.06, y: 0, z: 0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
