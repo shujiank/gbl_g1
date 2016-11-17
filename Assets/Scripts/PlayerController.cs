@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
     public float height;
     public float speed;
     public HUD hud;
+    public GameObject movementCanvas;
+    public Slider vector1;
+    public Slider vector2;
 
     private Vector3 destination;
     bool moving;
@@ -39,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private int vector1_times = 0;
     private int vector2_times = 0;
+    private Quaternion fixedRotation;
     
     void initializeHUD()
     {
@@ -50,35 +54,56 @@ public class PlayerController : MonoBehaviour
         hud.equation_vector2.text = vector2_times.ToString();
     }
 
+    void PlayerMovementV1()
+    {
+        Debug.Log("Slider value V1: " + vector1.value);
+        destination = transform.position + (vector1.value * vector_1);
+        rotating = true;
+    }
+
+    void PlayerMovementV2()
+    {
+        Debug.Log("Slider value V2: " + vector2.value);
+        destination = transform.position + (vector2.value * vector_2);
+        rotating = true;
+    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        movementCanvas = GameObject.Find("Player/MovementCanvas");
         destination = transform.position;
         moving = false;
         rotating = false;
         transform.Translate(Vector3.up * height);
+        vector1.onValueChanged.AddListener(delegate { PlayerMovementV1(); });
+        vector2.onValueChanged.AddListener(delegate { PlayerMovementV2(); });
         initializeHUD();
+    }
+    
+    void Awake()
+    {
+        fixedRotation = movementCanvas.transform.rotation;
     }
 
     void Update()
     {
-        if (Input.GetButton("Vector1+") && !rotating && !moving)
+        if (Input.GetButton("Fire1") && !rotating && !moving)
         {
             destination = transform.position + vector_1;
             if (vector1_times < boundary.xMax)   vector1_times += 1;        // Making sure count doesn't go out of board limits
         }
-        if (Input.GetButton("Vector2+") && !rotating && !moving)
+        if (Input.GetButton("Fire2") && !rotating && !moving)
         {
             destination = transform.position + vector_2;
             if (vector2_times < boundary.zMax)   vector2_times += 1;        // Making sure count doesn't go out of board limits
         }
-        if (Input.GetButton("Vector1-") && !rotating && !moving)
+        if (Input.GetButton("Fire1") && !rotating && !moving)
         {
             destination = transform.position - vector_1;
             if (vector1_times > boundary.xMin)      vector1_times -= 1;     // Making sure count doesn't become negative
         }
-        if (Input.GetButton("Vector2-") && !rotating && !moving)
+        if (Input.GetButton("Fire1") && !rotating && !moving)
         {
             destination = transform.position - vector_2;
             if (vector2_times > boundary.zMin)      vector2_times -= 1;     // Making sure count doesn't become negative
@@ -120,11 +145,18 @@ public class PlayerController : MonoBehaviour
                 moving = false;
                 rb.velocity = transform.forward * 0;
                 transform.position = destination;
+                vector1.value = 0;
+                vector2.value = 0;
             }
             hud.current_x.text = ((int) transform.position.x).ToString();
             hud.current_y.text = ((int) transform.position.z).ToString();
             hud.equation_vector1.text = vector1_times.ToString() + "V1";
             hud.equation_vector2.text = vector2_times.ToString() + "V2";
         }
+    }
+
+    void LateUpdate()
+    {
+        movementCanvas.transform.rotation= fixedRotation;
     }
 }
