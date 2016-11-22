@@ -24,20 +24,28 @@ public class TextBoxManager : MonoBehaviour {
     private bool cancelTyping = false;
     public float typeSpeed;
     Image myImageComponent;
+    public static Content Shear = new ShearContent();
     // Use this for initialization
     void Start()
     {
         textBox.SetActive(false);
         imageBox.SetActive(false);
         player = FindObjectOfType<PlayerController>();
+        FrameworkCore.setContent(Shear);
+        textLines = FrameworkCore.currentContent.getContent();
+        //avatarSprites = FrameworkCore.currentContent.getPortrait();
+        /*
+        textFiles = (TextAsset)Resources.Load("dialog.txt", typeof(TextAsset));
         if (textFiles != null)
         {
             textLines = (textFiles.text.Split('\n'));
-        }
-        if (endLine == 0) {
+        }*/
+        if (endLine == 0)
+        {
             endLine = textLines.Length - 1;
         }
-        
+
+
 
     }
 

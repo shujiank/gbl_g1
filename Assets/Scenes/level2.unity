@@ -416,7 +416,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ba626b47e12b5a84d8824d6b44949b2d, type: 3}
   - {fileID: 21300000, guid: ba626b47e12b5a84d8824d6b44949b2d, type: 3}
   currentLine: 0
-  endLine: 15
+  endLine: 0
   questionLine: 3
   mySecondImage: {fileID: 21300000, guid: e6c90d93f7d016a4aa3364b37a8cb5e3, type: 3}
   player: {fileID: 646563790}
@@ -3025,8 +3025,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.22347051, y: 0.34062505}
   m_AnchorMax: {x: 0.7588824, y: 0.896875}
-  m_AnchoredPosition: {x: 74, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -303, y: -1.4782}
+  m_SizeDelta: {x: -116, y: 2.175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &666569936
 MonoBehaviour:

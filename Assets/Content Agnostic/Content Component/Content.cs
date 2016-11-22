@@ -40,6 +40,18 @@ public abstract class Content
         description = d;
     }
 
+    public virtual string[] getContent()
+    {
+        return new string[1];
+    }
+
+    public virtual Sprite[] getPortrait()
+    {
+        return new Sprite[1];
+    }
+
+
+
     /// <summary>
     /// This returns a char representation of something to
     /// be shown to the player that depends on the active
@@ -53,21 +65,6 @@ public abstract class Content
         return '!';
     }
 
-    /// <summary>
-    /// This is the same as above, but for longer than
-    /// single char strings. This can also be for things
-    /// like a message representing an objective to the
-    /// player.
-    /// </summary>
-    /// <returns>A string specific to this content.</returns>
-    public virtual string getTerm()
-    {
-        return "NULL";
-    }
-
-    public virtual string[] getContent() {
-        return new string[1];
-    }
 
     /// <summary>
     /// Here is where your mechanics can "ask" the content
