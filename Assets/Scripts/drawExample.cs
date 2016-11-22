@@ -7,12 +7,14 @@ public class drawExample : MonoBehaviour
     // transform position.
     public int lineCount = 100;
     public float radius = 3.0f;
+    public float translate_x, translate_y, translate_z;
     public InputField m00, m01, m10, m11;
     public InputField stretch_fixed;
     public InputField stretch_changed;
     int current_transformation = 0; // 0:stretch, 1:reflection, 2:rotation, 3:shear, 4:advanced stretch
 
     Vector3[] v = new Vector3[4];
+    Vector3[] answer = new Vector3[4];
 
     Matrix4x4 temp_mat = Matrix4x4.identity;
     Matrix4x4 glob_mat = Matrix4x4.identity;
@@ -20,12 +22,23 @@ public class drawExample : MonoBehaviour
     Matrix4x4 stretch_mat = Matrix4x4.identity;
     Matrix4x4 magnify_mat = Matrix4x4.identity;
 
+    Matrix4x4 answer_mat = Matrix4x4.identity;
+
     static Material lineMaterial;
 
     void Start()
     {
+        setAnswer(2, 1, 0, 2);
         resetScene();
         displayMatrix();
+    }
+
+    public void setAnswer(float m00, float m01, float m10, float m11) 
+    {
+        answer_mat[0, 0] = m00;
+        answer_mat[0, 1] = m01;
+        answer_mat[1, 0] = m10;
+        answer_mat[1, 1] = m11;
     }
 
     public void saveMatrix()
@@ -147,6 +160,11 @@ public class drawExample : MonoBehaviour
             float.Parse(m10.text.ToString()), float.Parse(m11.text.ToString()));
     }
 
+    public void submitAnswer()
+    {
+
+    }
+
     public void resetScene()
     {
         temp_mat = Matrix4x4.identity;
@@ -157,7 +175,7 @@ public class drawExample : MonoBehaviour
     // Will be called after all regular rendering is done
     public void OnRenderObject()
     {
-
+        Debug.Log("start draw");
         CreateLineMaterial();
         // Apply the line material
         lineMaterial.SetPass(0);
@@ -167,7 +185,7 @@ public class drawExample : MonoBehaviour
         // match our transform
 
         Matrix4x4 m = Matrix4x4.identity; 
-        Vector3 translation = new Vector3(-2, -2, 0);
+        Vector3 translation = new Vector3(translate_x, translate_y, translate_z);
         m.SetTRS(translation, Quaternion.identity, new Vector3(1, 1, 1));
 
         GL.MultMatrix(transform.localToWorldMatrix * m);
@@ -177,23 +195,44 @@ public class drawExample : MonoBehaviour
         v[2] = new Vector3(1, 1, 0);
         v[3] = new Vector3(1, 0, 0);
 
+        answer[0] = v[0];
+        answer[1] = v[1];
+        answer[2] = v[2];
+        answer[3] = v[3];
+
         //transform_stretch_advanced(0, 0);
 
         for (int i = 0; i < 4; i++)
         {
             v[i] = (glob_mat * temp_mat).MultiplyPoint(v[i]);
+            answer[i] = answer_mat.MultiplyPoint(answer[i]);
             //Debug.Log(v[i]); 
         }
         
         // Draw x, y axises
         GL.Begin(GL.LINES);
         GL.Color(new Color(0, 0, 0));
-        GL.Vertex3(-3, 0, 0);
-        GL.Vertex3(7, 0, 0);
-        GL.Vertex3(0, -10, 0);
-        GL.Vertex3(0, 10, 0);
+        GL.Vertex3(-1.6f, 0, 0);
+        GL.Vertex3(4, 0, 0);
+        GL.Vertex3(0, -5, 0);
+        GL.Vertex3(0, 5, 0);
         GL.End();
 
+        GL.PushMatrix();
+
+        m.SetTRS(translation, Quaternion.identity, new Vector3(0.5f, 0.5f, 0.5f));
+
+        GL.MultMatrix(transform.localToWorldMatrix * m);
+        // Draw answer 
+        GL.Begin(GL.QUADS);
+        GL.Color(new Color(0.82f, 0.82f, 0.82f));
+        GL.Vertex(answer[0]);
+        GL.Vertex(answer[1]);
+        GL.Vertex(answer[2]);
+        GL.Vertex(answer[3]);
+        GL.End();
+
+        // Draw original object
         GL.Begin(GL.QUADS);
         GL.Color(new Color(0, 0, 0));
         GL.Vertex(v[0]);
@@ -202,6 +241,7 @@ public class drawExample : MonoBehaviour
         GL.Vertex(v[3]);
         GL.End();
 
+        GL.PopMatrix();
 
         GL.PopMatrix();
 
