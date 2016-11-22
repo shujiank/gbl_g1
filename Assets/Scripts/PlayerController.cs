@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using UnityEngine.EventSystems;
 
 [System.Serializable]
 public class Boundary
@@ -40,9 +40,11 @@ public class PlayerController : MonoBehaviour
     bool moving;
     bool rotating;
     private Rigidbody rb;
-    private int vector1_times = 0;
-    private int vector2_times = 0;
+    private static int vector1_times;
+    private static int vector2_times;
     private Quaternion fixedRotation;
+    private Quaternion rotationV1;
+    private Quaternion rotationV2;
     
     void initializeHUD()
     {
@@ -54,18 +56,22 @@ public class PlayerController : MonoBehaviour
         hud.equation_vector2.text = vector2_times.ToString();
     }
 
-    void PlayerMovementV1()
+    public void PlayerMovementV1()
     {
         Debug.Log("Slider value V1: " + vector1.value);
         destination = transform.position + (vector1.value * vector_1);
         rotating = true;
+        vector1_times += (int)vector1.value;
+        Debug.Log(vector1_times);
     }
 
-    void PlayerMovementV2()
+    public void PlayerMovementV2()
     {
         Debug.Log("Slider value V2: " + vector2.value);
         destination = transform.position + (vector2.value * vector_2);
         rotating = true;
+        vector2_times += (int)vector2.value;
+        Debug.Log(vector2_times);
     }
 
     void Start()
@@ -76,38 +82,20 @@ public class PlayerController : MonoBehaviour
         moving = false;
         rotating = false;
         transform.Translate(Vector3.up * height);
-        vector1.onValueChanged.AddListener(delegate { PlayerMovementV1(); });
-        vector2.onValueChanged.AddListener(delegate { PlayerMovementV2(); });
         initializeHUD();
     }
     
     void Awake()
     {
         fixedRotation = movementCanvas.transform.rotation;
+        rotationV1 = vector1.transform.rotation;
+        Debug.Log("Rotation V1: " + rotationV1.eulerAngles + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector1.transform.forward));
+        rotationV2 = vector2.transform.rotation;
+        Debug.Log("Rotation V2: " + rotationV2.eulerAngles + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector2.transform.forward));
     }
 
     void Update()
     {
-        if (Input.GetButton("Fire1") && !rotating && !moving)
-        {
-            destination = transform.position + vector_1;
-            if (vector1_times < boundary.xMax)   vector1_times += 1;        // Making sure count doesn't go out of board limits
-        }
-        if (Input.GetButton("Fire2") && !rotating && !moving)
-        {
-            destination = transform.position + vector_2;
-            if (vector2_times < boundary.zMax)   vector2_times += 1;        // Making sure count doesn't go out of board limits
-        }
-        if (Input.GetButton("Fire1") && !rotating && !moving)
-        {
-            destination = transform.position - vector_1;
-            if (vector1_times > boundary.xMin)      vector1_times -= 1;     // Making sure count doesn't become negative
-        }
-        if (Input.GetButton("Fire1") && !rotating && !moving)
-        {
-            destination = transform.position - vector_2;
-            if (vector2_times > boundary.zMin)      vector2_times -= 1;     // Making sure count doesn't become negative
-        }
         if (destination != transform.position && destination.x > 0 
             && destination.z > 0 && destination.x < 10.0 && destination.z < 10.0)
         {
@@ -158,5 +146,7 @@ public class PlayerController : MonoBehaviour
     void LateUpdate()
     {
         movementCanvas.transform.rotation= fixedRotation;
+        vector1.transform.rotation = rotationV1;
+        vector2.transform.rotation = rotationV2;
     }
 }
