@@ -3,6 +3,11 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class TextBoxManager : MonoBehaviour {
+
+    // show transformation after dialog ends
+    public GameObject matrixButton;
+    public GameObject transformationPlane;
+
     public GameObject textBox;
     public Text theText;
     public Image theImage;
@@ -64,6 +69,10 @@ public class TextBoxManager : MonoBehaviour {
                     textBox.SetActive(false);
                     imageBox.SetActive(false);
                     currentLine = 0;
+
+                    // show transformation
+                    matrixButton.SetActive(true);
+                    transformationPlane.SetActive(true);
                 }
                 else {
                     theImage.sprite = avatarSprites[currentLine];
