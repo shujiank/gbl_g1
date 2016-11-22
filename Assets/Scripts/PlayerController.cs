@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public Text sliderV2text;
 
     private Vector3 destination;
+    private Vector3 newPosition;
     bool moving;
     bool rotating;
     private Rigidbody rb;
@@ -61,29 +62,37 @@ public class PlayerController : MonoBehaviour
     public void PlayerMovementV1()
     {
         Debug.Log("Slider value V1: " + vector1.value);
-        destination = transform.position + (vector1.value * vector_1);
-        rotating = true;
-        vector1_times += (int)vector1.value;
+        newPosition = transform.position + (vector1.value * vector_1);
+        if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
+        {
+            destination = newPosition;
+            rotating = true;
+            vector1_times += (int)vector1.value;
+        }
         Debug.Log(vector1_times);
     }
 
     public void PlayerMovementV2()
     {
         Debug.Log("Slider value V2: " + vector2.value);
-        destination = transform.position + (vector2.value * vector_2);
-        rotating = true;
-        vector2_times += (int)vector2.value;
+        newPosition = transform.position + (vector2.value * vector_2);
+        if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
+        {
+            destination = newPosition;
+            rotating = true;
+            vector2_times += (int)vector2.value;
+        }
         Debug.Log(vector2_times);
     }
 
     void sliderV1Value()
     {
-        sliderV1text.text = vector1.value.ToString();
+        sliderV1text.text = "V1: " + vector1.value.ToString();
     }
 
     void sliderV2Value()
     {
-        sliderV2text.text = vector2.value.ToString();
+        sliderV2text.text = "V2: " + vector2.value.ToString();
     }
 
     void Start()
@@ -149,8 +158,8 @@ public class PlayerController : MonoBehaviour
                 transform.position = destination;
                 vector1.value = 0;
                 vector2.value = 0;
-                sliderV1text.text = "0";
-                sliderV2text.text = "0";
+                sliderV1text.text = "V1: 0";
+                sliderV2text.text = "V2: 0";
             }
             hud.current_x.text = ((int) transform.position.x).ToString();
             hud.current_y.text = ((int) transform.position.z).ToString();
