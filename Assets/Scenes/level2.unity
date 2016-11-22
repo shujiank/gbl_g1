@@ -2721,6 +2721,8 @@ MonoBehaviour:
   movementCanvas: {fileID: 0}
   vector1: {fileID: 0}
   vector2: {fileID: 0}
+  sliderV1text: {fileID: 0}
+  sliderV2text: {fileID: 0}
 --- !u!54 &646563791
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5937,11 +5939,11 @@ RectTransform:
   - {fileID: 342206195}
   m_Father: {fileID: 1072074202}
   m_RootOrder: 2
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 308, y: 113}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 650, y: 135.3}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!1 &1308099355
 GameObject:
   m_ObjectHideFlags: 0
