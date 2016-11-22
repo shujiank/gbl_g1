@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     public GameObject movementCanvas;
     public Slider vector1;
     public Slider vector2;
+    public Text sliderV1text;
+    public Text sliderV2text;
 
     private Vector3 destination;
     bool moving;
@@ -74,6 +76,16 @@ public class PlayerController : MonoBehaviour
         Debug.Log(vector2_times);
     }
 
+    void sliderV1Value()
+    {
+        sliderV1text.text = vector1.value.ToString();
+    }
+
+    void sliderV2Value()
+    {
+        sliderV2text.text = vector2.value.ToString();
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -82,16 +94,18 @@ public class PlayerController : MonoBehaviour
         moving = false;
         rotating = false;
         transform.Translate(Vector3.up * height);
-        initializeHUD();
+        vector1.onValueChanged.AddListener(delegate { sliderV1Value();});
+        vector2.onValueChanged.AddListener(delegate { sliderV2Value(); });
+            initializeHUD();
     }
     
     void Awake()
     {
         fixedRotation = movementCanvas.transform.rotation;
         rotationV1 = vector1.transform.rotation;
-        Debug.Log("Rotation V1: " + rotationV1.eulerAngles + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector1.transform.forward));
+        //Debug.Log("Rotation V1: " + rotationV1.eulerAngles + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector1.transform.forward));
         rotationV2 = vector2.transform.rotation;
-        Debug.Log("Rotation V2: " + rotationV2.eulerAngles + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector2.transform.forward));
+        //Debug.Log("Rotation V2: " + rotationV2.eulerAngles + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector2.transform.forward));
     }
 
     void Update()
@@ -135,6 +149,8 @@ public class PlayerController : MonoBehaviour
                 transform.position = destination;
                 vector1.value = 0;
                 vector2.value = 0;
+                sliderV1text.text = "0";
+                sliderV2text.text = "0";
             }
             hud.current_x.text = ((int) transform.position.x).ToString();
             hud.current_y.text = ((int) transform.position.z).ToString();
