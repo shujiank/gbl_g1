@@ -794,7 +794,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'V1: 0'
+  m_Text: 0
 --- !u!222 &234662310
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2070,9 +2070,9 @@ MonoBehaviour:
   tilt: 0
   boundary:
     xMin: 0
-    xMax: 8
+    xMax: 8.5
     zMin: 0
-    zMax: 8
+    zMax: 8.5
   vector_1: {x: 2, y: 0, z: 0}
   vector_2: {x: 0, y: 0, z: 2}
   turn: 3
@@ -3068,7 +3068,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'V2: 0'
+  m_Text: 0
 --- !u!222 &917376401
 CanvasRenderer:
   m_ObjectHideFlags: 0

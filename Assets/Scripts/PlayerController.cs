@@ -24,7 +24,6 @@ public class HUD
 
 public class PlayerController : MonoBehaviour
 {
-    public float tilt;
     public Boundary boundary;
     public Vector3 vector_1;
     public Vector3 vector_2;    
@@ -46,8 +45,6 @@ public class PlayerController : MonoBehaviour
     private static int vector1_times;
     private static int vector2_times;
     private Quaternion fixedRotation;
-    private Quaternion rotationV1;
-    private Quaternion rotationV2;
     
     void initializeHUD()
     {
@@ -69,7 +66,11 @@ public class PlayerController : MonoBehaviour
             rotating = true;
             vector1_times += (int)vector1.value;
         }
-        Debug.Log(vector1_times);
+        else
+        {
+            rotating = false;
+            destination = transform.position;
+        }
     }
 
     public void PlayerMovementV2()
@@ -82,7 +83,11 @@ public class PlayerController : MonoBehaviour
             rotating = true;
             vector2_times += (int)vector2.value;
         }
-        Debug.Log(vector2_times);
+        else
+        {
+            rotating = false;
+            destination = transform.position;
+        }
     }
 
     void sliderV1Value()
@@ -111,9 +116,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         fixedRotation = movementCanvas.transform.rotation;
-        rotationV1 = vector1.transform.rotation;
         //Debug.Log("Rotation V1: " + rotationV1.eulerAngles + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector1.transform.forward));
-        rotationV2 = vector2.transform.rotation;
         //Debug.Log("Rotation V2: " + rotationV2.eulerAngles + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector2.transform.forward));
     }
 
@@ -171,7 +174,5 @@ public class PlayerController : MonoBehaviour
     void LateUpdate()
     {
         movementCanvas.transform.rotation= fixedRotation;
-        vector1.transform.rotation = rotationV1;
-        vector2.transform.rotation = rotationV2;
     }
 }
