@@ -1043,6 +1043,26 @@ Prefab:
       propertyPath: m_Pivot.x
       value: 0.51712954
       objectReference: {fileID: 0}
+    - target: {fileID: 224000011077828998, guid: de1ff7f3518d0974399015d915ca0610,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011077828998, guid: de1ff7f3518d0974399015d915ca0610,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011077828998, guid: de1ff7f3518d0974399015d915ca0610,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011077828998, guid: de1ff7f3518d0974399015d915ca0610,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: -200
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000012327639548, guid: de1ff7f3518d0974399015d915ca0610, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: de1ff7f3518d0974399015d915ca0610, type: 2}
