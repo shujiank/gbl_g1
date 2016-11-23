@@ -74,7 +74,7 @@ public class GridManager : MonoBehaviour
     {
         CreateLineMaterial();
         // set the current material
-        //lineMaterial.SetPass(0);
+        lineMaterial.SetPass(0);
 
         GL.Begin(GL.LINES);
 
