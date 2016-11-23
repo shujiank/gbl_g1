@@ -258,8 +258,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 178, y: -43}
-  m_SizeDelta: {x: 356, y: 70}
+  m_AnchoredPosition: {x: 177.98601, y: -20}
+  m_SizeDelta: {x: 355.97202, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &208986569
 MonoBehaviour:
@@ -465,8 +465,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Option
 --- !u!222 &277117650
@@ -509,10 +509,10 @@ RectTransform:
   - {fileID: 1704336429}
   m_Father: {fileID: 505642757}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8, y: -85}
-  m_SizeDelta: {x: -97, y: -278}
+  m_AnchorMin: {x: 0.17224506, y: 0.15400001}
+  m_AnchorMax: {x: 0.869755, y: 0.7021752}
+  m_AnchoredPosition: {x: -30, y: -41}
+  m_SizeDelta: {x: 15, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &289230203
 MonoBehaviour:
@@ -1176,8 +1176,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Level Selection
 --- !u!222 &679346832
@@ -1456,8 +1456,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: New Game
 --- !u!222 &890344357
@@ -1503,8 +1503,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 178.00009, y: -102}
-  m_SizeDelta: {x: 356, y: 70}
+  m_AnchoredPosition: {x: 177.98601, y: -60}
+  m_SizeDelta: {x: 355.97202, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &972320404
 Animator:
@@ -3624,8 +3624,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 178.00009, y: -170}
-  m_SizeDelta: {x: 356, y: 70}
+  m_AnchoredPosition: {x: 177.98601, y: -100}
+  m_SizeDelta: {x: 355.97202, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1332147680
 Animator:
@@ -3831,8 +3831,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Quit
 --- !u!222 &1348469035
@@ -3878,8 +3878,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 178.00009, y: -228}
-  m_SizeDelta: {x: 356, y: 70}
+  m_AnchoredPosition: {x: 177.98601, y: -140}
+  m_SizeDelta: {x: 355.97202, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1376281188
 Animator:
@@ -4143,8 +4143,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Tutorial
 --- !u!222 &1425436993
@@ -4459,8 +4459,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 178, y: -301.99994}
-  m_SizeDelta: {x: 356, y: 70}
+  m_AnchoredPosition: {x: 177.98601, y: -180}
+  m_SizeDelta: {x: 355.97202, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1704336430
 Animator:
