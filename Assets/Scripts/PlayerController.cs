@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 [System.Serializable]
 public class Boundary
@@ -65,6 +64,7 @@ public class PlayerController : MonoBehaviour
             destination = newPosition;
             rotating = true;
             vector1_times += (int)vector1.value;
+            Debug.Log(vector1_times);
         }
         else
         {
@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
             destination = newPosition;
             rotating = true;
             vector2_times += (int)vector2.value;
+            Debug.Log(vector2_times);
         }
         else
         {
@@ -107,10 +108,12 @@ public class PlayerController : MonoBehaviour
         destination = transform.position;
         moving = false;
         rotating = false;
+        vector1_times = 0;
+        vector2_times = 0;
         transform.Translate(Vector3.up * height);
         vector1.onValueChanged.AddListener(delegate { sliderV1Value();});
         vector2.onValueChanged.AddListener(delegate { sliderV2Value(); });
-            initializeHUD();
+        initializeHUD();
     }
     
     void Awake()
