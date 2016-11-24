@@ -1,0 +1,9 @@
+Sith Lord: What if we were to reflect a unit matrix along y-axis and then stretch it to 2 units along positive y direction?
+Lord of light: That should be easy! We can multiply the matrix of reflection transformation to that of the stretch transformation to obtain the resultant transformation matrix.
+Sith Lord: You are getting there, but keep in mind that matrix multiplication is not commutative.
+White weirwood trees: Oh! That means the order of the matrix would matter.
+Sith Lord: Let me put it this way, consider the reflection matrix R and stretch matrix S. For vector [x y] to tranform, transformation S(R([x y])) needs to be applied.
+Khal Drogo: I see! That means the resultant transformation should be S X R and not R X S, as one would intuitively assume.
+Lord of Light: So the composition of the linear transformation reflection [-1 0 \n 0 1] and stretch [1 0 \n 0 2] will be [-1 0 \n 0 2] {Show ReflectStretchComb.png}
+Sith Lord: You got it!
+Archbishop Neo: Now Vectoria, you have to reflect the unit matrix along the x axis and then stretching it horizontally in positive x-direction to 3 units, what would be tranformation matrix? {open the puzzle} {solution: [3 0 \n 0 -1] }
