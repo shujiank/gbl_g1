@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     private static int vector2_times;
     private Quaternion fixedRotation;
     private float rotationV1;
-    private Quaternion rotationV2;
+    private float rotationV2;
     
     void initializeHUD()
     {
@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour
             destination = newPosition;
             rotating = true;
             vector1_times += (int)vector1.value;
-            //Debug.Log(vector1_times);
         }
         else
         {
@@ -84,7 +83,6 @@ public class PlayerController : MonoBehaviour
             destination = newPosition;
             rotating = true;
             vector2_times += (int)vector2.value;
-            //Debug.Log(vector2_times);
         }
         else
         {
@@ -111,8 +109,11 @@ public class PlayerController : MonoBehaviour
         moving = false;
         rotating = false;
 
-        //rotationV1 = vector1.transform.rotation;
-        rotationV2 = vector2.transform.rotation;
+        rotationV1 = Mathf.Atan2(vector_1.z, vector_1.x) * Mathf.Rad2Deg;
+        vector1.transform.rotation = Quaternion.Euler(90, -rotationV1, 0);
+
+        rotationV2 = Mathf.Atan2(vector_2.z, vector_2.x) * Mathf.Rad2Deg;
+        vector2.transform.rotation = Quaternion.Euler(90, -rotationV2, 0);
 
         transform.Translate(Vector3.up * height);
         vector1.onValueChanged.AddListener(delegate { sliderV1Value();});
@@ -123,11 +124,6 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         fixedRotation = movementCanvas.transform.rotation;
-        //Debug.Log("Rotation V1: " + rotationV1 + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector1.transform.forward));
-        //Debug.Log("Rotation V2: " + rotationV2 + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector2.transform.forward));
-        rotationV1 = (Mathf.Atan2(vector_1.z, vector_1.x) * Mathf.Rad2Deg);
-        Debug.Log(Quaternion.Euler(90, -rotationV1, 0));
-        vector1.transform.rotation = Quaternion.Euler(90, -rotationV1, 0);
 
     }
 

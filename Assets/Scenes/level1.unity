@@ -1630,7 +1630,7 @@ MonoBehaviour:
     xMax: 9
     zMin: 0
     zMax: 9
-  vector_1: {x: 2, y: 0, z: 2}
+  vector_1: {x: 2, y: 0, z: 0}
   vector_2: {x: 0, y: 0, z: 2}
   turn: 3
   height: 0
