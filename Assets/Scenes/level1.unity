@@ -1021,12 +1021,12 @@ Prefab:
     - target: {fileID: 224000010493747388, guid: de1ff7f3518d0974399015d915ca0610,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -57.424637
+      value: -0.09892273
       objectReference: {fileID: 0}
     - target: {fileID: 224000010493747388, guid: de1ff7f3518d0974399015d915ca0610,
         type: 2}
       propertyPath: m_Pivot.y
-      value: 0.7697804
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000012347663110, guid: de1ff7f3518d0974399015d915ca0610,
         type: 2}
@@ -1036,12 +1036,12 @@ Prefab:
     - target: {fileID: 224000010493747388, guid: de1ff7f3518d0974399015d915ca0610,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.012634277
+      value: 0.31747437
       objectReference: {fileID: 0}
     - target: {fileID: 224000010493747388, guid: de1ff7f3518d0974399015d915ca0610,
         type: 2}
       propertyPath: m_Pivot.x
-      value: 0.51712954
+      value: 0.5000001
       objectReference: {fileID: 0}
     - target: {fileID: 224000011077828998, guid: de1ff7f3518d0974399015d915ca0610,
         type: 2}
@@ -1062,6 +1062,41 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.y
       value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012347663110, guid: de1ff7f3518d0974399015d915ca0610,
+        type: 2}
+      propertyPath: m_MovementType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010452626730, guid: de1ff7f3518d0974399015d915ca0610,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.068603516
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010452626730, guid: de1ff7f3518d0974399015d915ca0610,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.5000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010452626730, guid: de1ff7f3518d0974399015d915ca0610,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010452626730, guid: de1ff7f3518d0974399015d915ca0610,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010632360930, guid: de1ff7f3518d0974399015d915ca0610,
+        type: 2}
+      propertyPath: m_MovementType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010632360930, guid: de1ff7f3518d0974399015d915ca0610,
+        type: 2}
+      propertyPath: m_Viewport
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000012327639548, guid: de1ff7f3518d0974399015d915ca0610, type: 2}

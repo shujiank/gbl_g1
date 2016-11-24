@@ -18,12 +18,18 @@ public class JournalManager : MonoBehaviour{
         entries = new Dictionary<string, string>();
         gameObject.SetActive(false);
         addEntry("Vector Information", "In mathematics, physics, and engineering, a Euclidean vector is a geometric object that has magnitude (or length) and direction. Vectors can be added to other vectors according to vector algebra.");
-        addEntry("Abhimanyu", "Jingle bells jingle bells jingle all the way=");
-        addEntry("Abhimanyu2", "Jingle bells jingle bells jingle all the way-");
-        addEntry("Abhimanyu3", "Jingle bells jingle bells jingle all the way0");
-        addEntry("Abhimanyu4", "Jingle bells jingle bells jingle all the way9");
-        addEntry("Abhimanyu5", "Jingle bells jingle bells jingle all the way8");
-        addEntry("Abhimanyu6", "Jingle bells jingle bells jingle all the way7");
+        addEntry("Example1", "Jingle bells jingle bells jingle all the way1");
+        addEntry("Example2", "Jingle bells jingle bells jingle all the way2");
+        addEntry("Example3", "Jingle bells jingle bells jingle all the way3");
+        addEntry("Example4", "Jingle bells jingle bells jingle all the way4");
+        addEntry("Example5", "Jingle bells jingle bells jingle all the way5");
+        addEntry("Example6", "Jingle bells jingle bells jingle all the way6");
+        addEntry("Example7", "Jingle bells jingle bells jingle all the way7");
+        addEntry("Example8", "Jingle bells jingle bells jingle all the way8");
+        addEntry("Example9", "Jingle bells jingle bells jingle all the way9");
+        addEntry("Example10", "Jingle bells jingle bells jingle all the way10");
+        addEntry("Example11", "Jingle bells jingle bells jingle all the way11");
+        addEntry("Example12", "Jingle bells jingle bells jingle all the way12");
     }
 
     void addEntry(string newLabel, string newEntry)
