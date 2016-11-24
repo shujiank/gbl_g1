@@ -60,12 +60,12 @@ public class JournalManager : MonoBehaviour{
         if (gameObject.activeSelf)
         {
             gameObject.SetActive(false);
-            buttonLabel.text = "OPEN JOURNAL";
+            buttonLabel.text = "open journal";
         }
         else
         {
             gameObject.SetActive(true);
-            buttonLabel.text = "CLOSE JOURNAL";
+            buttonLabel.text = "close journal";
         }
     }
 

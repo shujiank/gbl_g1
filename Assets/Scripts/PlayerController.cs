@@ -7,20 +7,6 @@ public class Boundary
     public float xMin, xMax, zMin, zMax;
 }
 
-[System.Serializable]
-public class HUD
-{
-    public TextMesh current_x;
-    public TextMesh current_y;
-    public TextMesh vector_1_display_x;
-    public TextMesh vector_1_display_y;
-    public TextMesh vector_2_display_x;
-    public TextMesh vector_2_display_y;
-    public TextMesh equation_vector1;
-    public TextMesh equation_vector2;
-}
-
-
 public class PlayerController : MonoBehaviour
 {
     public Boundary boundary;
@@ -29,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public int turn;
     public float height;
     public float speed;
-    public HUD hud;
+    public GameObject pda;
     public GameObject movementCanvas;
     public Slider vector1;
     public Slider vector2;
@@ -46,15 +32,13 @@ public class PlayerController : MonoBehaviour
     private Quaternion fixedRotation;
     private float rotationV1;
     private float rotationV2;
+    private PDAManager pdaManager;
     
-    void initializeHUD()
+    void initializePDA()
     {
-        hud.vector_1_display_x.text = ((int)vector_1.x).ToString();
-        hud.vector_1_display_y.text = ((int)vector_1.z).ToString();
-        hud.vector_2_display_x.text = ((int)vector_2.x).ToString();
-        hud.vector_2_display_y.text = ((int)vector_2.z).ToString();
-        hud.equation_vector1.text = vector1_times.ToString();
-        hud.equation_vector2.text = vector2_times.ToString();
+        pdaManager.updateVector1(vector_1.x, vector_1.z);
+        pdaManager.updateVector2(vector_2.x, vector_2.z);
+        pdaManager.updateVectorEquation(vector1_times, vector2_times);
     }
 
     public void PlayerMovementV1()
@@ -118,7 +102,9 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.up * height);
         vector1.onValueChanged.AddListener(delegate { sliderV1Value();});
         vector2.onValueChanged.AddListener(delegate { sliderV2Value(); });
-        initializeHUD();
+
+        pdaManager = pda.GetComponent<PDAManager>();
+        initializePDA();
     }
     
     void Awake()
@@ -171,10 +157,8 @@ public class PlayerController : MonoBehaviour
                 sliderV1text.text = "V1: 0";
                 sliderV2text.text = "V2: 0";
             }
-            hud.current_x.text = ((int) transform.position.x).ToString();
-            hud.current_y.text = ((int) transform.position.z).ToString();
-            hud.equation_vector1.text = vector1_times.ToString() + "V1";
-            hud.equation_vector2.text = vector2_times.ToString() + "V2";
+            pdaManager.updateCurrentPosition(transform.position.x, transform.position.z);
+            pdaManager.updateVectorEquation(vector1_times, vector2_times);
         }
     }
 
