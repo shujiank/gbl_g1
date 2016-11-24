@@ -125,7 +125,9 @@ public class PlayerController : MonoBehaviour
         fixedRotation = movementCanvas.transform.rotation;
         //Debug.Log("Rotation V1: " + rotationV1 + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector1.transform.forward));
         //Debug.Log("Rotation V2: " + rotationV2 + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector2.transform.forward));
-
+        rotationV1 = (Mathf.Atan2(vector_1.z, vector_1.x) * Mathf.Rad2Deg);
+        Debug.Log(Quaternion.Euler(90, -rotationV1, 0));
+        vector1.transform.rotation = Quaternion.Euler(90, -rotationV1, 0);
 
     }
 
