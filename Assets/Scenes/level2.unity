@@ -421,7 +421,7 @@ MonoBehaviour:
   endLine: 0
   questionLine: 3
   mySecondImage: {fileID: 21300000, guid: e6c90d93f7d016a4aa3364b37a8cb5e3, type: 3}
-  player: {fileID: 646563790}
+  player: {fileID: 0}
   typeSpeed: 0.01
 --- !u!4 &80128140
 Transform:
@@ -2662,8 +2662,8 @@ GameObject:
   - 4: {fileID: 646563789}
   - 95: {fileID: 646563792}
   - 54: {fileID: 646563791}
-  - 114: {fileID: 646563790}
   - 65: {fileID: 646563793}
+  - 114: {fileID: 646563790}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2691,40 +2691,20 @@ Transform:
 --- !u!114 &646563790
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000011089689874, guid: 905f36369ca3c7b43b4ee92f56c07f6d,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 646563788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d811bf2231d8c42a184e7888120abb, type: 3}
+  m_Script: {fileID: 11500000, guid: a3daf20555a2a4a419a0f398fd56e089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilt: 4
   boundary:
-    xMin: 0
-    xMax: 0
-    zMin: 0
-    zMax: 0
-  vector_1: {x: 2, y: 0, z: 0}
-  vector_2: {x: 0, y: 0, z: 2}
-  turn: 3
-  height: 0
+    xMin: 0.4
+    xMax: 9.5
+    zMin: 0.4
+    zMax: 9.5
   speed: 1
-  hud:
-    current_x: {fileID: 0}
-    current_y: {fileID: 0}
-    vector_1_display_x: {fileID: 0}
-    vector_1_display_y: {fileID: 0}
-    vector_2_display_x: {fileID: 0}
-    vector_2_display_y: {fileID: 0}
-    equation_vector1: {fileID: 0}
-    equation_vector2: {fileID: 0}
-  movementCanvas: {fileID: 0}
-  vector1: {fileID: 0}
-  vector2: {fileID: 0}
-  sliderV1text: {fileID: 0}
-  sliderV2text: {fileID: 0}
 --- !u!54 &646563791
 Rigidbody:
   m_ObjectHideFlags: 0
