@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
     private static int vector1_times;
     private static int vector2_times;
     private Quaternion fixedRotation;
+    private float rotationV1;
+    private Quaternion rotationV2;
     
     void initializeHUD()
     {
@@ -64,7 +66,7 @@ public class PlayerController : MonoBehaviour
             destination = newPosition;
             rotating = true;
             vector1_times += (int)vector1.value;
-            Debug.Log(vector1_times);
+            //Debug.Log(vector1_times);
         }
         else
         {
@@ -82,7 +84,7 @@ public class PlayerController : MonoBehaviour
             destination = newPosition;
             rotating = true;
             vector2_times += (int)vector2.value;
-            Debug.Log(vector2_times);
+            //Debug.Log(vector2_times);
         }
         else
         {
@@ -108,8 +110,10 @@ public class PlayerController : MonoBehaviour
         destination = transform.position;
         moving = false;
         rotating = false;
-        vector1_times = 0;
-        vector2_times = 0;
+
+        //rotationV1 = vector1.transform.rotation;
+        rotationV2 = vector2.transform.rotation;
+
         transform.Translate(Vector3.up * height);
         vector1.onValueChanged.AddListener(delegate { sliderV1Value();});
         vector2.onValueChanged.AddListener(delegate { sliderV2Value(); });
@@ -119,8 +123,10 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         fixedRotation = movementCanvas.transform.rotation;
-        //Debug.Log("Rotation V1: " + rotationV1.eulerAngles + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector1.transform.forward));
-        //Debug.Log("Rotation V2: " + rotationV2.eulerAngles + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector2.transform.forward));
+        //Debug.Log("Rotation V1: " + rotationV1 + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector1.transform.forward));
+        //Debug.Log("Rotation V2: " + rotationV2 + '\t' + Vector3.Angle(new Vector3(0, 0, 0), vector2.transform.forward));
+
+
     }
 
     void Update()
@@ -141,7 +147,7 @@ public class PlayerController : MonoBehaviour
             if (Vector3.Angle(transform.forward, destination - transform.position) > angle)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(destination - transform.position);
-                rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, turn));  
+                rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, turn));
             }
             else
             {
@@ -176,6 +182,7 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate()
     {
-        movementCanvas.transform.rotation= fixedRotation;
+        if (!moving && !rotating)   rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, fixedRotation, turn));
+        movementCanvas.transform.rotation = fixedRotation;
     }
 }
