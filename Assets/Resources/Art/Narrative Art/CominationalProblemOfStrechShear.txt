@@ -1,0 +1,8 @@
+Sith Lord: How does a blacksmith convert a iron cube into any shape he want. 
+Lord of light: He first make the iron mallable by heating it, in the furnace and then apply force to change the shape.
+Sith Lord: Good answer, now suppose you have have unit square matrix with  at [0 1] and [1 1]. And you first apply a strech of [1 0\n 2 1] and then a shear of [2 0\n 0 1]. What will happen ?
+Lord of light: The first matrix will enlarge the matrix in y axis and the second matrix will apply a shear of 2 unit in the positive x axis.  
+White weirwood trees: I also thinks that if we change the order of these transformation matrix the result will remain the same. 
+Khal Drogo: I think this transformation make the matrix look like this{ShearStreach.png}
+Sith Lord: You pe ople are impressive!
+Archbishop Neo: So Vectoria, What transformation has to be applied on the unit matrix for projection on y-axis?{open the puzzle} {solution: [0 0\n 0 1] (projectionYaxis.png)}k
