@@ -1,6 +1,10 @@
-﻿using UnityEngine;
+﻿
+using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
-
 [System.Serializable]
 public class Boundary
 {
@@ -17,73 +21,81 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public GameObject pda;
     public GameObject movementCanvas;
-    public Slider vector1;
-    public Slider vector2;
+    //public Slider vector1;
+    //public Slider vector2;
     public Text sliderV1text;
     public Text sliderV2text;
     public Transform third_person_camera;
+    public GameObject v1_arrow_prefab;
+    public GameObject v2_arrow_prefab;
 
     private Vector3 destination;
     private Vector3 newPosition;
     bool moving;
     bool rotating;
     private Rigidbody rb;
-    private static int vector1_times;
-    private static int vector2_times;
+    private int vector_1_counter;
+    private int vector_2_counter;
     private Quaternion fixedRotation;
     private float rotationV1;
     private float rotationV2;
     private PDAManager pdaManager;
-    
+    private GameObject vector_1_arrow;
+    private GameObject vector_2_arrow;
+
+
     void initializePDA()
     {
         pdaManager.updateVector1(vector_1.x, vector_1.z);
         pdaManager.updateVector2(vector_2.x, vector_2.z);
-        pdaManager.updateVectorEquation(vector1_times, vector2_times);
+        pdaManager.updateVectorEquation(vector_1_counter, vector_1_counter);
     }
 
     public void PlayerMovementV1()
     {
-        Debug.Log("Slider value V1: " + vector1.value);
-        newPosition = transform.position + (vector1.value * vector_1);
+        int scalar_multiple = Int32.Parse(vector_1_arrow.GetComponentInChildren<InputField>().text);
+        newPosition = transform.position + (scalar_multiple * vector_1);
         if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
         {
             destination = newPosition;
             rotating = true;
-            vector1_times += (int)vector1.value;
-        }
-        else
-        {
-            rotating = false;
-            destination = transform.position;
+            vector_1_counter += scalar_multiple;
         }
     }
 
     public void PlayerMovementV2()
     {
-        Debug.Log("Slider value V2: " + vector2.value);
-        newPosition = transform.position + (vector2.value * vector_2);
+        int scalar_multiple = Int32.Parse(vector_2_arrow.GetComponentInChildren<InputField>().text);
+        newPosition = transform.position + (scalar_multiple * vector_2);
         if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
         {
             destination = newPosition;
             rotating = true;
-            vector2_times += (int)vector2.value;
-        }
-        else
-        {
-            rotating = false;
-            destination = transform.position;
+            vector_2_counter += scalar_multiple;
         }
     }
 
-    void sliderV1Value()
+    void initializeVectorArrows()
     {
-        sliderV1text.text = "V1: " + vector1.value.ToString();
+        vector_1_arrow = Instantiate(v1_arrow_prefab, 
+            transform.position, 
+            Quaternion.LookRotation(vector_1) * Quaternion.Euler(0, -90, 0)) as GameObject;
+        vector_1_arrow.GetComponentInChildren<Button>().onClick.AddListener(() => PlayerMovementV1());
+        Debug.Log("DSAD " + vector_1_arrow.GetComponentInChildren<Text>().text);
+        vector_2_arrow = Instantiate(v2_arrow_prefab,
+            transform.position ,
+            Quaternion.LookRotation(vector_2) * Quaternion.Euler(0, -90, 0)) as GameObject;
+        vector_2_arrow.GetComponentInChildren<Button>().onClick.AddListener(() => PlayerMovementV2());
     }
 
-    void sliderV2Value()
+    void updateVectorArrows()
     {
-        sliderV2text.text = "V2: " + vector2.value.ToString();
+        vector_1_arrow.transform.position = transform.position;
+        vector_1_arrow.transform.rotation = Quaternion.LookRotation(vector_1) * Quaternion.Euler(0, -90, 0);
+        vector_2_arrow.transform.position = transform.position;
+        vector_2_arrow.transform.rotation = Quaternion.LookRotation(vector_2) * Quaternion.Euler(0, -90, 0);
+        vector_1_arrow.SetActive(true);
+        vector_2_arrow.SetActive(true);
     }
 
     void Start()
@@ -93,25 +105,9 @@ public class PlayerController : MonoBehaviour
         destination = transform.position;
         moving = false;
         rotating = false;
-
-        rotationV1 = Mathf.Atan2(vector_1.z, vector_1.x) * Mathf.Rad2Deg;
-        vector1.transform.rotation = Quaternion.Euler(90, -rotationV1, 0);
-
-        rotationV2 = Mathf.Atan2(vector_2.z, vector_2.x) * Mathf.Rad2Deg;
-        vector2.transform.rotation = Quaternion.Euler(90, -rotationV2, 0);
-
-        transform.Translate(Vector3.up * height);
-        vector1.onValueChanged.AddListener(delegate { sliderV1Value();});
-        vector2.onValueChanged.AddListener(delegate { sliderV2Value(); });
-
         pdaManager = pda.GetComponent<PDAManager>();
         initializePDA();
-    }
-    
-    void Awake()
-    {
-        fixedRotation = movementCanvas.transform.rotation;
-
+        initializeVectorArrows();        
     }
 
     void Update()
@@ -128,6 +124,8 @@ public class PlayerController : MonoBehaviour
     {
         if (rotating)
         {
+            vector_1_arrow.SetActive(false);
+            vector_2_arrow.SetActive(false);
             float angle = 5;
             if (Vector3.Angle(transform.forward, destination - transform.position) > angle)
             {
@@ -153,21 +151,19 @@ public class PlayerController : MonoBehaviour
                 moving = false;
                 rb.velocity = transform.forward * 0;
                 transform.position = destination;
-                vector1.value = 0;
-                vector2.value = 0;
-                sliderV1text.text = "V1: 0";
-                sliderV2text.text = "V2: 0";
+                updateVectorArrows();
             }
             
             pdaManager.updateCurrentPosition(transform.position.x, transform.position.z);
-            pdaManager.updateVectorEquation(vector1_times, vector2_times);
+            pdaManager.updateVectorEquation(vector_1_counter, vector_2_counter);
             third_person_camera.transform.position = transform.position + new Vector3(-1.0f, 6.5f, -1.5f);
+            
         }
     }
 
-    void LateUpdate()
+    /**void LateUpdate()
     {
         if (!moving && !rotating)   rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, fixedRotation, turn));
         movementCanvas.transform.rotation = fixedRotation;
-    }
+    }**/
 }
