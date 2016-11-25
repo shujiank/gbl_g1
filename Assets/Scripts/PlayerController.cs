@@ -15,87 +15,87 @@ public class PlayerController : MonoBehaviour
 {
     public Boundary boundary;
     public Vector3 vector_1;
-    public Vector3 vector_2;    
+    public Vector3 vector_2;
+    public Vector3 final_destination;   
     public int turn;
     public float height;
     public float speed;
     public GameObject pda;
-    public GameObject movementCanvas;
-    //public Slider vector1;
-    //public Slider vector2;
-    public Text sliderV1text;
-    public Text sliderV2text;
     public Transform third_person_camera;
     public GameObject v1_arrow_prefab;
     public GameObject v2_arrow_prefab;
+    public GameObject gameWorld;
+    public float v1_solution;
+    public float v2_solution;
 
     private Vector3 destination;
     private Vector3 newPosition;
     bool moving;
     bool rotating;
     private Rigidbody rb;
-    private int vector_1_counter;
-    private int vector_2_counter;
+    private float v1_counter;
+    private float v2_counter;
     private Quaternion fixedRotation;
-    private float rotationV1;
-    private float rotationV2;
     private PDAManager pdaManager;
-    private GameObject vector_1_arrow;
-    private GameObject vector_2_arrow;
+    private GameObject v1_arrow;
+    private GameObject v2_arrow;
+    private GameCrontroller gameController;
+    private float fuel_remaining;
 
 
     void initializePDA()
     {
         pdaManager.updateVector1(vector_1.x, vector_1.z);
         pdaManager.updateVector2(vector_2.x, vector_2.z);
-        pdaManager.updateVectorEquation(vector_1_counter, vector_1_counter);
+        pdaManager.updateVectorEquation(v1_counter, v1_counter);
+        pdaManager.updateFuel(100.0f);
     }
 
     public void PlayerMovementV1()
     {
-        int scalar_multiple = Int32.Parse(vector_1_arrow.GetComponentInChildren<InputField>().text);
+        float scalar_multiple = float.Parse(v1_arrow.GetComponentInChildren<InputField>().text);
         newPosition = transform.position + (scalar_multiple * vector_1);
         if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
         {
             destination = newPosition;
             rotating = true;
-            vector_1_counter += scalar_multiple;
+            v1_counter += scalar_multiple;
         }
     }
 
     public void PlayerMovementV2()
     {
-        int scalar_multiple = Int32.Parse(vector_2_arrow.GetComponentInChildren<InputField>().text);
+        float scalar_multiple = float.Parse(v2_arrow.GetComponentInChildren<InputField>().text);
         newPosition = transform.position + (scalar_multiple * vector_2);
         if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
         {
             destination = newPosition;
             rotating = true;
-            vector_2_counter += scalar_multiple;
+            v2_counter += scalar_multiple;
         }
     }
 
     void initializeVectorArrows()
     {
-        vector_1_arrow = Instantiate(v1_arrow_prefab, 
+        v1_arrow = Instantiate(v1_arrow_prefab, 
             transform.position, 
             Quaternion.LookRotation(vector_1) * Quaternion.Euler(0, -90, 0)) as GameObject;
-        vector_1_arrow.GetComponentInChildren<Button>().onClick.AddListener(() => PlayerMovementV1());
-        Debug.Log("DSAD " + vector_1_arrow.GetComponentInChildren<Text>().text);
-        vector_2_arrow = Instantiate(v2_arrow_prefab,
+        v1_arrow.GetComponentInChildren<Button>().onClick.AddListener(() => PlayerMovementV1());
+        Debug.Log("DSAD " + v1_arrow.GetComponentInChildren<Text>().text);
+        v2_arrow = Instantiate(v2_arrow_prefab,
             transform.position ,
             Quaternion.LookRotation(vector_2) * Quaternion.Euler(0, -90, 0)) as GameObject;
-        vector_2_arrow.GetComponentInChildren<Button>().onClick.AddListener(() => PlayerMovementV2());
+        v2_arrow.GetComponentInChildren<Button>().onClick.AddListener(() => PlayerMovementV2());
     }
 
     void updateVectorArrows()
     {
-        vector_1_arrow.transform.position = transform.position;
-        vector_1_arrow.transform.rotation = Quaternion.LookRotation(vector_1) * Quaternion.Euler(0, -90, 0);
-        vector_2_arrow.transform.position = transform.position;
-        vector_2_arrow.transform.rotation = Quaternion.LookRotation(vector_2) * Quaternion.Euler(0, -90, 0);
-        vector_1_arrow.SetActive(true);
-        vector_2_arrow.SetActive(true);
+        v1_arrow.transform.position = transform.position;
+        v1_arrow.transform.rotation = Quaternion.LookRotation(vector_1) * Quaternion.Euler(0, -90, 0);
+        v2_arrow.transform.position = transform.position;
+        v2_arrow.transform.rotation = Quaternion.LookRotation(vector_2) * Quaternion.Euler(0, -90, 0);
+        v1_arrow.SetActive(true);
+        v2_arrow.SetActive(true);
     }
 
     void Start()
@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
         moving = false;
         rotating = false;
         pdaManager = pda.GetComponent<PDAManager>();
+        gameController = gameWorld.GetComponent<GameCrontroller>();
         initializePDA();
         initializeVectorArrows();        
     }
@@ -124,8 +125,8 @@ public class PlayerController : MonoBehaviour
     {
         if (rotating)
         {
-            vector_1_arrow.SetActive(false);
-            vector_2_arrow.SetActive(false);
+            v1_arrow.SetActive(false);
+            v2_arrow.SetActive(false);
             float angle = 5;
             if (Vector3.Angle(transform.forward, destination - transform.position) > angle)
             {
@@ -152,18 +153,23 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = transform.forward * 0;
                 transform.position = destination;
                 updateVectorArrows();
+                fuel_remaining = ((v1_solution + v2_solution) - (v1_counter + v2_counter)) / (v1_solution + v2_solution) * 100;
+                if (transform.position == final_destination)
+                {
+                    gameController.levelComplete();
+                }
+                if (fuel_remaining <= 0)
+                {
+                    gameController.gameOver();
+                }
             }
             
             pdaManager.updateCurrentPosition(transform.position.x, transform.position.z);
-            pdaManager.updateVectorEquation(vector_1_counter, vector_2_counter);
+            pdaManager.updateVectorEquation(v1_counter, v2_counter);
+            pdaManager.updateFuel(fuel_remaining);
+
             third_person_camera.transform.position = transform.position + new Vector3(-1.0f, 6.5f, -1.5f);
             
         }
     }
-
-    /**void LateUpdate()
-    {
-        if (!moving && !rotating)   rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, fixedRotation, turn));
-        movementCanvas.transform.rotation = fixedRotation;
-    }**/
 }

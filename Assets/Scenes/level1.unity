@@ -673,6 +673,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 309299853}
+  - 114: {fileID: 309299854}
   m_Layer: 0
   m_Name: Gameworld
   m_TagString: Untagged
@@ -696,6 +697,17 @@ Transform:
   - {fileID: 1406419466}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &309299854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 309299852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00cdd1b35e266964b8a56a784d39b7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &433440046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,20 +1079,22 @@ MonoBehaviour:
     xMax: 20
     zMin: 0
     zMax: 20
-  vector_1: {x: 1, y: 0, z: 4}
-  vector_2: {x: 4, y: 0, z: 1}
+  vector_1: {x: 4, y: 0, z: 2}
+  vector_2: {x: 0, y: 0, z: 6}
+  final_destination: {x: 8, y: 0, z: 16}
   turn: 3
   height: 0
   speed: 1
   pda: {fileID: 1283298572}
   movementCanvas: {fileID: 0}
-  sliderV1text: {fileID: 0}
-  sliderV2text: {fileID: 0}
   third_person_camera: {fileID: 475764917}
-  v1_arrow_prefab: {fileID: 1000014159065578, guid: b218b94f7ebdd0b4da1ee5de7feeb290,
+  v1_arrow_prefab: {fileID: 1000011658930242, guid: b218b94f7ebdd0b4da1ee5de7feeb290,
     type: 2}
-  v2_arrow_prefab: {fileID: 1000012811896766, guid: 1b204d0659e0c8345b1e2c889f40b659,
+  v2_arrow_prefab: {fileID: 1000012630701714, guid: 1b204d0659e0c8345b1e2c889f40b659,
     type: 2}
+  gameWorld: {fileID: 309299852}
+  v1_solution: 2
+  v2_solution: 2
 --- !u!4 &591084877 stripped
 Transform:
   m_PrefabParentObject: {fileID: 499964, guid: 32303dc3554fcfc419798a1f0235187f, type: 2}
