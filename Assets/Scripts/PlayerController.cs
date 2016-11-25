@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public Slider vector2;
     public Text sliderV1text;
     public Text sliderV2text;
+    public Transform third_person_camera;
 
     private Vector3 destination;
     private Vector3 newPosition;
@@ -157,8 +158,10 @@ public class PlayerController : MonoBehaviour
                 sliderV1text.text = "V1: 0";
                 sliderV2text.text = "V2: 0";
             }
+            
             pdaManager.updateCurrentPosition(transform.position.x, transform.position.z);
             pdaManager.updateVectorEquation(vector1_times, vector2_times);
+            third_person_camera.transform.position = transform.position + new Vector3(-1.0f, 6.5f, -1.5f);
         }
     }
 
