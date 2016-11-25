@@ -17,16 +17,16 @@ public class ShearContent : Content
         "Archbishop Neo: Victoria, is it possible to have [1 -1\n 0 1] transforamtion matrix ? or more specifically [1 k\n 0 1]",
         "Victoria: Let me think about it.",
         "Archbishop Neo: Ok, think what will happen if I apply this transforamtion on to the unit square matrix ? and what will happen when k=1." };
-    /*private static Sprite t1 = Resources.Load<Sprite>("Art/SithAvatar") as Sprite;
+    private static Sprite t1 = Resources.Load<Sprite>("Art/SithAvatar") as Sprite;
     private static Sprite t2 = Resources.Load<Sprite>("Art/KhalAvatar") as Sprite;
     private static Sprite t3 = Resources.Load<Sprite>("Art/wietreeAvatar") as Sprite;
     private static Sprite t4 = Resources.Load<Sprite>("Art/AIJabrAvatar") as Sprite;
     private static Sprite t5 = Resources.Load<Sprite>("Art/LightAvatar") as Sprite;
     private static Sprite t6 = Resources.Load<Sprite>("Art/NeoAvatar") as Sprite;
-    private static Sprite t7 = Resources.Load<Sprite>("solution") as Sprite;
     private static Sprite[] ShearPor = {
         t1,t2,t1,t3,t1,t4,t1,t1,t5,t1,t6,t1,t6
-    };*/
+    };
+    private static Sprite ShearQue = Resources.Load<Sprite>("Art/Narrative Art/shear1") as Sprite;
     public ShearContent()
     {
         name = "";
@@ -36,5 +36,13 @@ public class ShearContent : Content
     public override string[] getContent()
     {
         return ShearNarr;
+    }
+    public override Sprite[] getPortrait()
+    {
+        return ShearPor;
+    }
+    public override Sprite getQuestion()
+    {
+        return ShearQue;
     }
 }

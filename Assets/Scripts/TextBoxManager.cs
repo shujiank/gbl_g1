@@ -29,15 +29,12 @@ public class TextBoxManager : MonoBehaviour {
     private bool cancelTyping = false;
     public float typeSpeed;
     Image myImageComponent;
-    public static Content Shear = new ShearContent();
     // Use this for initialization
     void Start()
     {
         textBox.SetActive(false);
         imageBox.SetActive(false);
         player = FindObjectOfType<PlayerController>();
-        FrameworkCore.setContent(Shear);
-        textLines = FrameworkCore.currentContent.getContent();
         //avatarSprites = FrameworkCore.currentContent.getPortrait();
         /*
         textFiles = (TextAsset)Resources.Load("dialog.txt", typeof(TextAsset));
@@ -45,13 +42,6 @@ public class TextBoxManager : MonoBehaviour {
         {
             textLines = (textFiles.text.Split('\n'));
         }*/
-        if (endLine == 0)
-        {
-            endLine = textLines.Length - 1;
-        }
-
-
-
     }
 
     // Update is called once per frame
@@ -67,7 +57,7 @@ public class TextBoxManager : MonoBehaviour {
                 if (currentLine == endLine)
                 {
                     textBox.SetActive(false);
-                    imageBox.SetActive(false);
+                    //imageBox.SetActive(false);
                     currentLine = 0;
 
                     // show transformation
@@ -87,11 +77,11 @@ public class TextBoxManager : MonoBehaviour {
                 imageBox.SetActive(true);
                 GameObject.Find("ImageX").GetComponent<Image>().sprite = img;
             }
-            if (currentLine == endLine - 1)
+            /*if (currentLine == endLine - 1)
             {
                 imageBox.SetActive(true);
                 GameObject.Find("ImageX").GetComponent<Image>().sprite = mySecondImage;
-            }
+            }*/
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
@@ -136,7 +126,14 @@ public class TextBoxManager : MonoBehaviour {
     public void showBox()
     {
         textBox.SetActive(true);
+        textLines = FrameworkCore.currentContent.getContent();
+        avatarSprites = FrameworkCore.currentContent.getPortrait();
+        img = FrameworkCore.currentContent.getQuestion();
         theImage.sprite = avatarSprites[currentLine];
         StartCoroutine(TextScroll(textLines[currentLine]));
+        if (endLine == 0)
+        {
+            endLine = textLines.Length - 1;
+        }
     }
  }

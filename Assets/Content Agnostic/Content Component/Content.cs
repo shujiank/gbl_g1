@@ -50,6 +50,10 @@ public abstract class Content
         return new Sprite[1];
     }
 
+    public virtual Sprite getQuestion()
+    {
+        return new Sprite();
+    }
 
 
     /// <summary>
