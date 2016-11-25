@@ -101,7 +101,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        movementCanvas = GameObject.Find("Player/MovementCanvas");
         destination = transform.position;
         moving = false;
         rotating = false;

@@ -49,7 +49,7 @@ public class PDAManager : MonoBehaviour
 
     public void updateFuel(float f)
     {
-        pda_values_ui.fuel.text = (f).ToString();
+        pda_values_ui.fuel.text = (f).ToString() + " %";
     }
 
     public void updateVector2(float x, float y)
