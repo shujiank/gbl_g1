@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
         pdaManager.updateVector1(vector_1.x, vector_1.z);
         pdaManager.updateVector2(vector_2.x, vector_2.z);
         pdaManager.updateVectorEquation(v1_counter, v1_counter);
+        pdaManager.updateDestination(final_destination.x, final_destination.y);
+        pdaManager.updateCurrentPosition(transform.position.x, transform.position.z);
         pdaManager.updateFuel(100.0f);
     }
 
