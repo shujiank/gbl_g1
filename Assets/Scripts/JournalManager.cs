@@ -17,19 +17,18 @@ public class JournalManager : MonoBehaviour{
         listDepth = -25;
         entries = new Dictionary<string, string>();
         gameObject.SetActive(false);
+        addEntry("Objective", "Command you spacecraft and efficiently utilize the remaining fuel to reach the destination planet.");
+        addEntry("PDA", "Personal Data Assistant provides you with information regarding your current location in the multiverse, the location of the destination planet, the directions in which your can maneuver represented by vectors, the number of times you made a maneuver in each direction and the fuel remaining.");
         addEntry("Vector Information", "In mathematics, physics, and engineering, a Euclidean vector is a geometric object that has magnitude (or length) and direction. Vectors can be added to other vectors according to vector algebra.");
-        addEntry("Example1", "Jingle bells jingle bells jingle all the way1");
-        addEntry("Example2", "Jingle bells jingle bells jingle all the way2");
-        addEntry("Example3", "Jingle bells jingle bells jingle all the way3");
-        addEntry("Example4", "Jingle bells jingle bells jingle all the way4");
-        addEntry("Example5", "Jingle bells jingle bells jingle all the way5");
-        addEntry("Example6", "Jingle bells jingle bells jingle all the way6");
-        addEntry("Example7", "Jingle bells jingle bells jingle all the way7");
-        addEntry("Example8", "Jingle bells jingle bells jingle all the way8");
-        addEntry("Example9", "Jingle bells jingle bells jingle all the way9");
-        addEntry("Example10", "Jingle bells jingle bells jingle all the way10");
-        addEntry("Example11", "Jingle bells jingle bells jingle all the way11");
-        addEntry("Example12", "Jingle bells jingle bells jingle all the way12");
+        addEntry("Vector Notation", "In vertical representation of vectors, the top element represents the x component and the other represents the y component. For the sake of establishment of relationship, the PDA represents (x, y) co-ordinates using the same notation.");
+        addEntry("Movement", "Maneuvering your spacecraft requires you to input a scalar multiple for the vector in the input box at the tip of the arrow representing the vector and then clicking the 'Go!' button.");
+        addEntry("Fuel", "Each move consumes a specific fraction of the fuel. You have enough fuel to make at most 3 inefficient moves.");
+        addEntry("Backtracking", "You can multiply the vector with negative scalars to negate a previous move. Negative scalar multiplication is not required to reach the destination. It is a provision for you to correct a wrong decision and will be regaded as a indicator of confusion which will subsequently unlock a hint in the journal. Since you have only 3 extra moves to reach destination, you can earn upto 4 hints which successively build up to the final solution.");
+        addEntry("Hint 1", "A linear equation is an algebraic equation in which each term is either a constant or the product of a constant and (the first power of) a single variable. A simple example of a linear equation with only one variable, x, may be written in the form: ax + b = 0, where a and b are constants and a ≠ 0");
+        addEntry("Hint 2", "A linear system of two equations with two variables is any system that can be written in the form: \n\tax + by = c\n\tcx + dy = e\n..where any of the constants can be zero with the exception that each equation must have at least one variable in it. Also, the system is called linear if the variables are only to the first power, are only in the numerator and there are no products of variables in any of the equations.");
+        addEntry("Hint 3", "One of the ways to solve such a system of linear equations with two variables is the method of elimination.  In this method we multiply one or both of the equations by appropriate numbers (i.e. multiply every term in the equation by the number) so that one of the variables will have the same coefficient with opposite signs.  Then next step is to add the two equations together.  Because one of the variables had the same coefficient with opposite signs it will be eliminated when we add the two equations.  The result will be a single equation that we can solve for one of the variables.  Once this is done substitute this answer back into one of the original equations.");
+        addEntry("Solution", "Suppose destination co-ordinates are (c, d), vector_1 = (x, y) and vector_2 = (u, v). Let the number of times we travel in the direction of vector_1 be 'a' and 'b' for vector_2.\nThis gives us 2 linear equations. The sum of x component of both vectors should be equal to x co-ordinate of the destination since we start at (0, 0). Same goes for the y components. This gives us the equation: -\n\tax + bu = c\n\tay + bv = d");
+        
     }
 
     void addEntry(string newLabel, string newEntry)
@@ -38,7 +37,7 @@ public class JournalManager : MonoBehaviour{
         GameObject newEntryButton = Instantiate(entryButton) as GameObject;
         newEntryButton.GetComponentInChildren<Text>().text = newLabel;
         newEntryButton.transform.SetParent(entriesLayout.transform, false);
-        newEntryButton.transform.localPosition = new Vector3(0.0f, 0.0f + listDepth * entries.Count, 0.0f);
+        newEntryButton.transform.localPosition = new Vector3(0.0f, 1.0f + listDepth * entries.Count, 0.0f);
         newEntryButton.GetComponent<Button>().onClick.AddListener(() => displayInformation(newLabel));
         //temp = newEntryButton;
 

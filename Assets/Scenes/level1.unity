@@ -1086,11 +1086,10 @@ MonoBehaviour:
   height: 0
   speed: 1
   pda: {fileID: 1283298572}
-  movementCanvas: {fileID: 0}
   third_person_camera: {fileID: 475764917}
-  v1_arrow_prefab: {fileID: 1000011658930242, guid: b218b94f7ebdd0b4da1ee5de7feeb290,
+  v1_arrow_prefab: {fileID: 1000011581472892, guid: b218b94f7ebdd0b4da1ee5de7feeb290,
     type: 2}
-  v2_arrow_prefab: {fileID: 1000012630701714, guid: 1b204d0659e0c8345b1e2c889f40b659,
+  v2_arrow_prefab: {fileID: 1000012287729086, guid: 1b204d0659e0c8345b1e2c889f40b659,
     type: 2}
   gameWorld: {fileID: 309299852}
   v1_solution: 2
@@ -2545,7 +2544,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.8211113, y: 0.873}
   m_AnchorMax: {x: 1, y: 0.9605234}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 15.3}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057262580
@@ -3208,29 +3207,12 @@ MonoBehaviour:
     m_MinSize: 0
     m_MaxSize: 24
     m_Alignment: 0
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: The game features heavy emphasis on environmental destruction.[14][15] A
-    procedural destruction system is featured in the game. Players can break structures
-    by planting explosives on them, or shoot walls to make bullet holes. The environments
-    of the game feature a layered material system, in which environmental objects
-    of different materials show different reactions to player's attack.[15][16] Players
-    may gain tactical advantages through environmental destruction, and the system
-    aims at encouraging players to utilize creativity and strategy.[16][17] In order
-    to create a realistic gameplay, a bullet penetration system is featured, in which
-    bullets deal less damage when they hit enemies through structures.[15] In addition
-    to destruction, players can also set up heavy-duty fortifications on walls and
-    deployable shields around them for protection, but can be destroyed through breaching
-    and utilizing operator specific melee-weapons like sledgehammers.[18] In order
-    to stop attackers' advance, defenders can place traps like barbed-wire and explosive
-    laserwire traps. around the maps.[19] Vertical space is a key gameplay element
-    taken into account when designing the game's maps. Players can destroy ceilings
-    and floors using breach charges and can ambush enemies by rappelling through windows.[9]
-    Powerful weapons like grenades and breach charges are valuable, as only limited
-    numbers can be used in a round.[12]
+  m_Text: Greetings Captain.
 --- !u!1 &1283298572
 GameObject:
   m_ObjectHideFlags: 0
@@ -3249,7 +3231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1283298573
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3512,8 +3494,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.068603516, y: 0.5000305}
-  m_SizeDelta: {x: 1, y: 545}
+  m_AnchoredPosition: {x: 3, y: 0}
+  m_SizeDelta: {x: -5, y: 545}
   m_Pivot: {x: 0.49999994, y: 1}
 --- !u!1 &1482322207
 GameObject:
@@ -4480,8 +4462,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.105790205, y: 0.85720944}
   m_AnchorMax: {x: 0.30511817, y: 0.9225524}
-  m_AnchoredPosition: {x: 2.100006, y: 0.5}
-  m_SizeDelta: {x: -4, y: 2}
+  m_AnchoredPosition: {x: 114.6, y: -6.3}
+  m_SizeDelta: {x: 279.2, y: 17.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1989190534
 CanvasRenderer:
@@ -4511,11 +4493,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
-    m_FontSize: 34
+    m_Font: {fileID: 12800000, guid: 818569ca443aa4715afe6d2d4705f16b, type: 3}
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -4523,7 +4505,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PLAYER   JOURNAL
+  m_Text: player journal
 --- !u!1 &1999919545
 GameObject:
   m_ObjectHideFlags: 0
