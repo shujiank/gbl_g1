@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
             if (scalar_multiple < 0)
             {
                 backtrack_counter += 1;
+                checkForHints();
             }
         }
     }
