@@ -4371,6 +4371,8 @@ MonoBehaviour:
   m11: {fileID: 783769493}
   stretch_fixed: {fileID: 0}
   stretch_changed: {fileID: 0}
+  textBoxManager: {fileID: 80128139}
+  level: 0
 --- !u!1 &902841681
 GameObject:
   m_ObjectHideFlags: 0

@@ -57,12 +57,11 @@ public class TextBoxManager : MonoBehaviour {
                 if (currentLine == endLine)
                 {
                     textBox.SetActive(false);
-                    //imageBox.SetActive(false);
+                    imageBox.SetActive(false);
                     currentLine = 0;
 
                     // show transformation
-                    matrixButton.SetActive(true);
-                    transformationPlane.SetActive(true);
+                    openTransformPlane();
                 }
                 else {
                     theImage.sprite = avatarSprites[currentLine];
@@ -136,4 +135,17 @@ public class TextBoxManager : MonoBehaviour {
             endLine = textLines.Length - 1;
         }
     }
- }
+
+    public void closeTransformPlane()
+    {
+        matrixButton.SetActive(false);
+        transformationPlane.SetActive(false);
+    }
+
+    public void openTransformPlane()
+    {
+        matrixButton.SetActive(true);
+        transformationPlane.SetActive(true);
+    }
+
+}

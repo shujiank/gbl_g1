@@ -14,7 +14,14 @@ public class drawExample : MonoBehaviour
     int current_transformation = 0; // 0:stretch, 1:reflection, 2:rotation, 3:shear, 4:advanced stretch
 
     Vector3[] v = new Vector3[4];
-    Vector3[] answer = new Vector3[4];
+    Vector3[] answer_v = new Vector3[4];
+
+    public TextBoxManager textBoxManager;
+
+    // mark the current level and current question number
+    public int level = 0;
+    int question_number = 0;
+    Content currentContent;
 
     Matrix4x4 temp_mat = Matrix4x4.identity;
     Matrix4x4 glob_mat = Matrix4x4.identity;
@@ -28,17 +35,15 @@ public class drawExample : MonoBehaviour
 
     void Start()
     {
-        setAnswer(2, 1, 0, 2);
         resetScene();
         displayMatrix();
+        setContent(FrameworkCore.currentContent);
     }
 
-    public void setAnswer(float m00, float m01, float m10, float m11) 
+    void setContent(Content c)
     {
-        answer_mat[0, 0] = m00;
-        answer_mat[0, 1] = m01;
-        answer_mat[1, 0] = m10;
-        answer_mat[1, 1] = m11;
+        currentContent = c;
+        answer_mat = c.getAnswer();
     }
 
     public void saveMatrix()
@@ -162,7 +167,11 @@ public class drawExample : MonoBehaviour
 
     public void submitAnswer()
     {
-
+        if (glob_mat * temp_mat == answer_mat)
+        {
+            Debug.Log("correct");
+            textBoxManager.closeTransformPlane();
+        }
     }
 
     public void resetScene()
@@ -175,7 +184,6 @@ public class drawExample : MonoBehaviour
     // Will be called after all regular rendering is done
     public void OnRenderObject()
     {
-        Debug.Log("start draw");
         CreateLineMaterial();
         // Apply the line material
         lineMaterial.SetPass(0);
@@ -195,17 +203,17 @@ public class drawExample : MonoBehaviour
         v[2] = new Vector3(1, 1, 0);
         v[3] = new Vector3(1, 0, 0);
 
-        answer[0] = v[0];
-        answer[1] = v[1];
-        answer[2] = v[2];
-        answer[3] = v[3];
+        answer_v[0] = v[0];
+        answer_v[1] = v[1];
+        answer_v[2] = v[2];
+        answer_v[3] = v[3];
 
         //transform_stretch_advanced(0, 0);
 
         for (int i = 0; i < 4; i++)
         {
             v[i] = (glob_mat * temp_mat).MultiplyPoint(v[i]);
-            answer[i] = answer_mat.MultiplyPoint(answer[i]);
+            answer_v[i] = answer_mat.MultiplyPoint(answer_v[i]);
             //Debug.Log(v[i]); 
         }
         
@@ -226,10 +234,10 @@ public class drawExample : MonoBehaviour
         // Draw answer 
         GL.Begin(GL.QUADS);
         GL.Color(new Color(0.82f, 0.82f, 0.82f));
-        GL.Vertex(answer[0]);
-        GL.Vertex(answer[1]);
-        GL.Vertex(answer[2]);
-        GL.Vertex(answer[3]);
+        GL.Vertex(answer_v[0]);
+        GL.Vertex(answer_v[1]);
+        GL.Vertex(answer_v[2]);
+        GL.Vertex(answer_v[3]);
         GL.End();
 
         // Draw original object

@@ -54,7 +54,11 @@ public abstract class Content
     {
         return new Sprite();
     }
-
+    
+    public virtual Matrix4x4 getAnswer()
+    {
+        return new Matrix4x4();
+    }
 
     /// <summary>
     /// This returns a char representation of something to

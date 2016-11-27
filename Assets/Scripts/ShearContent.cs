@@ -27,10 +27,16 @@ public class ShearContent : Content
         t1,t2,t1,t3,t1,t4,t1,t1,t5,t1,t6,t1,t6
     };
     private static Sprite ShearQue = Resources.Load<Sprite>("Art/Narrative Art/shear1") as Sprite;
+    private static Matrix4x4 Answer = Matrix4x4.identity;
     public ShearContent()
     {
         name = "";
         description = "";
+        Answer[0, 0] = 1;
+        Answer[0, 1] = 1;
+        Answer[1, 0] = 0;
+        Answer[1, 1] = 1;
+
     }
 
     public override string[] getContent()
@@ -44,5 +50,9 @@ public class ShearContent : Content
     public override Sprite getQuestion()
     {
         return ShearQue;
+    }
+    public override Matrix4x4 getAnswer()
+    {
+        return Answer;
     }
 }
