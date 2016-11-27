@@ -5,15 +5,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 [System.Serializable]
 public class Boundary
 {
     public float xMin, xMax, zMin, zMax;
 }
 
+[System.Serializable]
+public class HintLevels
+{
+    public int hint_1_level;
+    public int hint_2_level;
+    public int hint_3_level;
+    public int hint_4_level;
+}
+
 public class PlayerController : MonoBehaviour
 {
     public Boundary boundary;
+    public HintLevels hintLevels;
     public Vector3 vector_1;
     public Vector3 vector_2;
     public Vector3 final_destination;   
@@ -25,6 +36,8 @@ public class PlayerController : MonoBehaviour
     public GameObject v1_arrow_prefab;
     public GameObject v2_arrow_prefab;
     public GameObject gameWorld;
+    public GameObject journal;
+    public GameObject DialogueWindow;
     public float v1_solution;
     public float v2_solution;
 
@@ -33,21 +46,25 @@ public class PlayerController : MonoBehaviour
     bool moving;
     bool rotating;
     private Rigidbody rb;
-    private float v1_counter;
-    private float v2_counter;
+    private float backtrack_counter;
+    private float v1_multiplier;
+    private float v2_multiplier;
     private Quaternion fixedRotation;
     private PDAManager pdaManager;
     private GameObject v1_arrow;
     private GameObject v2_arrow;
     private GameCrontroller gameController;
     private float fuel_remaining;
+    private JournalManager journalManager;
+    private DialogueManagerLevel1 dialogueManagerLevel1;
+
 
 
     void initializePDA()
     {
         pdaManager.updateVector1(vector_1.x, vector_1.z);
         pdaManager.updateVector2(vector_2.x, vector_2.z);
-        pdaManager.updateVectorEquation(v1_counter, v1_counter);
+        pdaManager.updateVectorEquation(v1_multiplier, v2_multiplier);
         pdaManager.updateDestination(final_destination.x, final_destination.y);
         pdaManager.updateCurrentPosition(transform.position.x, transform.position.z);
         pdaManager.updateFuel(100.0f);
@@ -61,7 +78,11 @@ public class PlayerController : MonoBehaviour
         {
             destination = newPosition;
             rotating = true;
-            v1_counter += scalar_multiple;
+            v1_multiplier += scalar_multiple;
+            if (scalar_multiple < 0)
+            {
+                backtrack_counter += 1;
+            }
         }
     }
 
@@ -73,7 +94,11 @@ public class PlayerController : MonoBehaviour
         {
             destination = newPosition;
             rotating = true;
-            v2_counter += scalar_multiple;
+            v2_multiplier += scalar_multiple;
+            if (scalar_multiple < 0)
+            {
+                backtrack_counter += 1;
+            }
         }
     }
 
@@ -100,14 +125,51 @@ public class PlayerController : MonoBehaviour
         v2_arrow.SetActive(true);
     }
 
+    void checkForHints()
+    {
+        if (transform.position == final_destination)
+        {
+            gameController.levelComplete();
+        }
+        if (fuel_remaining <= 0)
+        {
+            gameController.gameOver();
+        }
+        if (backtrack_counter == hintLevels.hint_1_level)
+        {
+            journalManager.unlockHint(1);
+            dialogueManagerLevel1.HintDisplay(1);
+        }
+        else if (backtrack_counter == hintLevels.hint_2_level)
+        {
+            journalManager.unlockHint(2);
+            dialogueManagerLevel1.HintDisplay(2);
+        }
+        else if (backtrack_counter == hintLevels.hint_3_level)
+        {
+            journalManager.unlockHint(3);
+            dialogueManagerLevel1.HintDisplay(3);
+        }
+        else if (backtrack_counter == hintLevels.hint_4_level)
+        {
+            journalManager.unlockHint(4);
+            dialogueManagerLevel1.HintDisplay(4);
+        }
+    }
+
     void Start()
     {
+        v1_multiplier = 0;
+        v2_multiplier = 0;
+        backtrack_counter = 0;
         rb = GetComponent<Rigidbody>();
         destination = transform.position;
         moving = false;
         rotating = false;
         pdaManager = pda.GetComponent<PDAManager>();
         gameController = gameWorld.GetComponent<GameCrontroller>();
+        journalManager = journal.GetComponent<JournalManager>();
+        dialogueManagerLevel1 = DialogueWindow.GetComponent<DialogueManagerLevel1>();
         initializePDA();
         initializeVectorArrows();        
     }
@@ -154,19 +216,12 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = transform.forward * 0;
                 transform.position = destination;
                 updateVectorArrows();
-                fuel_remaining = ((v1_solution + v2_solution) - (v1_counter + v2_counter)) / (v1_solution + v2_solution) * 100;
-                if (transform.position == final_destination)
-                {
-                    gameController.levelComplete();
-                }
-                if (fuel_remaining <= 0)
-                {
-                    gameController.gameOver();
-                }
+                fuel_remaining = ((v1_solution + v2_solution) - (v1_multiplier + v2_multiplier)) / (v1_solution + v2_solution) * 100;
+                checkForHints();                
             }
             
             pdaManager.updateCurrentPosition(transform.position.x, transform.position.z);
-            pdaManager.updateVectorEquation(v1_counter, v2_counter);
+            pdaManager.updateVectorEquation(v1_multiplier, v2_multiplier);
             pdaManager.updateFuel(fuel_remaining);
 
             third_person_camera.transform.position = transform.position + new Vector3(-1.0f, 6.5f, -1.5f);
