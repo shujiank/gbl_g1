@@ -15,7 +15,7 @@ public class Dialog : MonoBehaviour {
         }
         if (this.gameObject.name == "NPC2")
         {
-            curContent = GameInfo.ShearContent;
+            curContent = GameInfo.ProjectionContent;
         }
         FrameworkCore.setContent(curContent);
         sword.showBox();

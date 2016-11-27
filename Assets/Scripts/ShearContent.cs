@@ -19,7 +19,7 @@ public class ShearContent : Content
         "Archbishop Neo: Ok, think what will happen if I apply this transforamtion on to the unit square matrix ? and what will happen when k=1." };
     private static Sprite t1 = Resources.Load<Sprite>("Art/SithAvatar") as Sprite;
     private static Sprite t2 = Resources.Load<Sprite>("Art/KhalAvatar") as Sprite;
-    private static Sprite t3 = Resources.Load<Sprite>("Art/wietreeAvatar") as Sprite;
+    private static Sprite t3 = Resources.Load<Sprite>("Art/wiertreeAvatar") as Sprite;
     private static Sprite t4 = Resources.Load<Sprite>("Art/AIJabrAvatar") as Sprite;
     private static Sprite t5 = Resources.Load<Sprite>("Art/LightAvatar") as Sprite;
     private static Sprite t6 = Resources.Load<Sprite>("Art/NeoAvatar") as Sprite;

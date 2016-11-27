@@ -14,4 +14,7 @@ public static class GameInfo
     public static Mechanics mechanics = new NoMechanics();
 
     public static Content ShearContent = new ShearContent();
+    public static Content RotationContent = new RotationContent();
+    public static Content ReflectionContent = new ReflectionContent();
+    public static Content ProjectionContent = new ProjectContent();
 }
