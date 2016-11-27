@@ -2822,10 +2822,10 @@ RectTransform:
   - {fileID: 1302963567}
   m_Father: {fileID: 697020252}
   m_RootOrder: 3
-  m_AnchorMin: {x: 0.8211113, y: 0.873}
-  m_AnchorMax: {x: 1, y: 0.9605234}
-  m_AnchoredPosition: {x: -12, y: 9.1}
-  m_SizeDelta: {x: 24, y: 12.5}
+  m_AnchorMin: {x: 0.79800004, y: 0.87788594}
+  m_AnchorMax: {x: 1, y: 0.9850001}
+  m_AnchoredPosition: {x: 10.4, y: 3.3}
+  m_SizeDelta: {x: -21, y: -5.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057262580
 MonoBehaviour:

@@ -91,9 +91,9 @@ public class JournalManager : MonoBehaviour{
 
     public void displayInformation(string entry)
     {
+        information.text = entries[entry];
         if (!readEntries.Contains(entry))
-        {
-            information.text = entries[entry];
+        {            
             //entryButtons[entry].GetComponent<Image>().color = Color.gray;
             updateNotificationCount(-1);
             readEntries.Add(entry);
