@@ -1134,9 +1134,9 @@ MonoBehaviour:
     zMax: 20
   hintLevels:
     hint_1_level: 2
-    hint_2_level: 2
-    hint_3_level: 2
-    hint_4_level: 2
+    hint_2_level: 4
+    hint_3_level: 6
+    hint_4_level: 8
   vector_1: {x: 0, y: 0, z: 1}
   vector_2: {x: 1, y: 0, z: 0}
   final_destination: {x: 1, y: 0, z: 0}

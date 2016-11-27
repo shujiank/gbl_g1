@@ -78,15 +78,12 @@ public class DialogueManagerLevel1 : MonoBehaviour {
             gameObject.SetActive(false);
 
         }
-        if (gameObject.activeSelf)
-        {
-            StartCoroutine(AnimateText());
-        }
+
+        StartCoroutine(AnimateText());
     }
 
     IEnumerator AnimateText()
     {
-        Debug.Log(dialogues);
         for (int i = 0; i < (dialogues[currentlyDisplayingText].Length + 1); i++)
         {
             textBox.text = dialogues[currentlyDisplayingText].Substring(0, i);

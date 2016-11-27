@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour
             if (scalar_multiple < 0)
             {
                 backtrack_counter += 1;
+                checkForHints();
             }
         }
     }
@@ -216,8 +217,7 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = transform.forward * 0;
                 transform.position = destination;
                 updateVectorArrows();
-                fuel_remaining = ((v1_solution + v2_solution) - (v1_multiplier + v2_multiplier)) / (v1_solution + v2_solution) * 100;
-                checkForHints();                
+                fuel_remaining = ((v1_solution + v2_solution) - (v1_multiplier + v2_multiplier)) / (v1_solution + v2_solution) * 100;              
             }
             
             pdaManager.updateCurrentPosition(transform.position.x, transform.position.z);

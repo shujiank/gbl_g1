@@ -11,7 +11,7 @@ public static class Level1Dialogue
     };
     public static string[] GREETINGS =
     {
-        "Greetings", "Command you spacecraft and efficiently utilize the remaining fuel to reach the destination planet."
+        "Greetings", "Greetings Captain!"
     };
 
     public static string[] OBJECTIVE =
