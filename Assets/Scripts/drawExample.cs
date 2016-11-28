@@ -39,7 +39,7 @@ public class drawExample : MonoBehaviour
     {
         resetScene();
         displayMatrix();
-        setContent(FrameworkCore.currentContent);
+        //setContent(FrameworkCore.currentContent);
     }
 
     void setContent(Content c)
@@ -173,6 +173,7 @@ public class drawExample : MonoBehaviour
         {
             Debug.Log("correct");
             textBoxManager.closeTransformPlane();
+            resetScene();
         }
     }
 
@@ -189,7 +190,7 @@ public class drawExample : MonoBehaviour
         CreateLineMaterial();
         // Apply the line material
         lineMaterial.SetPass(0);
-
+        setContent(FrameworkCore.currentContent);
         GL.PushMatrix();
         // Set transformation matrix for drawing to
         // match our transform
