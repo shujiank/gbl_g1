@@ -21,6 +21,8 @@ public class DialogueManagerLevel1 : MonoBehaviour {
             Level1Dialogue.MOVEMENT[1],
             Level1Dialogue.FUEL[1],
             Level1Dialogue.BACKTRACKING[1],
+            Level1Dialogue.BACKTRACKING_2[1],
+            Level1Dialogue.HINTS[1],
     };
         StartCoroutine(AnimateText());
     }

@@ -1,8 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-
-public static class Level1Dialogue
+﻿public static class Level1Dialogue
 {
 
     public static string[] BACKTRACKING_WARNING =
@@ -41,12 +37,22 @@ public static class Level1Dialogue
 
     public static string[] FUEL =
     {
-        "Fuel", "Each move consumes a specific fraction of the fuel. You have enough fuel to make at most 3 wrong moves."
+        "Fuel", "Each move consumes a specific fraction of the fuel. You have to reach the destination in the most efficient way possible. Backtracing using negative scalar multiples will recover the fuel as well."
     };
 
     public static string[] BACKTRACKING =
     {
-        "Backtracking", "You can multiply the vector with negative scalars to negate a previous move. Negative scalar multiplication is not required to reach the destination. It is a provision for you to correct a wrong decision and will be regaded as a indicator of confusion which will subsequently unlock a hint in the journal. Since you have only 3 extra moves to reach destination, you can earn upto 4 hints which successively build up to the final solution."
+        "Backtracking", "You can multiply the vector with negative scalars to negate a previous move. Since you have to reach a destination in the first quadrant using vectors with postive values of x and y components, you do not require to use negative scalar multiples to reach the destination."
+    };
+
+    public static string[] BACKTRACKING_2 =
+    {
+        "Backtracking#2", "Negative scalar multiple is a provision for you to go back to a previous location in case the you feel that you made an incorrect move."
+    };
+
+    public static string[] HINTS =
+    {
+        "Hints", "If you use negative scalar multiples for movement, you will receive intel (hints) from the home base. Each successive hint will build up to the ideal mathematical solution to the problem."
     };
 
     public static string[] HINT1 =
