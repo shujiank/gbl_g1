@@ -11,6 +11,8 @@ public class drawExample : MonoBehaviour
     public InputField m00, m01, m10, m11;
     public InputField stretch_fixed;
     public InputField stretch_changed;
+    public float x_length = 5.6f;
+    public float y_length = 10.0f;
     int current_transformation = 0; // 0:stretch, 1:reflection, 2:rotation, 3:shear, 4:advanced stretch
 
     Vector3[] v = new Vector3[4];
@@ -221,9 +223,9 @@ public class drawExample : MonoBehaviour
         GL.Begin(GL.LINES);
         GL.Color(new Color(0, 0, 0));
         GL.Vertex3(-1.6f, 0, 0);
-        GL.Vertex3(4, 0, 0);
+        GL.Vertex3(-1.6f + x_length, 0, 0);
         GL.Vertex3(0, -5, 0);
-        GL.Vertex3(0, 5, 0);
+        GL.Vertex3(0, -5 + y_length, 0);
         GL.End();
 
         GL.PushMatrix();
