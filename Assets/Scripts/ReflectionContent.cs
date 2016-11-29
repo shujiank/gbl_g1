@@ -9,16 +9,16 @@ public class ReflectionContent : Content
     "Lord of light: I have a feeling that it is supposed to be the mirror image of a vector, as the name suggests.",
     "Khal Drogo: I agree with that.",
     "Sith Lord: You are correct. Let us consider a scenario with a unit square matrix, having (x, y) coordinates as (1, 0) and (0, 1), positioned in front of a mirror placed facing the x-axis, what do you expect to see in the mirror?",
-    "Khal Drogo: I am thinking it will convert the vector [x \n y] to  [-x \n -y]?",
+    "Khal Drogo: I am thinking it will convert the vector [x,y] to  [-x,-y]?",
     "Sith Lord: Think about it! You should also consider the fact that the reflection is along the x-axis.",
-    "Lord of light: Oh! I think the vector would be converted to [x \n -y]. So the transformation matrix should be [1 0 \n 0 -1]",
-    "Sith Lord: Correct! Now what would happen if we applied transformation \n [0 1 \n 1 0] on the unit matrix?",
+    "Lord of light: Oh! I think the vector would be converted to [x,-y]. So the transformation matrix should be [(1,0),(0,-1)]",
+    "Sith Lord: Correct! Now what would happen if we applied transformation [(0,1),(1,0)] on the unit matrix?",
     "Khal Drogo: That should be a reflection along the line x = y. ",
     "Sith Lord: Well done!",
-    "White weirwood trees: Interesting! I'm noticing that these reflection transformations, like [1 0 \n 0 -1] and [0 1 \n 1 0], are equal to their own inverses.",
+    "White weirwood trees: Interesting! I'm noticing that these reflection transformations, like [(1,0)(0,-1)] and [(0,1)(1,0)], are equal to their own inverses.",
     "Sith Lord: Good observation! That is one major property of reflection - Every reflection is its own inverse.",
     "Archbishop Neo: Now, Vectoria, your next obstacle entails solving a similar problem.",
-    "Archbishop Neo: What transformation has to be applied on the unit matrix for reflection through the line y = -x? {open the puzzle} {solution: [0 -1\n -1 0] (reflectionY-X.png)"};
+    "Archbishop Neo: What transformation has to be applied on the unit matrix for reflection through the line y = -x?"};
     private static Sprite t1 = Resources.Load<Sprite>("Art/SithAvatar") as Sprite;
     private static Sprite t2 = Resources.Load<Sprite>("Art/KhalAvatar") as Sprite;
     private static Sprite t3 = Resources.Load<Sprite>("Art/wiertreeAvatar") as Sprite;

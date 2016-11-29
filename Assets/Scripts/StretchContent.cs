@@ -16,12 +16,12 @@ public class StretchContent : Content {
     "Sith Lord: Yes indeed the answer is No. As T(2u)=v+2u !=2T(u)",
     "Sith Lord: What are compression and expansion ? Give a real world example for the same.",
     "Khal Drogo: Consider a spring that is used in shock absorber in a car. The shock absorber goes from a phase of compression and expansion when we move on a rough road.",
-    "Sith Lord: Assume a spring to be a unit length square matrix having coordinate (1,0) and (0,1). Now if I apply stretch [1 0\n 0 2] what will happen to the shape of the matrix.",
+    "Sith Lord: Assume a spring to be a unit length square matrix having coordinate (1,0) and (0,1). Now if I apply stretch [(1,0),(0,2)] what will happen to the shape of the matrix.",
     "Lord of light: I think this will increase the breath of the unit matrix to 2 unit ",
     "Sith Lord: Good work.",
     "Archbishop Neo: Victoria, would you like to solve some similar puzzles?",
     "Victoria:  Yes, please !!!",
-    "Archbishop Neo: What will happen to unit matrix when I apply following transformation [1 0\n 0 -2], [2 0\n 0 1] and[-2 0\n 0 1]"
+    "Archbishop Neo: What will happen to unit matrix when I apply following transformation [(1,0),(0,-2)], [(2,0),(0,1)] and[(-2,0),(0, 1)]."
 };
     private static Sprite t1 = Resources.Load<Sprite>("Art/SithAvatar") as Sprite;
     private static Sprite t2 = Resources.Load<Sprite>("Art/KhalAvatar") as Sprite;
