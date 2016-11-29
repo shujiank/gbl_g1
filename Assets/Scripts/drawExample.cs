@@ -21,7 +21,7 @@ public class drawExample : MonoBehaviour
     public TextBoxManager textBoxManager;
 
     // mark the current level and current question number
-    public int level = 0;
+    public int level = 0; // -1: tutorial
     int question_number = 0;
     Content currentContent;
 
@@ -190,7 +190,10 @@ public class drawExample : MonoBehaviour
         CreateLineMaterial();
         // Apply the line material
         lineMaterial.SetPass(0);
-        setContent(FrameworkCore.currentContent);
+        if (level != -1)
+        {
+            setContent(FrameworkCore.currentContent);
+        }
         GL.PushMatrix();
         // Set transformation matrix for drawing to
         // match our transform
@@ -212,6 +215,7 @@ public class drawExample : MonoBehaviour
         answer_v[3] = v[3];
 
         //transform_stretch_advanced(0, 0);
+                
 
         for (int i = 0; i < 4; i++)
         {
@@ -219,7 +223,8 @@ public class drawExample : MonoBehaviour
             answer_v[i] = answer_mat.MultiplyPoint(answer_v[i]);
             //Debug.Log(v[i]); 
         }
-        
+
+      
         // Draw x, y axises
         GL.Begin(GL.LINES);
         GL.Color(new Color(0, 0, 0));
@@ -234,14 +239,18 @@ public class drawExample : MonoBehaviour
         m.SetTRS(translation, Quaternion.identity, new Vector3(0.5f, 0.5f, 0.5f));
 
         GL.MultMatrix(transform.localToWorldMatrix * m);
-        // Draw answer 
-        GL.Begin(GL.QUADS);
-        GL.Color(new Color(0.82f, 0.82f, 0.82f));
-        GL.Vertex(answer_v[0]);
-        GL.Vertex(answer_v[1]);
-        GL.Vertex(answer_v[2]);
-        GL.Vertex(answer_v[3]);
-        GL.End();
+        if (level != -1)
+        {
+            // Draw answer 
+            GL.Begin(GL.QUADS);
+            GL.Color(new Color(0.82f, 0.82f, 0.82f));
+            GL.Vertex(answer_v[0]);
+            GL.Vertex(answer_v[1]);
+            GL.Vertex(answer_v[2]);
+            GL.Vertex(answer_v[3]);
+            GL.End();
+        }
+        
 
         // Draw original object
         GL.Begin(GL.QUADS);
