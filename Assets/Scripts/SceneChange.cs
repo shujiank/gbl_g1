@@ -19,9 +19,13 @@ public class SceneChange : MonoBehaviour {
         SceneManager.LoadScene(2);
     }
 
-    public void gotoTutorial()
+    public void gotoLevel3()
     {
         SceneManager.LoadScene(3);
+    }
+    public void gotoTutorial()
+    {
+        SceneManager.LoadScene(4);
     }
 
 }

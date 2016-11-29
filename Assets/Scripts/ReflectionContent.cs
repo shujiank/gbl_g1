@@ -34,10 +34,10 @@ public class ReflectionContent : Content
     {
         name = "";
         description = "";
-        Answer[0, 0] = 0;
-        Answer[0, 1] = -1;
-        Answer[1, 0] = -1;
-        Answer[1, 1] = 0;
+        Answer[0, 0] = -1;
+        Answer[0, 1] = 0;
+        Answer[1, 0] = 0;
+        Answer[1, 1] = -1;
 
     }
 
