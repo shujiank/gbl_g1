@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
     public float height;
     public float speed;
     public GameObject pda;
-    public Transform third_person_camera;
     public GameObject v1_arrow_prefab;
     public GameObject v2_arrow_prefab;
     public GameObject gameWorld;
@@ -223,10 +222,7 @@ public class PlayerController : MonoBehaviour
             
             pdaManager.updateCurrentPosition(transform.position.x, transform.position.z);
             pdaManager.updateVectorEquation(v1_multiplier, v2_multiplier);
-            pdaManager.updateFuel(fuel_remaining);
-
-            third_person_camera.transform.position = transform.position + new Vector3(-1.0f, 6.5f, -1.5f);
-            
+            pdaManager.updateFuel(fuel_remaining);            
         }
     }
 }
