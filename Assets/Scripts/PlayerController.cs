@@ -42,6 +42,9 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 destination;
     private Vector3 newPosition;
+    System.Diagnostics.Stopwatch watch;
+    private int moveCount;
+    private int hintsUsed;
     bool moving;
     bool rotating;
     private Rigidbody rb;
@@ -52,7 +55,7 @@ public class PlayerController : MonoBehaviour
     private PDAManager pdaManager;
     private GameObject v1_arrow;
     private GameObject v2_arrow;
-    private GameCrontroller gameController;
+    private GameController gameController;
     private float fuel_remaining;
     private JournalManager journalManager;
     private DialogueManagerLevel1 dialogueManagerLevel1;
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour
         newPosition = transform.position + (scalar_multiple * vector_1);
         if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
         {
+            moveCount += 1;
             destination = newPosition;
             rotating = true;
             v1_multiplier += scalar_multiple;
@@ -92,6 +96,7 @@ public class PlayerController : MonoBehaviour
         newPosition = transform.position + (scalar_multiple * vector_2);
         if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
         {
+            moveCount += 1;
             destination = newPosition;
             rotating = true;
             v2_multiplier += scalar_multiple;
@@ -128,47 +133,59 @@ public class PlayerController : MonoBehaviour
 
     void checkForHints()
     {
-        if (transform.position == final_destination)
-        {
-            gameController.levelComplete();
-        }
-        if (fuel_remaining <= 0)
-        {
-            gameController.gameOver();
-        }
+
         if (backtrack_counter == hintLevels.hint_1_level)
         {
             journalManager.unlockHint(1);
             dialogueManagerLevel1.HintDisplay(1);
+            hintsUsed = 1;      
         }
         else if (backtrack_counter == hintLevels.hint_2_level)
         {
             journalManager.unlockHint(2);
             dialogueManagerLevel1.HintDisplay(2);
+            hintsUsed = 2;
         }
         else if (backtrack_counter == hintLevels.hint_3_level)
         {
             journalManager.unlockHint(3);
             dialogueManagerLevel1.HintDisplay(3);
+            hintsUsed = 3;
         }
         else if (backtrack_counter == hintLevels.hint_4_level)
         {
             journalManager.unlockHint(4);
             dialogueManagerLevel1.HintDisplay(4);
+            hintsUsed = 4;
         }
+    }
+
+    public Dictionary<string, float> getFinalStats()
+    {
+        Dictionary<string, float> finalStats = new Dictionary<string, float>();
+        watch.Stop();
+        finalStats["time taken"] = (watch.ElapsedMilliseconds / 60000); 
+        finalStats["number of moves"] = (float) moveCount;
+        finalStats["number of hints used"] = (float) hintsUsed;
+        finalStats["optimal move count"] = (float) (v1_solution + v2_solution);
+        return finalStats;
     }
 
     void Start()
     {
+        watch = System.Diagnostics.Stopwatch.StartNew();
+        hintsUsed = 0;
+        moveCount = 0;
         v1_multiplier = 0;
         v2_multiplier = 0;
         backtrack_counter = 0;
+        fuel_remaining = 100;
         rb = GetComponent<Rigidbody>();
         destination = transform.position;
         moving = false;
         rotating = false;
         pdaManager = pda.GetComponent<PDAManager>();
-        gameController = gameWorld.GetComponent<GameCrontroller>();
+        gameController = gameWorld.GetComponent<GameController>();
         journalManager = journal.GetComponent<JournalManager>();
         dialogueManagerLevel1 = DialogueWindow.GetComponent<DialogueManagerLevel1>();
         initializePDA();
@@ -217,7 +234,11 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = transform.forward * 0;
                 transform.position = destination;
                 updateVectorArrows();
-                fuel_remaining = ((v1_solution + v2_solution) - (v1_multiplier + v2_multiplier)) / (v1_solution + v2_solution) * 100;              
+                fuel_remaining = ((v1_solution + v2_solution) - (v1_multiplier + v2_multiplier)) / (v1_solution + v2_solution) * 100;
+                if (fuel_remaining <= 0)
+                {
+                    gameController.GameOver();
+                }           
             }
             
             pdaManager.updateCurrentPosition(transform.position.x, transform.position.z);

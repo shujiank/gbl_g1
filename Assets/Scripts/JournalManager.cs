@@ -76,21 +76,6 @@ public class JournalManager : MonoBehaviour{
         return entries[label];
     }
 
-    public void toggleDisplay()
-    {
-        Text buttonLabel = GameObject.Find("Journal Button").GetComponentInChildren<Text>();
-        if (gameObject.activeSelf)
-        {
-            gameObject.SetActive(false);
-            buttonLabel.text = "open journal";
-        }
-        else
-        {
-            gameObject.SetActive(true);
-            buttonLabel.text = "close journal";
-        }
-    }
-
     public void displayInformation(string entry)
     {
         information.text = entries[entry];

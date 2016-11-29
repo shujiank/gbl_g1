@@ -62,19 +62,4 @@ public class PDAManager : MonoBehaviour
     {
         pda_values_ui.equation_v1.text = (x).ToString() + " v1 + " + (y).ToString() + " v2";
     }
-
-    public void toggleDisplay()
-    {
-        Text buttonLabel = GameObject.Find("PDA Button").GetComponentInChildren<Text>();
-        if (gameObject.activeSelf)
-        {
-            gameObject.SetActive(false);
-            buttonLabel.text = "open pda";
-        }
-        else
-        {
-            gameObject.SetActive(true);
-            buttonLabel.text = "close pda";
-        }
-    }
 }
