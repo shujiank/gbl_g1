@@ -133,7 +133,7 @@ public class TextBoxManager : MonoBehaviour {
         img = FrameworkCore.currentContent.getQuestion();
         theImage.sprite = avatarSprites[currentLine];
         StartCoroutine(TextScroll(textLines[currentLine]));
-        endLine = textLines.Length - 1;
+        endLine = textLines.Length;
     }
 
     public void closeTransformPlane()

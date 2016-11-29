@@ -233,6 +233,7 @@ public class drawExample : MonoBehaviour
         GL.Vertex3(0, -5, 0);
         GL.Vertex3(0, -5 + y_length, 0);
         GL.End();
+        
 
         GL.PushMatrix();
 
@@ -254,7 +255,7 @@ public class drawExample : MonoBehaviour
 
         // Draw original object
         GL.Begin(GL.QUADS);
-        GL.Color(new Color(0, 0, 0));
+        GL.Color(new Color(1.0f, 0, 0, 0.7f));
         GL.Vertex(v[0]);
         GL.Vertex(v[1]);
         GL.Vertex(v[2]);
