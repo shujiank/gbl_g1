@@ -17,6 +17,18 @@ public class Dialog : MonoBehaviour {
         {
             curContent = GameInfo.ProjectionContent;
         }
+        if (this.gameObject.name == "NPC3")
+        {
+            curContent = GameInfo.ReflectionContent;
+        }
+        if (this.gameObject.name == "NPC4")
+        {
+            curContent = GameInfo.RotationContent;
+        }
+        if (this.gameObject.name == "NPC5")
+        {
+            curContent = GameInfo.StretchContent;
+        }
         FrameworkCore.setContent(curContent);
         sword.showBox();
     }

@@ -17,4 +17,7 @@ public static class GameInfo
     public static Content RotationContent = new RotationContent();
     public static Content ReflectionContent = new ReflectionContent();
     public static Content ProjectionContent = new ProjectContent();
+    public static Content StretchContent = new StretchContent();
+
+    public static int gameState = 0;
 }

@@ -11,7 +11,7 @@ public class TextBoxManager : MonoBehaviour {
     public GameObject textBox;
     public Text theText;
     public Image theImage;
-
+    public GameObject[] NPCs;
     public GameObject imageBox;
     public Sprite img;
     public TextAsset textFiles;
@@ -32,6 +32,9 @@ public class TextBoxManager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        for (int i = 1; i < 6; i++) {
+            NPCs[i].SetActive(false);
+        }
         textBox.SetActive(false);
         imageBox.SetActive(false);
         player = FindObjectOfType<PlayerController>();
@@ -130,16 +133,16 @@ public class TextBoxManager : MonoBehaviour {
         img = FrameworkCore.currentContent.getQuestion();
         theImage.sprite = avatarSprites[currentLine];
         StartCoroutine(TextScroll(textLines[currentLine]));
-        if (endLine == 0)
-        {
-            endLine = textLines.Length - 1;
-        }
+        endLine = textLines.Length - 1;
     }
 
     public void closeTransformPlane()
     {
         matrixButton.SetActive(false);
         transformationPlane.SetActive(false);
+        NPCs[GameInfo.gameState].SetActive(false);
+        GameInfo.gameState += 1;
+        NPCs[GameInfo.gameState].SetActive(true);
     }
 
     public void openTransformPlane()
