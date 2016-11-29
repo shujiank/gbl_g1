@@ -31,11 +31,11 @@ public class RotationContent : Content
     {
         name = "";
         description = "";
-        Answer[0, 0] = 1;
-        Answer[0, 1] = 1;
-        Answer[1, 0] = 0;
-        Answer[1, 1] = 1;
-
+        Answer[0, 0] = Mathf.Round(Mathf.Cos(45) * 10f) / 10f;
+        Answer[0, 1] = Mathf.Round(-Mathf.Sin(45) * 10f) / 10f;
+        Answer[1, 0] = Mathf.Round(Mathf.Sin(45) * 10f) / 10f;
+        Answer[1, 1] = Mathf.Round(Mathf.Cos(45) * 10f) / 10f;
+        Debug.Log(Answer);
     }
 
     public override string[] getContent()
