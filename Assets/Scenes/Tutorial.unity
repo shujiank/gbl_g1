@@ -1965,7 +1965,7 @@ Transform:
   m_GameObject: {fileID: 865354273}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.98, z: -1.15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.199681, y: 1, z: 0.99479926}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2595,8 +2595,10 @@ MonoBehaviour:
   m11: {fileID: 1685891873}
   stretch_fixed: {fileID: 415025068}
   stretch_changed: {fileID: 437910523}
-  x_length: 7
-  y_length: 10
+  x_left: -4
+  x_right: 4
+  y_up: 4
+  y_down: -4
   textBoxManager: {fileID: 0}
   level: -1
 --- !u!4 &1373406296
@@ -2606,7 +2608,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1373406294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.88, y: 0.57, z: -3.84}
+  m_LocalPosition: {x: 0.09, y: 0.48, z: -3.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

@@ -11,8 +11,10 @@ public class drawExample : MonoBehaviour
     public InputField m00, m01, m10, m11;
     public InputField stretch_fixed;
     public InputField stretch_changed;
-    public float x_length = 5.6f;
-    public float y_length = 10.0f;
+    public float x_left = -5;
+    public float x_right = 10;
+    public float y_up = 10.0f;
+    public float y_down = -10.0f;
     int current_transformation = 0; // 0:stretch, 1:reflection, 2:rotation, 3:shear, 4:advanced stretch
 
     Vector3[] v = new Vector3[4];
@@ -133,6 +135,10 @@ public class drawExample : MonoBehaviour
     {
         x = Mathf.Round(x * 10f) / 10f;
         y = Mathf.Round(y * 10f) / 10f;
+        if (x > 8) x = 8;
+        if (x < -8) x = -8;
+        if (y > 7.5) y = 7.5f;
+        if (y < -5.8) y = -5.8f;
         switch (current_transformation)
         {
             case 0:
@@ -217,21 +223,30 @@ public class drawExample : MonoBehaviour
         //transform_stretch_advanced(0, 0);
                 
 
-        for (int i = 0; i < 4; i++)
+         for (int i = 0; i < 4; i++)
         {
             v[i] = (glob_mat * temp_mat).MultiplyPoint(v[i]);
             answer_v[i] = answer_mat.MultiplyPoint(answer_v[i]);
-            //Debug.Log(v[i]); 
+            //Debug.Log(v[i]);
+            if (level != -1)
+            {
+                if (v[i].x > 4.5f) v[i].x = 4.5f;
+                if (v[i].x < -4.5f) v[i].x = -4.5f;
+                if (v[i].y > 4.0f) v[i].x = 4.0f;
+                if (v[i].y < -3f) v[i].x = -3.5f;
+            } 
+           
+
         }
 
-      
+
         // Draw x, y axises
         GL.Begin(GL.LINES);
         GL.Color(new Color(0, 0, 0));
-        GL.Vertex3(-1.6f, 0, 0);
-        GL.Vertex3(-1.6f + x_length, 0, 0);
-        GL.Vertex3(0, -5, 0);
-        GL.Vertex3(0, -5 + y_length, 0);
+        GL.Vertex3(x_left, 0, 0);
+        GL.Vertex3(x_right, 0, 0);
+        GL.Vertex3(0, y_down, 0);
+        GL.Vertex3(0, y_up, 0);
         GL.End();
         
 
