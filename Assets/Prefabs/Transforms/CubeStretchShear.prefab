@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012565540032}
   - 54: {fileID: 54000012978045034}
-  - 114: {fileID: 114000012572181724}
   - 65: {fileID: 65000010677188596}
   m_Layer: 0
   m_Name: CubeStretchShear
@@ -196,23 +195,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
---- !u!114 &114000012572181724
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011521245304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3daf20555a2a4a419a0f398fd56e089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boundary:
-    xMin: -7.5
-    xMax: 16
-    zMin: -4.31
-    zMax: 9.5
-  speed: 1
 --- !u!137 &137000011768652536
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

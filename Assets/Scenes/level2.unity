@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.03155278, g: 0.024648666, b: 0.011011261, a: 1}
+  m_IndirectSpecularColor: {r: 0.031740606, g: 0.024723992, b: 0.011185433, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2467,7 +2467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &268757902
 Transform:
   m_ObjectHideFlags: 0
@@ -5730,6 +5730,14 @@ MonoBehaviour:
     zMin: 0.4
     zMax: 9.5
   speed: 1
+  modelArray:
+  - {fileID: 1000012556423206, guid: bbb6399d66a2966408814d7d7dd8234e, type: 2}
+  - {fileID: 1000010809368996, guid: abedad4c7c405344ca6512ba225f9bba, type: 2}
+  - {fileID: 1000013765836754, guid: 54c42a7dbfa6eee4d99b72d312ba6909, type: 2}
+  - {fileID: 1000013647333148, guid: 2b8563726fa5b0e4c98daa04882e10ed, type: 2}
+  - {fileID: 1000012565018884, guid: 466e6ee3f861fb44997cefd50075ef2c, type: 2}
+  - {fileID: 1000013442150922, guid: 72629fa6512695a4f89f093d6821053f, type: 2}
+  startModel: {fileID: 1000012556423206, guid: bbb6399d66a2966408814d7d7dd8234e, type: 2}
 --- !u!54 &646563791
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5774,8 +5782,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.3813884, y: 1, z: 4.028878}
+  m_Center: {x: 0.08255561, y: 0, z: -0.32106733}
 --- !u!1 &653818896
 GameObject:
   m_ObjectHideFlags: 0
@@ -9793,7 +9801,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 981711768}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0dc55c6579779804a9babaf0a7b03207, type: 3}
   m_Name: 

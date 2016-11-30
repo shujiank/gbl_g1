@@ -54,7 +54,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012045414950}
   - 54: {fileID: 54000013429721188}
-  - 114: {fileID: 114000012052273850}
   - 65: {fileID: 65000010176889544}
   m_Layer: 0
   m_Name: CubeReflectStretch
@@ -197,23 +196,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
---- !u!114 &114000012052273850
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012945468710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3daf20555a2a4a419a0f398fd56e089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boundary:
-    xMin: -7.5
-    xMax: 16
-    zMin: -4.31
-    zMax: 9.5
-  speed: 1
 --- !u!137 &137000010958532088
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
