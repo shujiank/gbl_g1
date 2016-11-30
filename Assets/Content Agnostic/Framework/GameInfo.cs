@@ -18,6 +18,9 @@ public static class GameInfo
     public static Content ReflectionContent = new ReflectionContent();
     public static Content ProjectionContent = new ProjectContent();
     public static Content StretchContent = new StretchContent();
+    public static Content R_SContent = new R_SContent();
+    public static Content StretchOnLineContent = new StretchOnLineContent();
+    public static Content Stretch_shearContent = new Streth_ShearContent();
 
     public static int gameState = 0;
 }

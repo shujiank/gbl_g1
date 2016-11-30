@@ -5,4 +5,4 @@ Lord of light: The first matrix will enlarge the matrix in x axis and the second
 White weirwood trees: I also thinks that if we change the order of these transformation matrix the result will remain the same. 
 Khal Drogo: I think this transformation make the matrix look like this{ShearStreach.png}
 Sith Lord: Impressive works!
-Archbishop Neo: So Vectoria, What transformation has to be applied on the unit matrix to make it twice as large in both positive y and x axis and have a shear of 2 unit in x direction a unit ?{open the puzzle} {solution: [2 2\n 0 2] (SolutionOfStrechAndShear.png)}k
+Archbishop Neo: So Vectoria, What transformation has to be applied on the unit matrix to make it twice as large in both positive y and x axis and have a shear of 2 unit in x direction a unit ?{open the puzzle} {solution: [2 2\n 0 2] (SolutionOfStrechAndShear.png)}
