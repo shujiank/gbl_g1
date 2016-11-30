@@ -21,6 +21,17 @@ public class HintLevels
     public int hint_4_level;
 }
 
+public class UndoData
+{
+    public String vectorNumber;
+    public float multiplier;
+    public UndoData(String vectorNum, float multiply)
+    {
+        vectorNumber = vectorNum;
+        multiplier = multiply;
+    }
+}
+
 public class PlayerController : MonoBehaviour
 {
     public Boundary boundary;
@@ -37,6 +48,7 @@ public class PlayerController : MonoBehaviour
     public GameObject gameWorld;
     public GameObject journal;
     public GameObject DialogueWindow;
+    public GameObject undoButton;
     public float v1_solution;
     public float v2_solution;
 
@@ -59,8 +71,9 @@ public class PlayerController : MonoBehaviour
     private float fuel_remaining;
     private JournalManager journalManager;
     private DialogueManagerLevel1 dialogueManagerLevel1;
-
-
+    private Dictionary<Vector3, UndoData> movementDict;
+    private List<Vector3> movementList;
+    private UndoData undo;
 
     void initializePDA()
     {
@@ -80,13 +93,10 @@ public class PlayerController : MonoBehaviour
         {
             moveCount += 1;
             destination = newPosition;
+            movementList.Add(transform.position);
             rotating = true;
             v1_multiplier += scalar_multiple;
-            if (scalar_multiple < 0)
-            {
-                backtrack_counter += 1;
-                checkForHints();
-            }
+            movementDict.Add(transform.position, new UndoData("V1", scalar_multiple));
         }
     }
 
@@ -98,14 +108,28 @@ public class PlayerController : MonoBehaviour
         {
             moveCount += 1;
             destination = newPosition;
+            movementList.Add(transform.position);
             rotating = true;
             v2_multiplier += scalar_multiple;
-            if (scalar_multiple < 0)
-            {
-                backtrack_counter += 1;
-                checkForHints();
-            }
+            movementDict.Add(transform.position, new UndoData("V2", scalar_multiple));
         }
+    }
+
+    public void UndoLastAction()
+    {
+        destination = movementList[movementList.Count - 1];
+        undo = movementDict[destination];
+
+        moveCount -= 1;
+        rotating = true;
+        backtrack_counter += 1;
+        checkForHints();
+
+        if (undo.vectorNumber == "V1")  v1_multiplier -= undo.multiplier;
+        if (undo.vectorNumber == "V2")  v2_multiplier -= undo.multiplier;
+
+        movementList.Remove(destination);
+        movementDict.Remove(destination);
     }
 
     void initializeVectorArrows()
@@ -181,6 +205,9 @@ public class PlayerController : MonoBehaviour
         backtrack_counter = 0;
         fuel_remaining = 100;
         rb = GetComponent<Rigidbody>();
+        movementList = new List<Vector3>();
+        movementDict = new Dictionary<Vector3, UndoData>();
+        if (movementList.Count == 0) undoButton.SetActive(false);
         destination = transform.position;
         moving = false;
         rotating = false;
@@ -198,6 +225,14 @@ public class PlayerController : MonoBehaviour
             && destination.z > 0 && destination.x < 10.0 && destination.z < 10.0)
         {
             rotating = true;
+        }
+        if (movementList.Count > 0)
+        {
+            undoButton.SetActive(true);
+        }
+        else
+        {
+            undoButton.SetActive(false);
         }
     }
 
