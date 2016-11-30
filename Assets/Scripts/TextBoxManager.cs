@@ -23,7 +23,7 @@ public class TextBoxManager : MonoBehaviour {
 
     public int questionLine;
     public Sprite mySecondImage;
-    public PlayerController player;
+    public PlayerMovementLevel2 player;
 
     private bool isTyping = false;
     private bool cancelTyping = false;
@@ -37,7 +37,7 @@ public class TextBoxManager : MonoBehaviour {
         }
         textBox.SetActive(false);
         imageBox.SetActive(false);
-        player = FindObjectOfType<PlayerController>();
+        player = FindObjectOfType<PlayerMovementLevel2>();
         //avatarSprites = FrameworkCore.currentContent.getPortrait();
         /*
         textFiles = (TextAsset)Resources.Load("dialog.txt", typeof(TextAsset));
@@ -62,6 +62,7 @@ public class TextBoxManager : MonoBehaviour {
                     textBox.SetActive(false);
                     imageBox.SetActive(false);
                     currentLine = 0;
+                    player.canMove = true;
 
                     // show transformation
                     openTransformPlane();
@@ -133,6 +134,7 @@ public class TextBoxManager : MonoBehaviour {
         img = FrameworkCore.currentContent.getQuestion();
         theImage.sprite = avatarSprites[currentLine];
         StartCoroutine(TextScroll(textLines[currentLine]));
+        player.canMove = false;
         endLine = textLines.Length;
     }
 

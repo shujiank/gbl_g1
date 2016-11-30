@@ -926,7 +926,7 @@ MonoBehaviour:
   endLine: 0
   questionLine: 3
   mySecondImage: {fileID: 21300000, guid: e6c90d93f7d016a4aa3364b37a8cb5e3, type: 3}
-  player: {fileID: 0}
+  player: {fileID: 646563790}
   typeSpeed: 0.01
 --- !u!4 &80128140
 Transform:
@@ -5737,7 +5737,7 @@ MonoBehaviour:
   - {fileID: 1000013647333148, guid: 2b8563726fa5b0e4c98daa04882e10ed, type: 2}
   - {fileID: 1000012565018884, guid: 466e6ee3f861fb44997cefd50075ef2c, type: 2}
   - {fileID: 1000013442150922, guid: 72629fa6512695a4f89f093d6821053f, type: 2}
-  startModel: {fileID: 1000012556423206, guid: bbb6399d66a2966408814d7d7dd8234e, type: 2}
+  canMove: 0
 --- !u!54 &646563791
 Rigidbody:
   m_ObjectHideFlags: 0
