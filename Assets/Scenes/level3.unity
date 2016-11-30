@@ -5792,7 +5792,7 @@ MonoBehaviour:
   gameWorld: {fileID: 1157808002}
   journal: {fileID: 400093689}
   DialogueWindow: {fileID: 400093688}
-  undoButton: {fileID: 0}
+  undoButton: {fileID: 1343498043}
   v1_solution: 2
   v2_solution: 2
 --- !u!54 &646563791
@@ -12947,6 +12947,11 @@ Transform:
   - {fileID: 2094696868}
   m_Father: {fileID: 1734183695}
   m_RootOrder: 0
+--- !u!1 &1343498043 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010160185238, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &1343536092
 GameObject:
   m_ObjectHideFlags: 0
