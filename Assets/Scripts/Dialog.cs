@@ -29,6 +29,18 @@ public class Dialog : MonoBehaviour {
         {
             curContent = GameInfo.StretchContent;
         }
+        if (this.gameObject.name == "NPC31")
+        {
+            curContent = GameInfo.R_SContent;
+        }
+        if (this.gameObject.name == "NPC32")
+        {
+            curContent = GameInfo.Stretch_shearContent;
+        }
+        if (this.gameObject.name == "NPC33")
+        {
+            curContent = GameInfo.StretchOnLineContent;
+        }
         FrameworkCore.setContent(curContent);
         sword.showBox();
     }

@@ -150,6 +150,8 @@ public class TextBoxManager : MonoBehaviour
         NPCs[GameInfo.gameState].SetActive(false);
         GameInfo.gameState += 1;
         NPCs[GameInfo.gameState].SetActive(true);
+        return;
+
     }
 
     public void openTransformPlane()
