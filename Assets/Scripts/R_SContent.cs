@@ -22,7 +22,7 @@ public class R_SContent : Content {
     private static Sprite[] Portrait = {
         t1,t5,t1,t3,t1,t2,t5,t1,t6
     };
-    private static Sprite Question = Resources.Load<Sprite>("Art/Narrative Art/ReflectionStretchComb") as Sprite;
+    private static Sprite Question = Resources.Load<Sprite>("Art/Narrative Art/ReflectStretchComb") as Sprite;
     private static Matrix4x4 Answer = Matrix4x4.identity;
     public R_SContent()
     {
