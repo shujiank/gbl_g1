@@ -2,7 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class TextBoxManager : MonoBehaviour {
+public class TextBoxManager : MonoBehaviour
+{
 
     // show transformation after dialog ends
     public GameObject matrixButton;
@@ -19,7 +20,7 @@ public class TextBoxManager : MonoBehaviour {
     public Sprite[] avatarSprites;
 
     public int currentLine;
-    public int endLine;
+    private int endLine;
 
     public int questionLine;
     public Sprite mySecondImage;
@@ -27,12 +28,14 @@ public class TextBoxManager : MonoBehaviour {
 
     private bool isTyping = false;
     private bool cancelTyping = false;
+    private bool allowed;
     public float typeSpeed;
     Image myImageComponent;
     // Use this for initialization
     void Start()
     {
-        for (int i = 1; i < 6; i++) {
+        for (int i = 1; i < 6; i++)
+        {
             NPCs[i].SetActive(false);
         }
         textBox.SetActive(false);
@@ -50,60 +53,57 @@ public class TextBoxManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //dtw.typeWriter(textLines[currentLine]);
-        //theText.text = textLines[currentLine];
-        if (Input.GetKeyDown(KeyCode.M)) {
-
-            if (!isTyping)
-            {
-                currentLine += 1;
-                if (currentLine == endLine)
-                {
-                    textBox.SetActive(false);
-                    imageBox.SetActive(false);
-                    currentLine = 0;
-                    player.canMove = true;
-
-                    // show transformation
-                    openTransformPlane();
-                }
-                else {
-                    theImage.sprite = avatarSprites[currentLine];
-                    StartCoroutine(TextScroll(textLines[currentLine]));
-                }
-            }
-            else if (isTyping && !cancelTyping) {
-                cancelTyping = true;
-            }
-            if (currentLine == questionLine)
-            {
-                imageBox.SetActive(true);
-                GameObject.Find("ImageX").GetComponent<Image>().sprite = img;
-            }
-            /*if (currentLine == endLine - 1)
-            {
-                imageBox.SetActive(true);
-                GameObject.Find("ImageX").GetComponent<Image>().sprite = mySecondImage;
-            }*/
-        }
-        if (Input.GetKeyDown(KeyCode.N))
+        if (allowed)
         {
-            if (!isTyping)
+            if (Input.GetKeyDown(KeyCode.M))
             {
-                currentLine--;
-                if (currentLine < 0)
+
+                if (!isTyping)
                 {
-                    currentLine = 0;
+                    currentLine += 1;
+                    if (currentLine == endLine)
+                    {
+                        imageBox.SetActive(false);
+                        currentLine = 0;
+
+                        // show transformation
+                        openTransformPlane();
+                    }
+                    else
+                    {
+                        theImage.sprite = avatarSprites[currentLine];
+                        StartCoroutine(TextScroll(textLines[currentLine]));
+                    }
                 }
-                else
+                else if (isTyping && !cancelTyping)
                 {
-                    theImage.sprite = avatarSprites[currentLine];
-                    StartCoroutine(TextScroll(textLines[currentLine]));
+                    cancelTyping = true;
+                }
+                if (currentLine == questionLine)
+                {
+                    imageBox.SetActive(true);
+                    GameObject.Find("ImageX").GetComponent<Image>().sprite = img;
                 }
             }
-            else if (isTyping && !cancelTyping)
+            if (Input.GetKeyDown(KeyCode.N))
             {
-                cancelTyping = true;
+                if (!isTyping)
+                {
+                    currentLine--;
+                    if (currentLine < 0)
+                    {
+                        currentLine = 0;
+                    }
+                    else
+                    {
+                        theImage.sprite = avatarSprites[currentLine];
+                        StartCoroutine(TextScroll(textLines[currentLine]));
+                    }
+                }
+                else if (isTyping && !cancelTyping)
+                {
+                    cancelTyping = true;
+                }
             }
         }
     }
@@ -115,7 +115,8 @@ public class TextBoxManager : MonoBehaviour {
         theText.text = "";
         isTyping = true;
         cancelTyping = false;
-        while (isTyping && !cancelTyping && (letter < s.Length - 1)) {
+        while (isTyping && !cancelTyping && (letter < s.Length - 1))
+        {
             theText.text += s[letter];
             letter += 1;
             yield return new WaitForSeconds(typeSpeed);
@@ -136,11 +137,15 @@ public class TextBoxManager : MonoBehaviour {
         StartCoroutine(TextScroll(textLines[currentLine]));
         player.canMove = false;
         endLine = textLines.Length;
+        allowed = true;
     }
 
     public void closeTransformPlane()
     {
+        player.canMove = true;
+        textBox.SetActive(false);
         matrixButton.SetActive(false);
+        currentLine = 0;
         transformationPlane.SetActive(false);
         NPCs[GameInfo.gameState].SetActive(false);
         GameInfo.gameState += 1;
@@ -149,6 +154,8 @@ public class TextBoxManager : MonoBehaviour {
 
     public void openTransformPlane()
     {
+        allowed = false;
+        theText.text = textLines[textLines.Length - 1];
         matrixButton.SetActive(true);
         transformationPlane.SetActive(true);
     }

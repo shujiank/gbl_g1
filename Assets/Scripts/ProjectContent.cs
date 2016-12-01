@@ -9,7 +9,7 @@ public class ProjectContent : Content
     "Khal Drogo: Basically, it will be a projection from 2-space onto the line, that forgets the y-coordinate.",
     "Sith Lord: Good job. This is called a linear projection. Now, if we have a unit matrix that is being projected to the x axis, what do you think will the transformation matrix be like?",
     "White weirwood trees: I believe each vector in the matrix should be projected on the x-axis for the mapping to work.",
-    "Khal Drogo: That would make the projection [（1,0), (0,0)]",
+    "Khal Drogo: That would make the projection [(1,0), (0,0)]",
     "Sith Lord: You people are impressive!",
     "Archbishop Neo: So Vectoria, What transformation has to be applied on the unit matrix for projection on y-axis?"};
     private static Sprite t1 = Resources.Load<Sprite>("Art/SithAvatar") as Sprite;
