@@ -66,10 +66,10 @@ public class PlayerControllerL3 : MonoBehaviour
     private PDAManager pdaManager;
     public GameObject v1_arrow;
     public GameObject v2_arrow;
-    private GameController gameController;
+    private GameControllerL3 gameController;
     private float fuel_remaining;
     private JournalManager journalManager;
-    private DialogueManagerLevel1 dialogueManagerLevel1;
+    //private DialogueManagerLevel1 dialogueManagerLevel1;
     private Dictionary<Vector3, UndoDataL3> movementDict;
     private List<Vector3> movementList;
     private UndoDataL3 undo;
@@ -102,7 +102,7 @@ public class PlayerControllerL3 : MonoBehaviour
             }
             else
             {
-                dialogueManagerLevel1.BoundaryWarning();
+                //dialogueManagerLevel1.BoundaryWarning();
             }
         }
     }
@@ -124,7 +124,7 @@ public class PlayerControllerL3 : MonoBehaviour
             }
             else
             {
-                dialogueManagerLevel1.BoundaryWarning();
+                //dialogueManagerLevel1.BoundaryWarning();
             }
         }
     }
@@ -171,26 +171,7 @@ public class PlayerControllerL3 : MonoBehaviour
     void checkForHints()
     {
 
-        if (backtrack_counter == hintLevels.hint_1_level)
-        {
-            journalManager.unlockHint(1);
-            dialogueManagerLevel1.HintDisplay(1);
-        }
-        else if (backtrack_counter == hintLevels.hint_2_level)
-        {
-            journalManager.unlockHint(2);
-            dialogueManagerLevel1.HintDisplay(2);
-        }
-        else if (backtrack_counter == hintLevels.hint_3_level)
-        {
-            journalManager.unlockHint(3);
-            dialogueManagerLevel1.HintDisplay(3);
-        }
-        else if (backtrack_counter == hintLevels.hint_4_level)
-        {
-            journalManager.unlockHint(4);
-            dialogueManagerLevel1.HintDisplay(4);
-        }
+       
     }
 
     public Dictionary<string, float> getFinalStats()
@@ -220,9 +201,9 @@ public class PlayerControllerL3 : MonoBehaviour
         moving = false;
         rotating = false;
         pdaManager = pda.GetComponent<PDAManager>();
-        gameController = gameWorld.GetComponent<GameController>();
+        gameController = gameWorld.GetComponent<GameControllerL3>();
         journalManager = journal.GetComponent<JournalManager>();
-        dialogueManagerLevel1 = DialogueWindow.GetComponent<DialogueManagerLevel1>();
+        //dialogueManagerLevel1 = DialogueWindow.GetComponent<DialogueManagerLevel1>();
         initializePDA();
         initializeVectorArrows();
     }
