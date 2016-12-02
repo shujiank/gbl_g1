@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.03155278, g: 0.024648666, b: 0.011011261, a: 1}
+  m_IndirectSpecularColor: {r: 0.031740606, g: 0.024723992, b: 0.011185433, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3524,6 +3524,7 @@ GameObject:
   - 124: {fileID: 520566630}
   - 81: {fileID: 520566629}
   - 114: {fileID: 520566628}
+  - 82: {fileID: 520566634}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3621,6 +3622,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!82 &520566634
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 520566627}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dbf4698b4012c124daf14675dcbb8ae8, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.25
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &521721690
 GameObject:
   m_ObjectHideFlags: 0
@@ -4597,6 +4672,7 @@ MonoBehaviour:
   undoButton: {fileID: 1343498043}
   v1_solution: 2
   v2_solution: 2
+  scalar_multiple_textbox: {fileID: 0}
   v1_arrow: {fileID: 1812182430}
   v2_arrow: {fileID: 651876088}
   canMove: 0
@@ -4663,6 +4739,7 @@ MonoBehaviour:
     zMin: 0
     zMax: 0
   speed: 0
+  playerTransform: {fileID: 0}
   modelArray: []
   canMove: 1
 --- !u!1 &651876088 stripped
@@ -8851,6 +8928,8 @@ MonoBehaviour:
     pdaButton: {fileID: 0}
     dialogueBox: {fileID: 0}
     missionSuccessfulScreen: {fileID: 0}
+    undoButton: {fileID: 0}
+    inputDevice: {fileID: 0}
   player: {fileID: 646563788}
   statsText: {fileID: 1162600536}
   destinationPrefab: {fileID: 1000014189300058, guid: 41a834e19e581bc4281421abeaf510ac,
