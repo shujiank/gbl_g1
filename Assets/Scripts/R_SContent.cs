@@ -31,7 +31,7 @@ public class R_SContent : Content {
         Answer[0, 0] = 3;
         Answer[0, 1] = 0;
         Answer[1, 0] = 0;
-        Answer[1, 1] = 1;
+        Answer[1, 1] = -1;
 
     }
 

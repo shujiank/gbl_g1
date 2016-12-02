@@ -29,9 +29,8 @@ public class StretchOnLineContent : Content{
         description = "";
         Answer[0, 0] = 1.5f;
         Answer[0, 1] = -0.5f;
-        Answer[1, 0] = -0.33f;
-        Answer[1, 1] = -1.5f;
-
+        Answer[1, 0] = -0.3f;
+        Answer[1, 1] = 1.5f;
     }
 
     public override string[] getContent()
