@@ -32,6 +32,7 @@ public class DialogueManagerLevel1 : MonoBehaviour {
 
     public void HintDisplay(int level)
     {
+        gameController.console.inputDevice.SetActive(false);
         gameObject.SetActive(true);
         if (level == 1)
         {
@@ -72,6 +73,18 @@ public class DialogueManagerLevel1 : MonoBehaviour {
         
     }
 
+    public void BoundaryWarning()
+    {
+        gameController.console.inputDevice.SetActive(false);
+        gameObject.SetActive(true);
+
+        dialogues = new string[]
+        {
+            Level1Dialogue.BOUNDARY_WARNING[1]
+        };
+        StartCoroutine(AnimateText());
+    }
+
 
     public void SkipToNextText()
     {
@@ -101,7 +114,7 @@ public class DialogueManagerLevel1 : MonoBehaviour {
         for (int i = 0; i < (dialogues[currentlyDisplayingText].Length + 1); i++)
         {
             textBox.text = dialogues[currentlyDisplayingText].Substring(0, i);
-            yield return new WaitForSeconds(.02f);
+            yield return new WaitForSeconds(.015f);
         }
     }
 }

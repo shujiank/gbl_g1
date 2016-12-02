@@ -99,6 +99,10 @@ public class PlayerController : MonoBehaviour
             v1_multiplier += scalar_multiple;
             movementDict.Add(transform.position, new UndoData("V1", scalar_multiple));
         }
+        else
+        {
+            dialogueManagerLevel1.BoundaryWarning();
+        }
     }
 
     public void PlayerMovementV2()
@@ -113,6 +117,10 @@ public class PlayerController : MonoBehaviour
             rotating = true;
             v2_multiplier += scalar_multiple;
             movementDict.Add(transform.position, new UndoData("V2", scalar_multiple));
+        }
+        else
+        {
+            dialogueManagerLevel1.BoundaryWarning();
         }
     }
 

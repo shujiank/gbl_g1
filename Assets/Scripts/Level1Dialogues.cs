@@ -70,4 +70,8 @@
         "Solution", "Suppose destination co-ordinates are (c, d), vector_1 = (x, y) and vector_2 = (u, v). Let the number of times we travel in the direction of vector_1 be 'a' and 'b' for vector_2.\nThis gives us 2 linear equations. The sum of x component of both vectors should be equal to x co-ordinate of the destination since we start at (0, 0). Same goes for the y components. This gives us the equation: -\n\tax + bu = c\n\tay + bv = d"
     };
 
+    public static string[] BOUNDARY_WARNING =
+    {
+        "Boundary Warning", "Captain, we cannot go there because it is beyond the boundaries of this dimension!!!"
+    };
 }
