@@ -628,6 +628,11 @@ Transform:
   - {fileID: 1777205877}
   m_Father: {fileID: 316115183}
   m_RootOrder: 0
+--- !u!1 &78151840 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013462188756, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &79988830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,6 +3075,11 @@ Transform:
   - {fileID: 1515798035}
   m_Father: {fileID: 1340249281}
   m_RootOrder: 4
+--- !u!1 &477455544 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013718572798, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &482020366
 GameObject:
   m_ObjectHideFlags: 0
@@ -6386,6 +6396,11 @@ Transform:
   - {fileID: 1149747071}
   m_Father: {fileID: 1212422073}
   m_RootOrder: 0
+--- !u!1 &841944587 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010235769370, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &845491543
 GameObject:
   m_ObjectHideFlags: 0
@@ -8829,13 +8844,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   console:
-    gameOverScreen: {fileID: 0}
-    journal: {fileID: 0}
-    PDA: {fileID: 0}
-    journalButton: {fileID: 0}
-    pdaButton: {fileID: 0}
-    dialogueBox: {fileID: 0}
-    missionSuccessfulScreen: {fileID: 0}
+    gameOverScreen: {fileID: 78151840}
+    journal: {fileID: 400093689}
+    PDA: {fileID: 400093690}
+    journalButton: {fileID: 841944587}
+    pdaButton: {fileID: 477455544}
+    dialogueBox: {fileID: 400093688}
+    missionSuccessfulScreen: {fileID: 1735547354}
   player: {fileID: 646563788}
   statsText: {fileID: 735971725}
   destinationPrefab: {fileID: 1000014189300058, guid: 41a834e19e581bc4281421abeaf510ac,
@@ -12672,6 +12687,11 @@ Transform:
   - {fileID: 1340249281}
   m_Father: {fileID: 148937830}
   m_RootOrder: 0
+--- !u!1 &1735547354 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012392615544, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &1742291720
 GameObject:
   m_ObjectHideFlags: 0
