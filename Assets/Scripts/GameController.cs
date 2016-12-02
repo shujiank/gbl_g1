@@ -24,11 +24,13 @@ public class GameController : MonoBehaviour {
     public GameObject destinationPrefab;
 
     private PlayerController playerController;
+    private PlayerEmotion emotion;
 
     void Start() {
         console.missionSuccessfulScreen.SetActive(false);
         console.gameOverScreen.SetActive(false);
         playerController = player.GetComponent<PlayerController>();
+        emotion = player.GetComponent<PlayerEmotion>();
         Vector3 spawnLocation = new Vector3(playerController.final_destination.x + 0.5f, 0.4f, playerController.final_destination.z + 0.5f);
         Instantiate(destinationPrefab, spawnLocation, Quaternion.identity);
 	}
@@ -79,12 +81,14 @@ public class GameController : MonoBehaviour {
     public void GameOver()
     {
         disableConsoleElements();
+        emotion.saveToCsv();
         console.gameOverScreen.SetActive(true);
     }
 
     public void MissionSuccessful()
     {
         disableConsoleElements();
+        emotion.saveToCsv();
         Dictionary<string, float> finalStats = playerController.getFinalStats();
         float totalMoves = finalStats["number of moves"];
         float totalTime = finalStats["time taken"];
