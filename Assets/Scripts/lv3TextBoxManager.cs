@@ -2,8 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class TextBoxManager : MonoBehaviour
-{
+public class lv3TextBoxManager : MonoBehaviour {
+
 
     // show transformation after dialog ends
     public GameObject matrixButton;
@@ -24,7 +24,7 @@ public class TextBoxManager : MonoBehaviour
 
     public int questionLine;
     public Sprite mySecondImage;
-    public PlayerMovementLevel2 player;
+    public PlayerController player;
 
     private bool isTyping = false;
     private bool cancelTyping = false;
@@ -40,7 +40,7 @@ public class TextBoxManager : MonoBehaviour
         }
         textBox.SetActive(false);
         imageBox.SetActive(false);
-        player = FindObjectOfType<PlayerMovementLevel2>();
+        player = FindObjectOfType<PlayerController>();
         //avatarSprites = FrameworkCore.currentContent.getPortrait();
         /*
         textFiles = (TextAsset)Resources.Load("dialog.txt", typeof(TextAsset));
@@ -129,21 +129,22 @@ public class TextBoxManager : MonoBehaviour
 
     public void showBox()
     {
-        player = FindObjectOfType<PlayerMovementLevel2>();
         textBox.SetActive(true);
         textLines = FrameworkCore.currentContent.getContent();
         avatarSprites = FrameworkCore.currentContent.getPortrait();
         img = FrameworkCore.currentContent.getQuestion();
         theImage.sprite = avatarSprites[currentLine];
         StartCoroutine(TextScroll(textLines[currentLine]));
-        player.canMove = false;
+        player.v1_arrow.SetActive(false);
+        player.v2_arrow.SetActive(false);
         endLine = textLines.Length;
         allowed = true;
     }
 
     public void closeTransformPlane()
     {
-        player.canMove = true;
+        player.v1_arrow.SetActive(true);
+        player.v2_arrow.SetActive(true);
         textBox.SetActive(false);
         matrixButton.SetActive(false);
         currentLine = 0;
