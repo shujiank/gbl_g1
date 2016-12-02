@@ -2499,6 +2499,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 342206194}
+--- !u!1001 &344371145
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000013832969848, guid: 76747d1837cf5074084afad130dad776, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.546
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013832969848, guid: 76747d1837cf5074084afad130dad776, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013832969848, guid: 76747d1837cf5074084afad130dad776, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.425
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013832969848, guid: 76747d1837cf5074084afad130dad776, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013832969848, guid: 76747d1837cf5074084afad130dad776, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013832969848, guid: 76747d1837cf5074084afad130dad776, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013832969848, guid: 76747d1837cf5074084afad130dad776, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013832969848, guid: 76747d1837cf5074084afad130dad776, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 76747d1837cf5074084afad130dad776, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &352142117
 GameObject:
   m_ObjectHideFlags: 0
@@ -2832,9 +2874,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000012646246004, guid: b3e739e38f20db041aebe0356763616e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000013540924388, guid: b3e739e38f20db041aebe0356763616e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b3e739e38f20db041aebe0356763616e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &400093688 stripped
@@ -3039,6 +3082,11 @@ Transform:
   - {fileID: 1457979736}
   m_Father: {fileID: 1542050162}
   m_RootOrder: 6
+--- !u!1 &475092768 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012392615544, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &476809238
 GameObject:
   m_ObjectHideFlags: 0
@@ -4123,6 +4171,11 @@ Transform:
   - {fileID: 980640693}
   m_Father: {fileID: 1542050162}
   m_RootOrder: 3
+--- !u!1 &561444119 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013462188756, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &563873867
 GameObject:
   m_ObjectHideFlags: 0
@@ -7694,6 +7747,11 @@ Transform:
   - {fileID: 134940206}
   m_Father: {fileID: 1653209129}
   m_RootOrder: 0
+--- !u!1 &1014631989 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010235769370, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &1021499632
 GameObject:
   m_ObjectHideFlags: 0
@@ -8890,22 +8948,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1157808002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d086206608c5d9d44b51a77e4fde8a8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 796f1b16b3d27a04cbe7f25dddd0849e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   console:
-    gameOverScreen: {fileID: 0}
-    journal: {fileID: 0}
-    PDA: {fileID: 0}
-    journalButton: {fileID: 0}
-    pdaButton: {fileID: 0}
-    dialogueBox: {fileID: 0}
-    missionSuccessfulScreen: {fileID: 0}
-    undoButton: {fileID: 0}
-    inputDevice: {fileID: 0}
+    gameOverScreen: {fileID: 561444119}
+    journal: {fileID: 400093689}
+    PDA: {fileID: 400093690}
+    journalButton: {fileID: 1014631989}
+    pdaButton: {fileID: 1791409779}
+    dialogueBox: {fileID: 400093688}
+    missionSuccessfulScreen: {fileID: 475092768}
   player: {fileID: 646563788}
   statsText: {fileID: 1162600536}
-  destinationPrefab: {fileID: 1000014189300058, guid: 41a834e19e581bc4281421abeaf510ac,
+  destinationPrefab: {fileID: 1000010379317070, guid: 76747d1837cf5074084afad130dad776,
     type: 2}
 --- !u!1 &1160278246
 GameObject:
@@ -12975,6 +13031,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04d86cede35d663459b6cf962d57353f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1791409779 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013718572798, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &1800234866
 GameObject:
   m_ObjectHideFlags: 0
