@@ -34,7 +34,7 @@ public class TextBoxManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        for (int i = 1; i < 6; i++)
+        for (int i = 1; i < NPCs.Length; i++)
         {
             NPCs[i].SetActive(false);
         }
@@ -129,6 +129,7 @@ public class TextBoxManager : MonoBehaviour
 
     public void showBox()
     {
+        player = FindObjectOfType<PlayerMovementLevel2>();
         textBox.SetActive(true);
         textLines = FrameworkCore.currentContent.getContent();
         avatarSprites = FrameworkCore.currentContent.getPortrait();
