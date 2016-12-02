@@ -12,7 +12,7 @@
 
     public static string[] OBJECTIVE =
     {
-        "Objective", "Command you spacecraft and efficiently utilize the remaining fuel to reach the destination planet."
+        "Objective", "Command your spacecraft and efficiently utilize the remaining fuel to reach the destination planet. You can maximize your score by reaching destination making minimal moves, taking minimal time and using minimal intel(hints)."
     };
 
     public static string[] PDA =
@@ -32,22 +32,17 @@
 
     public static string[] MOVEMENT =
     {
-        "Movement", "Maneuvering your spacecraft requires you to input a scalar multiple for the vector in the input box at the tip of the arrow representing the vector and then clicking the 'Go!' button."
+        "Movement", "To move your spacecraft, enter a postive number for scalar multiplication. Then click on the button representing the vector you intend to move in the direction of."
     };
 
     public static string[] FUEL =
     {
-        "Fuel", "Each move consumes a specific fraction of the fuel. You have to reach the destination in the most efficient way possible. Backtracing using negative scalar multiples will recover the fuel as well."
+        "Fuel", "Each move consumes a specific fraction of the fuel. You will lose the round if you fail to reach the destination by the time fuel runs out. Undo moves do not cost fuel."
     };
 
     public static string[] BACKTRACKING =
     {
-        "Backtracking", "You can multiply the vector with negative scalars to negate a previous move. Since you have to reach a destination in the first quadrant using vectors with postive values of x and y components, you do not require to use negative scalar multiples to reach the destination."
-    };
-
-    public static string[] BACKTRACKING_2 =
-    {
-        "Backtracking#2", "Negative scalar multiple is a provision for you to go back to a previous location in case the you feel that you made an incorrect move."
+        "Backtracking", "You can trace back your path using the undo button. Undo moves do not cost fuel but since it indicates that the pilot is struggling, intel will reveal a hint after every 2 Undo moves"
     };
 
     public static string[] HINTS =

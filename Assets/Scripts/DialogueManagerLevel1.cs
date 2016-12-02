@@ -25,7 +25,6 @@ public class DialogueManagerLevel1 : MonoBehaviour {
             Level1Dialogue.MOVEMENT[1],
             Level1Dialogue.FUEL[1],
             Level1Dialogue.BACKTRACKING[1],
-            Level1Dialogue.BACKTRACKING_2[1],
             Level1Dialogue.HINTS[1],
     };
         StartCoroutine(AnimateText());
@@ -82,6 +81,7 @@ public class DialogueManagerLevel1 : MonoBehaviour {
         {
             currentlyDisplayingText = 0;
             gameObject.SetActive(false);
+            gameController.console.inputDevice.SetActive(true);
             return;
         }
 
@@ -101,7 +101,7 @@ public class DialogueManagerLevel1 : MonoBehaviour {
         for (int i = 0; i < (dialogues[currentlyDisplayingText].Length + 1); i++)
         {
             textBox.text = dialogues[currentlyDisplayingText].Substring(0, i);
-            yield return new WaitForSeconds(.03f);
+            yield return new WaitForSeconds(.02f);
         }
     }
 }

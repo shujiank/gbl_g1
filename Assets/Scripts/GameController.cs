@@ -91,11 +91,11 @@ public class GameController : MonoBehaviour {
         Dictionary<string, float> finalStats = playerController.getFinalStats();
         float totalMoves = finalStats["number of moves"];
         float totalTime = finalStats["time taken"];
-        float totalHints = finalStats["number of hints used"];
+        float totalUndos = finalStats["number of undos used"];
         float optimalMoveCount = finalStats["optimal move count"];
-        float finalScore = (5000 * (2 / totalMoves)) - (((totalTime - 2) / 2) * 100) - (totalHints * 100);
-        statsText.text = "final score : " + finalScore.ToString() + "\nnumber of moves : " + totalMoves.ToString() + "\nnumber of hints used : " +
-            totalHints.ToString() + "\ntime taken : " + totalTime.ToString();
+        float finalScore = (5000 * (2 / totalMoves)) - (((totalTime - 1) / 2) * 100) - (totalUndos * 800);
+        statsText.text = "final score : " + finalScore.ToString() + " / 5100\nnumber of moves : " + totalMoves.ToString() + "\nnumber of undos used : " +
+            totalUndos.ToString() + "\ntime taken : " + totalTime.ToString() + " min";
         console.missionSuccessfulScreen.SetActive(true);
     }
 

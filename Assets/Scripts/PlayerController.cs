@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 newPosition;
     System.Diagnostics.Stopwatch watch;
     private int moveCount;
-    private int hintsUsed;
     bool moving;
     bool rotating;
     private Rigidbody rb;
@@ -161,25 +160,21 @@ public class PlayerController : MonoBehaviour
         {
             journalManager.unlockHint(1);
             dialogueManagerLevel1.HintDisplay(1);
-            hintsUsed = 1;      
         }
         else if (backtrack_counter == hintLevels.hint_2_level)
         {
             journalManager.unlockHint(2);
             dialogueManagerLevel1.HintDisplay(2);
-            hintsUsed = 2;
         }
         else if (backtrack_counter == hintLevels.hint_3_level)
         {
             journalManager.unlockHint(3);
             dialogueManagerLevel1.HintDisplay(3);
-            hintsUsed = 3;
         }
         else if (backtrack_counter == hintLevels.hint_4_level)
         {
             journalManager.unlockHint(4);
             dialogueManagerLevel1.HintDisplay(4);
-            hintsUsed = 4;
         }
     }
 
@@ -189,7 +184,7 @@ public class PlayerController : MonoBehaviour
         watch.Stop();
         finalStats["time taken"] = (watch.ElapsedMilliseconds / 60000); 
         finalStats["number of moves"] = (float) moveCount;
-        finalStats["number of hints used"] = (float) hintsUsed;
+        finalStats["number of undos used"] = (float) backtrack_counter;
         finalStats["optimal move count"] = (float) (v1_solution + v2_solution);
         return finalStats;
     }
@@ -197,7 +192,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         watch = System.Diagnostics.Stopwatch.StartNew();
-        hintsUsed = 0;
         moveCount = 0;
         v1_multiplier = 0;
         v2_multiplier = 0;

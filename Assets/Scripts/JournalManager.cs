@@ -30,7 +30,6 @@ public class JournalManager : MonoBehaviour{
         addEntry(Level1Dialogue.MOVEMENT);
         addEntry(Level1Dialogue.FUEL);
         addEntry(Level1Dialogue.BACKTRACKING);
-        addEntry(Level1Dialogue.BACKTRACKING_2);
         addEntry(Level1Dialogue.HINTS);
     }
 
