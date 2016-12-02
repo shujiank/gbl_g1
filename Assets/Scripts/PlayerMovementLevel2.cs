@@ -26,6 +26,7 @@ public class PlayerMovementLevel2 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         playerAudio = GetComponent<AudioSource>();
+        GameInfo.gameState = 0;
         currentNum = GameInfo.gameState;
         currentModel = Instantiate(modelArray[currentNum], transform.position, transform.rotation) as GameObject;
         currentModel.transform.parent = transform;
