@@ -304,6 +304,5 @@ public class drawExample : MonoBehaviour
         GL.PopMatrix();
 
         GL.ClearWithSkybox(false, cam);
-
     }
 }
