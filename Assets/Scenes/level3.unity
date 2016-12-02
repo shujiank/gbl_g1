@@ -3524,6 +3524,8 @@ GameObject:
   - 124: {fileID: 520566630}
   - 81: {fileID: 520566629}
   - 114: {fileID: 520566628}
+  - 114: {fileID: 520566635}
+  - 114: {fileID: 520566634}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3621,6 +3623,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &520566634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 520566627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58a41d2cccbef14fbba41225e469907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sampleRate: 2
+  isFrontFacing: 1
+  targetWidth: 640
+  targetHeight: 480
+--- !u!114 &520566635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 520566627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9db04d0f9cdf0c45bab39f4268dc6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startOnWake: 1
+  discrete: 0
+  emotions: 416
+  expressions: 16384
 --- !u!1 &521721690
 GameObject:
   m_ObjectHideFlags: 0
@@ -4654,17 +4686,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 646563788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3daf20555a2a4a419a0f398fd56e089, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a0548c9c56e2a941bb817da7afd1120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundary:
-    xMin: 0
-    xMax: 0
-    zMin: 0
-    zMax: 0
-  speed: 0
-  modelArray: []
-  canMove: 1
 --- !u!1 &651876088 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000012262733722, guid: b3e739e38f20db041aebe0356763616e,
