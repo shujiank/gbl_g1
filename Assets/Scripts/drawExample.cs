@@ -5,6 +5,7 @@ public class drawExample : MonoBehaviour
 {
     // When added to an object, draws colored rays from the
     // transform position.
+    public Camera cam;
     public int lineCount = 100;
     public float radius = 3.0f;
     public float translate_x, translate_y, translate_z;
@@ -302,5 +303,6 @@ public class drawExample : MonoBehaviour
 
         GL.PopMatrix();
 
+        GL.ClearWithSkybox(false, cam);
     }
 }
