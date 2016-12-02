@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.031740606, g: 0.024723992, b: 0.011185433, a: 1}
+  m_IndirectSpecularColor: {r: 0.03155278, g: 0.024648666, b: 0.011011261, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4608,8 +4608,7 @@ GameObject:
   - 95: {fileID: 646563792}
   - 54: {fileID: 646563791}
   - 65: {fileID: 646563793}
-  - 114: {fileID: 646563790}
-  - 114: {fileID: 646563794}
+  - 114: {fileID: 646563795}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4634,48 +4633,6 @@ Transform:
   - {fileID: 1475637639}
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!114 &646563790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 646563788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d811bf2231d8c42a184e7888120abb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boundary:
-    xMin: 0.4
-    xMax: 9.5
-    zMin: 0.4
-    zMax: 9.5
-  hintLevels:
-    hint_1_level: 0
-    hint_2_level: 0
-    hint_3_level: 0
-    hint_4_level: 0
-  vector_1: {x: 0, y: 0, z: 1}
-  vector_2: {x: 1, y: 0, z: 0}
-  final_destination: {x: 0, y: 0, z: 1}
-  turn: 3
-  height: 0
-  speed: 1
-  pda: {fileID: 400093690}
-  v1_arrow_prefab: {fileID: 1000011581472892, guid: b218b94f7ebdd0b4da1ee5de7feeb290,
-    type: 2}
-  v2_arrow_prefab: {fileID: 1000012287729086, guid: 1b204d0659e0c8345b1e2c889f40b659,
-    type: 2}
-  gameWorld: {fileID: 1157808002}
-  journal: {fileID: 400093689}
-  DialogueWindow: {fileID: 400093688}
-  undoButton: {fileID: 1343498043}
-  v1_solution: 2
-  v2_solution: 2
-  scalar_multiple_textbox: {fileID: 0}
-  v1_arrow: {fileID: 1812182430}
-  v2_arrow: {fileID: 651876088}
-  canMove: 0
 --- !u!54 &646563791
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4722,7 +4679,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &646563794
+--- !u!114 &646563795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -4730,23 +4687,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 646563788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3daf20555a2a4a419a0f398fd56e089, type: 3}
+  m_Script: {fileID: 11500000, guid: f0f8e4893fc3b7b4888539f6f71f94e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boundary:
-    xMin: 0
-    xMax: 0
-    zMin: 0
-    zMax: 0
-  speed: 0
-  playerTransform: {fileID: 0}
-  modelArray: []
-  canMove: 1
---- !u!1 &651876088 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000012262733722, guid: b3e739e38f20db041aebe0356763616e,
+    xMin: 0.4
+    xMax: 9.5
+    zMin: 0.4
+    zMax: 9.5
+  hintLevels:
+    hint_1_level: 0
+    hint_2_level: 0
+    hint_3_level: 0
+    hint_4_level: 0
+  vector_1: {x: 0, y: 0, z: 1}
+  vector_2: {x: 1, y: 0, z: 0}
+  final_destination: {x: 0, y: 0, z: 1}
+  turn: 3
+  height: 0
+  speed: 1
+  pda: {fileID: 400093690}
+  v1_arrow_prefab: {fileID: 1000011581472892, guid: b218b94f7ebdd0b4da1ee5de7feeb290,
     type: 2}
-  m_PrefabInternal: {fileID: 400093687}
+  v2_arrow_prefab: {fileID: 1000012287729086, guid: 1b204d0659e0c8345b1e2c889f40b659,
+    type: 2}
+  gameWorld: {fileID: 1157808002}
+  journal: {fileID: 400093689}
+  DialogueWindow: {fileID: 400093688}
+  undoButton: {fileID: 1343498043}
+  v1_solution: 2
+  v2_solution: 2
+  v1_arrow: {fileID: 0}
+  v2_arrow: {fileID: 0}
+  canMove: 0
 --- !u!1 &653818896
 GameObject:
   m_ObjectHideFlags: 0
@@ -13128,11 +13101,6 @@ Transform:
   - {fileID: 1111463172}
   m_Father: {fileID: 712739217}
   m_RootOrder: 0
---- !u!1 &1812182430 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000010265849402, guid: b3e739e38f20db041aebe0356763616e,
-    type: 2}
-  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &1813197609
 GameObject:
   m_ObjectHideFlags: 0
