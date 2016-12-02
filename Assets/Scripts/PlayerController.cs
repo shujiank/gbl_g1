@@ -88,39 +88,45 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerMovementV1()
     {
-        float scalar_multiple = float.Parse(scalar_multiple_textbox.text);
-        newPosition = transform.position + (scalar_multiple * vector_1);
-        if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
+        if (!moving && !rotating)
         {
-            moveCount += 1;
-            destination = newPosition;
-            movementList.Add(transform.position);
-            rotating = true;
-            v1_multiplier += scalar_multiple;
-            movementDict.Add(transform.position, new UndoData("V1", scalar_multiple));
-        }
-        else
-        {
-            dialogueManagerLevel1.BoundaryWarning();
+            float scalar_multiple = float.Parse(scalar_multiple_textbox.text);
+            newPosition = transform.position + (scalar_multiple * vector_1);
+            if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
+            {
+                moveCount += 1;
+                destination = newPosition;
+                movementList.Add(transform.position);
+                rotating = true;
+                v1_multiplier += scalar_multiple;
+                movementDict.Add(transform.position, new UndoData("V1", scalar_multiple));
+            }
+            else
+            {
+                dialogueManagerLevel1.BoundaryWarning();
+            }
         }
     }
 
     public void PlayerMovementV2()
     {
-        float scalar_multiple = float.Parse(scalar_multiple_textbox.text);
-        newPosition = transform.position + (scalar_multiple * vector_2);
-        if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
+        if (!moving && !rotating)
         {
-            moveCount += 1;
-            destination = newPosition;
-            movementList.Add(transform.position);
-            rotating = true;
-            v2_multiplier += scalar_multiple;
-            movementDict.Add(transform.position, new UndoData("V2", scalar_multiple));
-        }
-        else
-        {
-            dialogueManagerLevel1.BoundaryWarning();
+            float scalar_multiple = float.Parse(scalar_multiple_textbox.text);
+            newPosition = transform.position + (scalar_multiple * vector_2);
+            if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
+            {
+                moveCount += 1;
+                destination = newPosition;
+                movementList.Add(transform.position);
+                rotating = true;
+                v2_multiplier += scalar_multiple;
+                movementDict.Add(transform.position, new UndoData("V2", scalar_multiple));
+            }
+            else
+            {
+                dialogueManagerLevel1.BoundaryWarning();
+            }
         }
     }
 
