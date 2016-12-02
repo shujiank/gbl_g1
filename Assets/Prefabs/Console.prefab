@@ -1148,7 +1148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000013273720426
 GameObject:
   m_ObjectHideFlags: 1
@@ -3838,6 +3838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 114000012701727144}
   dialogues: []
+  gameWorld: {fileID: 0}
 --- !u!114 &114000013586080600
 MonoBehaviour:
   m_ObjectHideFlags: 1
