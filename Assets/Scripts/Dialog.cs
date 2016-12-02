@@ -4,10 +4,12 @@ using System.Collections;
 public class Dialog : MonoBehaviour {
     private TextBoxManager sword;
     private Content curContent;
+    //public GameObject successWindow;
     void Start() {
         sword = FindObjectOfType<TextBoxManager>();
     }
     void OnTriggerEnter(Collider other) {
+        //successWindow.SetActive(true);
         Debug.Log(other.gameObject.name);
         Debug.Log("collision happened");
         if (this.gameObject.name == "NPC1") {
