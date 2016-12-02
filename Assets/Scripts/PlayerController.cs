@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     public GameObject undoButton;
     public float v1_solution;
     public float v2_solution;
+    public Text scalar_multiple_textbox;
 
     private Vector3 destination;
     private Vector3 newPosition;
@@ -87,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerMovementV1()
     {
-        float scalar_multiple = float.Parse(v1_arrow.GetComponentInChildren<InputField>().text);
+        float scalar_multiple = float.Parse(scalar_multiple_textbox.text);
         newPosition = transform.position + (scalar_multiple * vector_1);
         if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
         {
@@ -102,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerMovementV2()
     {
-        float scalar_multiple = float.Parse(v2_arrow.GetComponentInChildren<InputField>().text);
+        float scalar_multiple = float.Parse(scalar_multiple_textbox.text);
         newPosition = transform.position + (scalar_multiple * vector_2);
         if (newPosition.x <= boundary.xMax && newPosition.x >= boundary.xMin && newPosition.z <= boundary.zMax && newPosition.z >= boundary.zMin)
         {
@@ -137,12 +138,9 @@ public class PlayerController : MonoBehaviour
         v1_arrow = Instantiate(v1_arrow_prefab, 
             transform.position, 
             Quaternion.LookRotation(vector_1) * Quaternion.Euler(0, -90, 0)) as GameObject;
-        v1_arrow.GetComponentInChildren<Button>().onClick.AddListener(() => PlayerMovementV1());
-        Debug.Log("DSAD " + v1_arrow.GetComponentInChildren<Text>().text);
         v2_arrow = Instantiate(v2_arrow_prefab,
             transform.position ,
             Quaternion.LookRotation(vector_2) * Quaternion.Euler(0, -90, 0)) as GameObject;
-        v2_arrow.GetComponentInChildren<Button>().onClick.AddListener(() => PlayerMovementV2());
     }
 
     void updateVectorArrows()

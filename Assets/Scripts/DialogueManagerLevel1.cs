@@ -7,10 +7,14 @@ public class DialogueManagerLevel1 : MonoBehaviour {
     public Text textBox;
     public string[] dialogues;
     int currentlyDisplayingText = 0;
+    public GameObject gameWorld;
+
+    private GameController gameController;
     
 
     public void Start()
     {
+        gameController = gameWorld.GetComponent<GameController>();
         dialogues = new string[]
         {
             Level1Dialogue.GREETINGS[1],
@@ -82,6 +86,14 @@ public class DialogueManagerLevel1 : MonoBehaviour {
         }
 
         StartCoroutine(AnimateText());
+    }
+
+    public void SkipToEnd()
+    {
+        StopAllCoroutines();
+        currentlyDisplayingText = 0;
+        gameObject.SetActive(false);
+        gameController.console.inputDevice.SetActive(true);
     }
 
     IEnumerator AnimateText()

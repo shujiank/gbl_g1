@@ -14,6 +14,8 @@ public class Console
     public GameObject pdaButton;
     public GameObject dialogueBox;
     public GameObject missionSuccessfulScreen;
+    public GameObject undoButton;
+    public GameObject inputDevice;
 }
 
 
@@ -28,6 +30,7 @@ public class GameController : MonoBehaviour {
     void Start() {
         console.missionSuccessfulScreen.SetActive(false);
         console.gameOverScreen.SetActive(false);
+        console.inputDevice.SetActive(false);
         playerController = player.GetComponent<PlayerController>();
         Vector3 spawnLocation = new Vector3(playerController.final_destination.x + 0.5f, 0.4f, playerController.final_destination.z + 0.5f);
         Instantiate(destinationPrefab, spawnLocation, Quaternion.identity);
@@ -90,7 +93,7 @@ public class GameController : MonoBehaviour {
         float totalTime = finalStats["time taken"];
         float totalHints = finalStats["number of hints used"];
         float optimalMoveCount = finalStats["optimal move count"];
-        float finalScore = 5000 * (optimalMoveCount / totalMoves) - (((totalTime - 2) / 2) * 100) - (totalHints * 100);
+        float finalScore = (5000 * (2 / totalMoves)) - (((totalTime - 2) / 2) * 100) - (totalHints * 100);
         statsText.text = "final score : " + finalScore.ToString() + "\nnumber of moves : " + totalMoves.ToString() + "\nnumber of hints used : " +
             totalHints.ToString() + "\ntime taken : " + totalTime.ToString();
         console.missionSuccessfulScreen.SetActive(true);
@@ -113,5 +116,7 @@ public class GameController : MonoBehaviour {
         console.PDA.SetActive(false);
         console.journalButton.SetActive(false);
         console.pdaButton.SetActive(false);
+        console.undoButton.SetActive(false);
+        console.inputDevice.SetActive(false);
     }
 }
