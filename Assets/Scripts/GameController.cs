@@ -49,12 +49,14 @@ public class GameController : MonoBehaviour {
             if (console.journal.activeSelf)
             {
                 console.journal.SetActive(false);
+                console.inputDevice.SetActive(true);
                 buttonLabel.text = "open journal";
             }
             else
             {
                 console.PDA.SetActive(false);
                 console.journal.SetActive(true);
+                console.inputDevice.SetActive(false);
                 buttonLabel.text = "close journal";
             }
         }
@@ -68,12 +70,14 @@ public class GameController : MonoBehaviour {
             if (console.PDA.activeSelf)
             {
                 console.PDA.SetActive(false);
+                console.inputDevice.SetActive(true);
                 buttonLabel.text = "open pda";
             }
             else
             {
                 console.journal.SetActive(false);
                 console.PDA.SetActive(true);
+                console.inputDevice.SetActive(false);
                 buttonLabel.text = "close pda";
             }
         }
@@ -93,8 +97,8 @@ public class GameController : MonoBehaviour {
         float totalTime = finalStats["time taken"];
         float totalUndos = finalStats["number of undos used"];
         float optimalMoveCount = finalStats["optimal move count"];
-        float finalScore = (5000 * (2 / totalMoves)) - (((totalTime - 1) / 2) * 100) - (totalUndos * 800);
-        statsText.text = "final score : " + finalScore.ToString() + " / 5100\nnumber of moves : " + totalMoves.ToString() + "\nnumber of undos used : " +
+        float finalScore = (5000 * (2 / totalMoves)) - (totalTime * 100) - (totalUndos * 800);
+        statsText.text = "final score : " + finalScore.ToString() + " / 5000\nnumber of moves : " + totalMoves.ToString() + "\nnumber of undos used : " +
             totalUndos.ToString() + "\ntime taken : " + totalTime.ToString() + " min";
         console.missionSuccessfulScreen.SetActive(true);
     }
