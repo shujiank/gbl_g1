@@ -65,8 +65,8 @@ public class PlayerController : MonoBehaviour
     private float v2_multiplier;
     private Quaternion fixedRotation;
     private PDAManager pdaManager;
-    private GameObject v1_arrow;
-    private GameObject v2_arrow;
+    public GameObject v1_arrow;
+    public GameObject v2_arrow;
     private GameController gameController;
     private float fuel_remaining;
     private JournalManager journalManager;
@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
     private Dictionary<Vector3, UndoData> movementDict;
     private List<Vector3> movementList;
     private UndoData undo;
+    public bool canMove;
 
     void initializePDA()
     {
@@ -233,6 +234,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             undoButton.SetActive(false);
+        }
+        if (!canMove)
+        {
+            rb.velocity = Vector3.zero;
+            return;
         }
     }
 
