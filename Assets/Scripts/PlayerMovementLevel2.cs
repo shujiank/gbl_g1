@@ -12,17 +12,20 @@ public class PlayerMovementLevel2 : MonoBehaviour
     public float speed;
     int currentNum;
     private Rigidbody rb;
+    public AudioClip playerTransform;
 
     private Vector3 newPosition;
     private Vector3 movement;
     public GameObject[] modelArray;
     GameObject currentModel;
+    AudioSource playerAudio;
 
     public bool canMove;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerAudio = GetComponent<AudioSource>();
         currentNum = GameInfo.gameState;
         currentModel = Instantiate(modelArray[currentNum], transform.position, transform.rotation) as GameObject;
         currentModel.transform.parent = transform;
@@ -50,6 +53,7 @@ public class PlayerMovementLevel2 : MonoBehaviour
             thisModel.transform.parent = transform;
             currentModel = thisModel;
             currentNum = GameInfo.gameState;
+            playerAudio.PlayOneShot(playerTransform);
         }
         
         movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));

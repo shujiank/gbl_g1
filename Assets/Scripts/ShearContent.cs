@@ -15,7 +15,7 @@ public class ShearContent : Content
         "Lord of light: That would be [(1,0),(k,1)]. Where k can be >0 or <0.",
         "Sith Lord: Well someone is reading books. ",
         "Archbishop Neo: Vectoria, is it possible to have [(1,-1),(0,1)] transformation matrix? Or more specifically [(1,k),(0,1)]",
-        "Archbishop Neo: Now, think what will happen if I apply [(1,k),(0,1)] transforamtion on to the unit square matrix? And what will happen when k=1." };
+        "Archbishop Neo: Now, think what will happen if I apply [(1,k),(0,1)] transformation on to the unit square matrix? And what will happen when k=1." };
     private static Sprite t1 = Resources.Load<Sprite>("Art/SithAvatar") as Sprite;
     private static Sprite t2 = Resources.Load<Sprite>("Art/KhalAvatar") as Sprite;
     private static Sprite t3 = Resources.Load<Sprite>("Art/wiertreeAvatar") as Sprite;
