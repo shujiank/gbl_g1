@@ -109,6 +109,11 @@ public class GameController : MonoBehaviour {
         Application.LoadLevel("level1");
     }
 
+    public void nextLevel()
+    {
+        Application.LoadLevel("level2");
+    }
+
 
     void disableConsoleElements()
     {
