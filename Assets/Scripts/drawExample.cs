@@ -225,8 +225,29 @@ public class drawExample : MonoBehaviour
 
          for (int i = 0; i < 4; i++)
         {
-            v[i] = (glob_mat * temp_mat).MultiplyPoint(v[i]);
-            answer_v[i] = answer_mat.MultiplyPoint(answer_v[i]);
+            Matrix4x4 final = glob_mat * temp_mat;
+            Matrix4x4 answer_temp = answer_mat;
+            // special handle for projection
+            if (final[0, 0] == 0 && final[0, 1] == 0 && final[1, 0] == 0 && final[1, 1] != 0)
+            {
+                final[0, 0] = 0.05f;
+            }
+            if (final[0, 0] != 0 && final[0, 1] == 0 && final[1, 0] == 0 && final[1, 1] == 0)
+            {
+                final[1, 1] = 0.05f;
+            }
+            if (answer_temp[0, 0] == 0 && answer_temp[0, 1] == 0 && answer_temp[1, 0] == 0 && answer_temp[1, 1] != 0)
+            {
+                answer_temp[0, 0] = 0.05f;
+            }
+            if (answer_temp[0, 0] != 0 && answer_temp[0, 1] == 0 && answer_temp[1, 0] == 0 && answer_temp[1, 1] == 0)
+            {
+                answer_temp[1, 1] = 0.05f;
+            }
+
+            v[i] = final.MultiplyPoint(v[i]);
+            answer_v[i] = answer_temp.MultiplyPoint(answer_v[i]);
+
             //Debug.Log(v[i]);
             if (level != -1)
             {

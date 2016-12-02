@@ -10,7 +10,7 @@ public class StretchOnLineContent : Content{
     "Sith Lord: Can someone tell me stretch matrix for this problem.I will give you a hint.Consider A as the transformation matrix[a b\n c d] this matrix when multiplied with any point should yield the new stretch point.",
     "White weirwood trees: This means when I apply A[2,2] =[2 ,2] and A[-1,3] =[-3,6].By solving I found out A =[(5/4,-1/4), (-3/4, 7/4)]",
     "Sith Lord: Superb !!!",
-    "Archbishop Neo: Now, Vectoria, your next obstacle entails solving a similar problem.What will happen to unit at origin when point at y = x remain fixed and point at y = -x are stretch by the factor of 2.What would be the transformation matrix ?? {solution A =[3 / 2 - 1 / 2 \n - 1 / 3 3 / 2]}"
+    "Archbishop Neo: Now, Vectoria, your next obstacle entails solving a similar problem.What will happen to unit at origin when point at y = x remain fixed and point at y = -x are stretch by the factor of 2.What would be the transformation matrix?"
 };
     private static Sprite t1 = Resources.Load<Sprite>("Art/SithAvatar") as Sprite;
     private static Sprite t2 = Resources.Load<Sprite>("Art/KhalAvatar") as Sprite;
@@ -27,10 +27,10 @@ public class StretchOnLineContent : Content{
     {
         name = "";
         description = "";
-        Answer[0, 0] = 0;
-        Answer[0, 1] = 0;
-        Answer[1, 0] = 0;
-        Answer[1, 1] = 1;
+        Answer[0, 0] = 1.5f;
+        Answer[0, 1] = -0.5f;
+        Answer[1, 0] = -0.3f;
+        Answer[1, 1] = 1.5f;
 
     }
 

@@ -10,7 +10,7 @@ public class Streth_ShearContent : Content {
     "White weirwood trees: I also thinks that if we change the order of these transformation matrix the result will remain the same. ",
     "Khal Drogo: I think this transformation make the matrix look like this.",
     "Sith Lord: Impressive works!",
-    "Archbishop Neo: So Vectoria, What transformation has to be applied on the unit matrix to make it twice as large in both positive y and x axis and have a shear of 2 unit in x direction a unit ?{open the puzzle} {solution: [2 2\n 0 2]}"
+    "Archbishop Neo: So Vectoria, What transformation has to be applied on the unit matrix to make it twice as large in both positive y and x axis and have a shear of 2 unit in x direction a unit?"
 };
     private static Sprite t1 = Resources.Load<Sprite>("Art/SithAvatar") as Sprite;
     private static Sprite t2 = Resources.Load<Sprite>("Art/KhalAvatar") as Sprite;
@@ -27,10 +27,10 @@ public class Streth_ShearContent : Content {
     {
         name = "";
         description = "";
-        Answer[0, 0] = 0;
-        Answer[0, 1] = 0;
+        Answer[0, 0] = 2;
+        Answer[0, 1] = 2;
         Answer[1, 0] = 0;
-        Answer[1, 1] = 1;
+        Answer[1, 1] = 2;
 
     }
 
