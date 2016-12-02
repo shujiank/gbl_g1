@@ -628,6 +628,11 @@ Transform:
   - {fileID: 1777205877}
   m_Father: {fileID: 316115183}
   m_RootOrder: 0
+--- !u!1 &78151840 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013462188756, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &79988830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,6 +3075,11 @@ Transform:
   - {fileID: 1515798035}
   m_Father: {fileID: 1340249281}
   m_RootOrder: 4
+--- !u!1 &477455544 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013718572798, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &482020366
 GameObject:
   m_ObjectHideFlags: 0
@@ -4596,8 +4606,9 @@ MonoBehaviour:
   undoButton: {fileID: 1343498043}
   v1_solution: 2
   v2_solution: 2
-  v1_arrow: {fileID: 0}
-  v2_arrow: {fileID: 0}
+  v1_arrow: {fileID: 1812182430}
+  v2_arrow: {fileID: 651876088}
+  canMove: 0
 --- !u!54 &646563791
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4644,6 +4655,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &651876088 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012262733722, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &653818896
 GameObject:
   m_ObjectHideFlags: 0
@@ -5620,6 +5636,12 @@ Transform:
   - {fileID: 1627031101}
   m_Father: {fileID: 2003693362}
   m_RootOrder: 0
+--- !u!114 &735971725 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000010757568152, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &743692689
 GameObject:
   m_ObjectHideFlags: 0
@@ -6374,6 +6396,11 @@ Transform:
   - {fileID: 1149747071}
   m_Father: {fileID: 1212422073}
   m_RootOrder: 0
+--- !u!1 &841944587 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010235769370, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &845491543
 GameObject:
   m_ObjectHideFlags: 0
@@ -8780,6 +8807,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1157808003}
+  - 114: {fileID: 1157808004}
   m_Layer: 0
   m_Name: Gameworld
   m_TagString: Untagged
@@ -8804,6 +8832,29 @@ Transform:
   - {fileID: 1744241164}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &1157808004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1157808002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d086206608c5d9d44b51a77e4fde8a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  console:
+    gameOverScreen: {fileID: 78151840}
+    journal: {fileID: 400093689}
+    PDA: {fileID: 400093690}
+    journalButton: {fileID: 841944587}
+    pdaButton: {fileID: 477455544}
+    dialogueBox: {fileID: 400093688}
+    missionSuccessfulScreen: {fileID: 1735547354}
+  player: {fileID: 646563788}
+  statsText: {fileID: 735971725}
+  destinationPrefab: {fileID: 1000014189300058, guid: 41a834e19e581bc4281421abeaf510ac,
+    type: 2}
 --- !u!1 &1160278246
 GameObject:
   m_ObjectHideFlags: 0
@@ -12636,6 +12687,11 @@ Transform:
   - {fileID: 1340249281}
   m_Father: {fileID: 148937830}
   m_RootOrder: 0
+--- !u!1 &1735547354 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012392615544, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &1742291720
 GameObject:
   m_ObjectHideFlags: 0
@@ -12992,6 +13048,11 @@ Transform:
   - {fileID: 1111463172}
   m_Father: {fileID: 712739217}
   m_RootOrder: 0
+--- !u!1 &1812182430 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010265849402, guid: b3e739e38f20db041aebe0356763616e,
+    type: 2}
+  m_PrefabInternal: {fileID: 400093687}
 --- !u!1 &1813197609
 GameObject:
   m_ObjectHideFlags: 0
