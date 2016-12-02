@@ -3193,7 +3193,7 @@ GameObject:
   - 65: {fileID: 486004804}
   - 114: {fileID: 486004805}
   m_Layer: 0
-  m_Name: NPC2
+  m_Name: NPC32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5092,8 +5092,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.22347051, y: 0.34062505}
   m_AnchorMax: {x: 0.7588824, y: 0.896875}
-  m_AnchoredPosition: {x: -303, y: -1.4782}
-  m_SizeDelta: {x: -116, y: 2.175}
+  m_AnchoredPosition: {x: 11, y: -30.647}
+  m_SizeDelta: {x: -61, y: -40.508}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &666569936
 MonoBehaviour:
@@ -6745,7 +6745,7 @@ GameObject:
   - 65: {fileID: 871530959}
   - 114: {fileID: 871530960}
   m_Layer: 0
-  m_Name: NPC1
+  m_Name: NPC31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9043,7 +9043,7 @@ GameObject:
   - 65: {fileID: 1183805225}
   - 114: {fileID: 1183805224}
   m_Layer: 0
-  m_Name: NPC3
+  m_Name: NPC33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -40,7 +40,8 @@ public class TextBoxManager : MonoBehaviour
         }
         textBox.SetActive(false);
         imageBox.SetActive(false);
-        player = FindObjectOfType<PlayerMovementLevel2>();
+        if(Application.loadedLevelName == "level2")
+            player = FindObjectOfType<PlayerMovementLevel2>();
         //avatarSprites = FrameworkCore.currentContent.getPortrait();
         /*
         textFiles = (TextAsset)Resources.Load("dialog.txt", typeof(TextAsset));
@@ -129,21 +130,22 @@ public class TextBoxManager : MonoBehaviour
 
     public void showBox()
     {
-        player = FindObjectOfType<PlayerMovementLevel2>();
         textBox.SetActive(true);
         textLines = FrameworkCore.currentContent.getContent();
         avatarSprites = FrameworkCore.currentContent.getPortrait();
         img = FrameworkCore.currentContent.getQuestion();
         theImage.sprite = avatarSprites[currentLine];
         StartCoroutine(TextScroll(textLines[currentLine]));
-        player.canMove = false;
+        if(Application.loadedLevelName == "level2")
+            player.canMove = false;
         endLine = textLines.Length;
         allowed = true;
     }
 
     public void closeTransformPlane()
     {
-        player.canMove = true;
+        if (Application.loadedLevelName == "level2")
+            player.canMove = true;
         textBox.SetActive(false);
         matrixButton.SetActive(false);
         currentLine = 0;
