@@ -31,7 +31,7 @@ public class GameControllerL3 : MonoBehaviour
         console.missionSuccessfulScreen.SetActive(false);
         console.gameOverScreen.SetActive(false);
         playerController = player.GetComponent<PlayerControllerL3>();
-        Vector3 spawnLocation = new Vector3(playerController.final_destination.x + 0.5f, 0.4f, playerController.final_destination.z + 0.5f);
+        Vector3 spawnLocation = new Vector3(playerController.final_destination.x - 0.5f, 0.4f, playerController.final_destination.z - 0.5f);
         Instantiate(destinationPrefab, spawnLocation, Quaternion.identity);
     }
 

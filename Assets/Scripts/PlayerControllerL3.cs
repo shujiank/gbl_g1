@@ -48,7 +48,7 @@ public class PlayerControllerL3 : MonoBehaviour
     public GameObject gameWorld;
     public GameObject journal;
     public GameObject DialogueWindow;
-    public GameObject undoButton;
+    //public GameObject undoButton;
     public float v1_solution;
     public float v2_solution;
 
@@ -131,6 +131,7 @@ public class PlayerControllerL3 : MonoBehaviour
 
     public void UndoLastAction()
     {
+        /*
         destination = movementList[movementList.Count - 1];
         undo = movementDict[destination];
 
@@ -143,7 +144,7 @@ public class PlayerControllerL3 : MonoBehaviour
         if (undo.vectorNumber == "V2") v2_multiplier -= undo.multiplier;
 
         movementList.Remove(destination);
-        movementDict.Remove(destination);
+        movementDict.Remove(destination);*/
     }
 
     void initializeVectorArrows()
@@ -196,7 +197,7 @@ public class PlayerControllerL3 : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         movementList = new List<Vector3>();
         movementDict = new Dictionary<Vector3, UndoDataL3>();
-        if (movementList.Count == 0) undoButton.SetActive(false);
+        //if (movementList.Count == 0) undoButton.SetActive(false);
         destination = transform.position;
         moving = false;
         rotating = false;
@@ -215,6 +216,7 @@ public class PlayerControllerL3 : MonoBehaviour
         {
             rotating = true;
         }
+        /*
         if (movementList.Count > 0)
         {
             undoButton.SetActive(true);
@@ -223,6 +225,7 @@ public class PlayerControllerL3 : MonoBehaviour
         {
             undoButton.SetActive(false);
         }
+        */
         if (!canMove)
         {
             rb.velocity = Vector3.zero;
@@ -266,7 +269,7 @@ public class PlayerControllerL3 : MonoBehaviour
                 fuel_remaining = ((v1_solution + v2_solution) - (v1_multiplier + v2_multiplier)) / (v1_solution + v2_solution) * 100;
                 if (fuel_remaining <= 0)
                 {
-                    gameController.GameOver();
+                    //gameController.GameOver();
                 }
             }
 

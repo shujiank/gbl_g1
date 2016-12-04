@@ -8,6 +8,7 @@ public class TextBoxManager : MonoBehaviour
     // show transformation after dialog ends
     public GameObject matrixButton;
     public GameObject transformationPlane;
+    public int levelParameters;
 
     public GameObject textBox;
     public Text theText;
@@ -129,21 +130,29 @@ public class TextBoxManager : MonoBehaviour
 
     public void showBox()
     {
-        player = FindObjectOfType<PlayerMovementLevel2>();
+        //player = FindObjectOfType<PlayerMovementLevel2>();
         textBox.SetActive(true);
         textLines = FrameworkCore.currentContent.getContent();
         avatarSprites = FrameworkCore.currentContent.getPortrait();
         img = FrameworkCore.currentContent.getQuestion();
         theImage.sprite = avatarSprites[currentLine];
         StartCoroutine(TextScroll(textLines[currentLine]));
-        player.canMove = false;
+        if (levelParameters == 2)
+        {
+            player.canMove = false;
+
+        }
+        //player.canMove = false;
         endLine = textLines.Length;
         allowed = true;
     }
 
     public void closeTransformPlane()
     {
-        player.canMove = true;
+        if (levelParameters == 2)
+        {
+            player.canMove = true;
+        }
         textBox.SetActive(false);
         matrixButton.SetActive(false);
         currentLine = 0;
